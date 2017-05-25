@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.9;}
+	.st1{fill:#005284;}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:#231F20;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+</style>
+<g id="base" class="st0">
+	<path id="Color_Fill_16_copy_14" class="st1" d="M64,0c35.3,0,64,28.6,64,64s-28.7,64-64,64S0,99.4,0,64S28.7,0,64,0z"/>
+</g>
+<path class="st1" d="M61.4,113.8L61.4,113.8c-0.3,0-0.6,0.3-0.6,0.6l0,0c0,0.3,0.3,0.6,0.6,0.6l0,0c0.3,0,0.6-0.3,0.6-0.6l0,0
+	C62,114.1,61.7,113.8,61.4,113.8z"/>
+<circle class="st2" cx="25.6" cy="64" r="17.1"/>
+<circle class="st2" cx="81.1" cy="38.5" r="17.1"/>
+<circle class="st2" cx="81.1" cy="94.5" r="17.1"/>
+<line class="st3" x1="65.2" y1="44.9" x2="37.5" y2="55.6"/>
+<line class="st3" x1="38.8" y1="74.9" x2="65.3" y2="87.9"/>
+</svg>

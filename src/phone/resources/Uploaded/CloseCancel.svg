@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<svg width="128" height="128" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <g opacity="0.9" id="base">
+   <path id="Color_Fill_16_copy_17" fill="#000000" d="m64,0c35.3,0 64,28.6 64,64c0,35.4 -28.7,64 -64,64c-35.3,0 -64,-28.6 -64,-64c0,-35.4 28.7,-64 64,-64z"/>
+  </g>
+  <line id="svg_1" y2="105.296873" x2="104.499987" y1="25.140624" x1="22.656237" stroke-width="5" stroke="#ffffff" fill="none"/>
+  <line id="svg_2" y2="107.406248" x2="22.234362" y1="23.874999" x1="104.499987" stroke-width="5" stroke="#ffffff" fill="none"/>
+ </g>
+</svg>

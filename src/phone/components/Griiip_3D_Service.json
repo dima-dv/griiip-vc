@@ -1,0 +1,1670 @@
+{
+  "attributes": {
+    "twx-widget": "",
+    "widget-id": "view-1",
+    "viewtype": "ar",
+    "widget-name": "view-1",
+    "is-widget-container": "true"
+  },
+  "children": [{
+    "name": "twx-container-content",
+    "children": [{
+      "attributes": {
+        "twx-widget": "",
+        "widget-id": "x-87b57a00-59d8-4556-ba4a-8fbd6150e409",
+        "widget-name": "3D Container",
+        "is-widget-container": "true"
+      },
+      "name": "twx-dt-view",
+      "children": [{
+        "name": "twx-container-content",
+        "children": [{
+          "attributes": {
+            "twx-widget": "",
+            "widget-id": "model-2",
+            "src": "Uploaded/Griiip_Sequences.pvz",
+            "scale": "1.00",
+            "x": "-1.112",
+            "y": "0.41",
+            "z": "0.00",
+            "rx": "0.00",
+            "ry": "0.00",
+            "rz": "0.00",
+            "widget-name": "GriiipSequenceModel",
+            "modelloaded-expression": "setAutorefreshHandler()"
+          },
+          "name": "twx-dt-model",
+          "children": [{
+            "attributes": {
+              "databind-id": "db-1494017263998",
+              "source-type": "data",
+              "source-name": "SequenceURL",
+              "source-item-type": "value",
+              "source-item-name": "SequenceURL",
+              "binding-type": "custom_field",
+              "from-expression": "app.params['SequenceURL']",
+              "to-property": "sequence"
+            },
+            "name": "twx-databind"
+          }, {
+            "attributes": {
+              "databind-id": "db-1494020910165",
+              "source-type": "data",
+              "source-name": "PVZModel",
+              "source-item-type": "value",
+              "source-item-name": "PVZModel",
+              "binding-type": "custom_field",
+              "from-expression": "app.params['PVZModel']",
+              "to-property": "src"
+            },
+            "name": "twx-databind"
+          }]
+        }, {
+          "attributes": {
+            "twx-widget": "",
+            "widget-id": "thingMark-2",
+            "width": "0.114",
+            "y": "0.76",
+            "z": "0.08",
+            "rx": "-4.5",
+            "ry": "1",
+            "rz": "-0.00",
+            "tracking-indicator": "true",
+            "widget-name": "thingMark-2"
+          },
+          "name": "twx-dt-target",
+          "children": [{
+            "attributes": {
+              "databind-id": "db-1495029151726",
+              "source-type": "data",
+              "source-name": "vumark",
+              "source-item-type": "value",
+              "source-item-name": "vumark",
+              "binding-type": "custom_field",
+              "from-expression": "app.params['vumark']",
+              "to-property": "markerId"
+            },
+            "name": "twx-databind"
+          }]
+        }]
+      }]
+    }, {
+      "attributes": {
+        "twx-widget": "",
+        "widget-id": "2DOverlay-1",
+        "widget-name": "2D Overlay",
+        "is-widget-container": "true"
+      },
+      "name": "twx-overlay",
+      "children": [{
+        "name": "twx-container-content",
+        "children": [{
+          "attributes": {
+            "twx-widget": "",
+            "widget-id": "panel-1",
+            "position": "top",
+            "widget-name": "Top Panel",
+            "is-widget-container": "true"
+          },
+          "name": "twx-overlay-container",
+          "children": [{
+            "name": "twx-container-content",
+            "children": [{
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "resourceImage-1",
+                "imgsrc": "Uploaded/Griiip_Logo-updated-1-NO-BG.png",
+                "width": "auto",
+                "height": "50px",
+                "widget-name": "resourceImage-1"
+              },
+              "name": "twx-image2",
+              "children": [{
+                "attributes": {
+                  "eventbind-id": "eb-1489764973738",
+                  "src-type": "widget",
+                  "src-label": "Resource Image",
+                  "src-name": "resourceImage-1",
+                  "src-event": "click",
+                  "handler-namespace": "app",
+                  "handler-name": "fn",
+                  "handler-service": "navigate",
+                  "handler": "app-fn-navigate"
+                },
+                "name": "twx-eventbind",
+                "children": [{
+                  "attributes": {
+                    "name": "viewname",
+                    "value": "Toro"
+                  },
+                  "name": "twx-event-data"
+                }]
+              }, {
+                "attributes": {
+                  "eventbind-id": "eb-1490024965643",
+                  "src-type": "widget",
+                  "src-label": "Resource Image",
+                  "src-name": "resourceImage-1",
+                  "src-event": "click",
+                  "handler-namespace": "app",
+                  "handler-name": "fn",
+                  "handler-service": "navigate",
+                  "handler": "app-fn-navigate"
+                },
+                "name": "twx-eventbind",
+                "children": [{
+                  "attributes": {
+                    "name": "viewname",
+                    "value": "Toro"
+                  },
+                  "name": "twx-event-data"
+                }]
+              }]
+            }]
+          }]
+        }, {
+          "attributes": {
+            "twx-widget": "",
+            "widget-id": "2DOverlayBody-1",
+            "widget-name": "2D Body",
+            "is-widget-container": "true"
+          },
+          "name": "twx-overlay-body",
+          "children": [{
+            "name": "twx-container-content",
+            "children": [{
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "panel-2",
+                "position": "left",
+                "width": "50px",
+                "widget-name": "Left Panel",
+                "is-widget-container": "true"
+              },
+              "name": "twx-overlay-container",
+              "children": [{
+                "name": "twx-container-content"
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "panel-3",
+                "position": "center",
+                "widget-name": "Center Panel",
+                "is-widget-container": "true"
+              },
+              "name": "twx-overlay-container",
+              "children": [{
+                "name": "twx-container-content",
+                "children": [{
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "popup-1",
+                    "width": "98%",
+                    "centered": "false",
+                    "bottom": "10%",
+                    "left": "1%",
+                    "is-visible-at-designtime": "false",
+                    "widget-name": "Alert1_Popup",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-popup",
+                  "children": [{
+                    "attributes": {
+                      "databind-id": "db-1494259206970",
+                      "source-type": "ui",
+                      "source-label": "Toggle Button",
+                      "source-name": "toggleButton-2",
+                      "source-item-type": "property",
+                      "source-item-name": "pressed",
+                      "binding-type": "widget_property",
+                      "from-expression": "app.view['Griiip_3D_Service'].wdg['toggleButton-2']['pressed']",
+                      "to-property": "visible"
+                    },
+                    "name": "twx-databind"
+                  }, {
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "gridLayout-3",
+                        "class": "table",
+                        "widget-name": "gridLayout-3",
+                        "is-widget-container": "true"
+                      },
+                      "name": "twx-gridlayout",
+                      "children": [{
+                        "name": "twx-container-content",
+                        "children": [{
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "row-6",
+                            "widget-name": "row-6",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-row",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-8",
+                                "class": "table",
+                                "padding": "1px",
+                                "widget-name": "column-8",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-7",
+                                    "text": "CLT >95 deg C or Oil temperature >125 deg C",
+                                    "state-format-value": "text",
+                                    "widget-name": "AlertMessage"
+                                  },
+                                  "name": "twx-label"
+                                }]
+                              }]
+                            }, {
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-9",
+                                "class": "table",
+                                "widget-name": "column-9",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-8",
+                                    "text": "Remove Engine cover",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-16",
+                                    "text": "Check water level in water filler tank",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-17",
+                                    "text": "Inspect cooling ducts and radiators, make sure there is nothing preventing from the air to pass freely",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-18",
+                                    "text": "If radiators are damaged, replace radiator",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }]
+                              }]
+                            }]
+                          }]
+                        }, {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "row-7",
+                            "widget-name": "row-7",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-row",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-10",
+                                "flexdirection": "row",
+                                "alignment": "flex-start",
+                                "widget-name": "column-10",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-5",
+                                    "text": "Play Repair Steps",
+                                    "class": "SeqButton",
+                                    "widget-name": "PlayRepairSteps"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494438398666",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-5",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "model-2",
+                                      "handler-service": "playAll",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"model-2\"].svc.playAll"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-7",
+                                    "text": "Play Next Step",
+                                    "class": "SeqButton",
+                                    "widget-name": "PlayNextStep"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494438419525",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-7",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "model-2",
+                                      "handler-service": "play",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"model-2\"].svc.play"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-8",
+                                    "text": "Reset Steps",
+                                    "class": "SeqButton",
+                                    "widget-name": "Reset Steps"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494438456678",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-8",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "model-2",
+                                      "handler-service": "reset",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"model-2\"].svc.reset"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-9",
+                                    "text": "Reset Alert1",
+                                    "class": "SeqButton",
+                                    "widget-name": "Reset Alert1",
+                                    "click-expression": "view.wdg['toggleButton-2']['pressed']=false;\nresetSequence();"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494016265840",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-9",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "popup-1",
+                                      "handler-service": "hidepopup",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"popup-1\"].svc.hidepopup"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }, {
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494016271194",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-9",
+                                      "src-event": "click",
+                                      "handler-type": "data",
+                                      "handler-name": "GriiipG1Data",
+                                      "handler-service": "QueryAlertSummary",
+                                      "handler": "app.mdl.GriiipG1Data.svc.QueryAlertSummary"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }, {
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494258965574",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-9",
+                                      "src-event": "click",
+                                      "handler-type": "data",
+                                      "handler-name": "GriiipG1Data",
+                                      "handler-service": "ResetAlert1",
+                                      "handler": "app.mdl.GriiipG1Data.svc.ResetAlert1"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }]
+                              }]
+                            }]
+                          }]
+                        }]
+                      }]
+                    }]
+                  }]
+                }, {
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "popup-2",
+                    "width": "98%",
+                    "centered": "false",
+                    "bottom": "10%",
+                    "left": "1%",
+                    "is-visible-at-designtime": "false",
+                    "widget-name": "Alert2_Popup",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-popup",
+                  "children": [{
+                    "attributes": {
+                      "databind-id": "db-1494259222164",
+                      "source-type": "ui",
+                      "source-label": "Toggle Button",
+                      "source-name": "toggleButton-3",
+                      "source-item-type": "property",
+                      "source-item-name": "pressed",
+                      "binding-type": "widget_property",
+                      "from-expression": "app.view['Griiip_3D_Service'].wdg['toggleButton-3']['pressed']",
+                      "to-property": "visible"
+                    },
+                    "name": "twx-databind"
+                  }, {
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "gridLayout-1",
+                        "class": "table",
+                        "widget-name": "gridLayout-1",
+                        "is-widget-container": "true"
+                      },
+                      "name": "twx-gridlayout",
+                      "children": [{
+                        "name": "twx-container-content",
+                        "children": [{
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "row-2",
+                            "widget-name": "row-2",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-row",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-1",
+                                "class": "table",
+                                "padding": "1px",
+                                "widget-name": "column-1",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-1",
+                                    "text": "Airflow below 10% of inlet air",
+                                    "state-format-value": "text",
+                                    "widget-name": "AlertMessage"
+                                  },
+                                  "name": "twx-label"
+                                }]
+                              }]
+                            }, {
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-4",
+                                "class": "table",
+                                "widget-name": "column-4",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-2",
+                                    "text": "Remove body cover",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-12",
+                                    "text": "Visually inspect air box",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-13",
+                                    "text": "Remove intake hood",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-14",
+                                    "text": "Inspect air filter",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-15",
+                                    "text": "Replace Air Filter if Dirty",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }]
+                              }]
+                            }]
+                          }]
+                        }, {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "row-4",
+                            "widget-name": "row-4",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-row",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-3",
+                                "flexdirection": "row",
+                                "alignment": "flex-start",
+                                "widget-name": "column-3",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-3",
+                                    "text": "Play Next Step",
+                                    "class": "SeqButton",
+                                    "widget-name": "PlayNextStep"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494438673966",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-3",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "model-2",
+                                      "handler-service": "playAll",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"model-2\"].svc.playAll"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-1",
+                                    "text": "Play Repair Steps",
+                                    "class": "SeqButton",
+                                    "widget-name": "PlayRepairSteps"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494438704429",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-1",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "model-2",
+                                      "handler-service": "play",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"model-2\"].svc.play"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-2",
+                                    "text": "Reset Steps",
+                                    "class": "SeqButton",
+                                    "widget-name": "Reset Steps"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494438726815",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-2",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "model-2",
+                                      "handler-service": "reset",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"model-2\"].svc.reset"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-4",
+                                    "text": "Reset Alert2",
+                                    "class": "SeqButton",
+                                    "widget-name": "Reset Alert2",
+                                    "click-expression": "view.wdg['toggleButton-3']['pressed']=false;\nresetSequence();"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1493995877075",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-4",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "popup-2",
+                                      "handler-service": "hidepopup",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"popup-2\"].svc.hidepopup"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }, {
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494016185585",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-4",
+                                      "src-event": "click",
+                                      "handler-type": "data",
+                                      "handler-name": "GriiipG1Data",
+                                      "handler-service": "QueryAlertSummary",
+                                      "handler": "app.mdl.GriiipG1Data.svc.QueryAlertSummary"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }, {
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494259119987",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-4",
+                                      "src-event": "click",
+                                      "handler-type": "data",
+                                      "handler-name": "GriiipG1Data",
+                                      "handler-service": "ResetAlert2",
+                                      "handler": "app.mdl.GriiipG1Data.svc.ResetAlert2"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }]
+                              }]
+                            }]
+                          }]
+                        }]
+                      }]
+                    }]
+                  }]
+                }, {
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "popup-3",
+                    "width": "98%",
+                    "centered": "false",
+                    "bottom": "10%",
+                    "left": "1%",
+                    "is-visible-at-designtime": "false",
+                    "widget-name": "Alert3_Popup",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-popup",
+                  "children": [{
+                    "attributes": {
+                      "databind-id": "db-1494261232060",
+                      "source-type": "ui",
+                      "source-label": "Toggle Button",
+                      "source-name": "toggleButton-4",
+                      "source-item-type": "property",
+                      "source-item-name": "pressed",
+                      "binding-type": "widget_property",
+                      "from-expression": "app.view['Griiip_3D_Service'].wdg['toggleButton-4']['pressed']",
+                      "to-property": "visible"
+                    },
+                    "name": "twx-databind"
+                  }, {
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "gridLayout-6",
+                        "class": "table",
+                        "widget-name": "gridLayout-6",
+                        "is-widget-container": "true"
+                      },
+                      "name": "twx-gridlayout",
+                      "children": [{
+                        "name": "twx-container-content",
+                        "children": [{
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "row-9",
+                            "widget-name": "row-9",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-row",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-12",
+                                "class": "table",
+                                "padding": "1px",
+                                "widget-name": "column-12",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-3",
+                                    "text": "Oil pressure is Low",
+                                    "state-format-value": "text",
+                                    "widget-name": "AlertMessage"
+                                  },
+                                  "name": "twx-label"
+                                }]
+                              }]
+                            }, {
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-14",
+                                "class": "table",
+                                "widget-name": "column-14",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-4",
+                                    "text": "Check oil level",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-19",
+                                    "text": "Check oil tubes for leaks",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-20",
+                                    "text": "Replace oil filter",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }]
+                              }]
+                            }]
+                          }]
+                        }, {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "row-11",
+                            "widget-name": "row-11",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-row",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-15",
+                                "flexdirection": "row",
+                                "alignment": "flex-start",
+                                "widget-name": "column-15",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-10",
+                                    "text": "Play Repair Steps",
+                                    "class": "SeqButton",
+                                    "widget-name": "PlayRepairSteps"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494438805058",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-10",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "model-2",
+                                      "handler-service": "playAll",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"model-2\"].svc.playAll"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-11",
+                                    "text": "Play Next Step",
+                                    "class": "SeqButton",
+                                    "widget-name": "PlayNextStep"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494438816384",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-11",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "model-2",
+                                      "handler-service": "play",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"model-2\"].svc.play"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-12",
+                                    "text": "Reset Steps",
+                                    "class": "SeqButton",
+                                    "widget-name": "Reset Steps"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494438827750",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-12",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "model-2",
+                                      "handler-service": "reset",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"model-2\"].svc.reset"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-13",
+                                    "text": "Reset Alert3",
+                                    "class": "SeqButton",
+                                    "widget-name": "Reset Alert3",
+                                    "click-expression": "view.wdg['toggleButton-4']['pressed']=false;\nresetSequence();"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494260694929",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-13",
+                                      "src-event": "click",
+                                      "handler-type": "data",
+                                      "handler-name": "GriiipG1Data",
+                                      "handler-service": "ResetAlert3",
+                                      "handler": "app.mdl.GriiipG1Data.svc.ResetAlert3"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }, {
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494260699584",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-13",
+                                      "src-event": "click",
+                                      "handler-type": "data",
+                                      "handler-name": "GriiipG1Data",
+                                      "handler-service": "QueryAlertSummary",
+                                      "handler": "app.mdl.GriiipG1Data.svc.QueryAlertSummary"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }, {
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494260716721",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-13",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "popup-3",
+                                      "handler-service": "hidepopup",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"popup-3\"].svc.hidepopup"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }]
+                              }]
+                            }]
+                          }]
+                        }]
+                      }]
+                    }]
+                  }]
+                }, {
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "popup-4",
+                    "width": "98%",
+                    "centered": "false",
+                    "bottom": "10%",
+                    "left": "1%",
+                    "is-visible-at-designtime": "false",
+                    "widget-name": "Alert4_Popup",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-popup",
+                  "children": [{
+                    "attributes": {
+                      "databind-id": "db-1494261190512",
+                      "source-type": "ui",
+                      "source-label": "Toggle Button",
+                      "source-name": "toggleButton-5",
+                      "source-item-type": "property",
+                      "source-item-name": "pressed",
+                      "binding-type": "widget_property",
+                      "from-expression": "app.view['Griiip_3D_Service'].wdg['toggleButton-5']['pressed']",
+                      "to-property": "visible"
+                    },
+                    "name": "twx-databind"
+                  }, {
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "gridLayout-7",
+                        "class": "table",
+                        "widget-name": "gridLayout-7",
+                        "is-widget-container": "true"
+                      },
+                      "name": "twx-gridlayout",
+                      "children": [{
+                        "name": "twx-container-content",
+                        "children": [{
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "row-12",
+                            "widget-name": "row-12",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-row",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-16",
+                                "class": "table",
+                                "flexdirection": "row",
+                                "alignment": "flex-start",
+                                "padding": "1px",
+                                "widget-name": "column-16",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-5",
+                                    "text": "Suspension is Too Firm",
+                                    "state-format-value": "text",
+                                    "widget-name": "AlertMessage"
+                                  },
+                                  "name": "twx-label"
+                                }]
+                              }]
+                            }, {
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-17",
+                                "class": "table",
+                                "flexdirection": "row",
+                                "widget-name": "column-17",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-9",
+                                    "text": "Remove front cover to inspect front springs",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-21",
+                                    "text": "Verify spring K values",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-22",
+                                    "text": "Remove dampers",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-23",
+                                    "text": "Test damping values on specialized test rig",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "label-24",
+                                    "text": "Consider using softer springs in rear / front",
+                                    "state-format-value": "text",
+                                    "widget-name": "RepairMessage"
+                                  },
+                                  "name": "twx-label"
+                                }]
+                              }]
+                            }]
+                          }]
+                        }, {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "row-13",
+                            "widget-name": "row-13",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-row",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-18",
+                                "flexdirection": "row",
+                                "alignment": "flex-start",
+                                "widget-name": "column-18",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-14",
+                                    "text": "Play Repair Steps",
+                                    "class": "SeqButton",
+                                    "widget-name": "PlayRepairSteps"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494438870843",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-14",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "model-2",
+                                      "handler-service": "playAll",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"model-2\"].svc.playAll"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-15",
+                                    "text": "Play Next Step",
+                                    "class": "SeqButton",
+                                    "widget-name": "PlayNextStep"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494438883016",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-15",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "model-2",
+                                      "handler-service": "play",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"model-2\"].svc.play"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-16",
+                                    "text": "Reset Steps",
+                                    "class": "SeqButton",
+                                    "widget-name": "Reset Steps"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494438895826",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-16",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "model-2",
+                                      "handler-service": "reset",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"model-2\"].svc.reset"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-17",
+                                    "text": "Reset Alert4",
+                                    "class": "SeqButton",
+                                    "widget-name": "Reset Alert4",
+                                    "click-expression": "view.wdg['toggleButton-5']['pressed']=false;\nresetSequence();"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494263463696",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-17",
+                                      "src-event": "click",
+                                      "handler-type": "data",
+                                      "handler-name": "GriiipG1Data",
+                                      "handler-service": "ResetAlert4",
+                                      "handler": "app.mdl.GriiipG1Data.svc.ResetAlert4"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }, {
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494263469406",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-17",
+                                      "src-event": "click",
+                                      "handler-type": "data",
+                                      "handler-name": "GriiipG1Data",
+                                      "handler-service": "QueryAlertSummary",
+                                      "handler": "app.mdl.GriiipG1Data.svc.QueryAlertSummary"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }, {
+                                    "attributes": {
+                                      "eventbind-id": "eb-1494263485442",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-17",
+                                      "src-event": "click",
+                                      "handler-type": "ui",
+                                      "handler-name": "popup-4",
+                                      "handler-service": "hidepopup",
+                                      "handler": "app.view[\"Griiip_3D_Service\"].wdg[\"popup-4\"].svc.hidepopup"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }]
+                              }]
+                            }]
+                          }]
+                        }]
+                      }]
+                    }]
+                  }]
+                }, {
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "popup-5",
+                    "width": "364px",
+                    "height": "104px",
+                    "padding": "2px",
+                    "centered": "false",
+                    "bottom": "10%",
+                    "right": "1%",
+                    "widget-name": "Map_Popup",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-popup",
+                  "children": [{
+                    "attributes": {
+                      "databind-id": "db-1494268659930",
+                      "source-type": "ui",
+                      "source-label": "Toggle Button",
+                      "source-name": "toggleButton-6",
+                      "source-item-type": "property",
+                      "source-item-name": "pressed",
+                      "binding-type": "widget_property",
+                      "from-expression": "app.view['Griiip_3D_Service'].wdg['toggleButton-6']['pressed']",
+                      "to-property": "visible"
+                    },
+                    "name": "twx-databind"
+                  }, {
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "resourceImage-2",
+                        "width": "360px",
+                        "height": "100px",
+                        "image-align": "center",
+                        "padding": "2px",
+                        "widget-name": "resourceImage-2"
+                      },
+                      "name": "twx-image2",
+                      "children": [{
+                        "attributes": {
+                          "databind-id": "db-1495361098579",
+                          "source-type": "data",
+                          "source-name": "GriiipG1Data",
+                          "source-item-type": "service",
+                          "source-item-name": "GetPropertyValues",
+                          "source-item-field-name": "TrackLocationImage",
+                          "binding-type": "current_row_field",
+                          "from-expression": "app.mdl['GriiipG1Data'].svc['GetPropertyValues'].data.current['TrackLocationImage']",
+                          "to-property": "imgsrc"
+                        },
+                        "name": "twx-databind"
+                      }]
+                    }]
+                  }]
+                }]
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "panel-4",
+                "position": "right",
+                "widget-name": "Right Panel",
+                "is-widget-container": "true"
+              },
+              "name": "twx-overlay-container",
+              "children": [{
+                "name": "twx-container-content",
+                "children": [{
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "gridLayout-5",
+                    "visible": "false",
+                    "widget-name": "gridLayout-5",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-gridlayout",
+                  "children": [{
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "row-10",
+                        "widget-name": "row-10",
+                        "is-widget-container": "true"
+                      },
+                      "name": "twx-row",
+                      "children": [{
+                        "name": "twx-container-content",
+                        "children": [{
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "column-13",
+                            "widget-name": "column-13",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-col",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "label-10",
+                                "text": "",
+                                "state-format-value": "text",
+                                "widget-name": "Alert1"
+                              },
+                              "name": "twx-label",
+                              "children": [{
+                                "attributes": {
+                                  "databind-id": "db-1495360966548",
+                                  "source-type": "data",
+                                  "source-name": "GriiipG1Data",
+                                  "source-item-type": "service",
+                                  "source-item-name": "GetPropertyValues",
+                                  "source-item-field-name": "OverHeating",
+                                  "binding-type": "current_row_field",
+                                  "from-expression": "app.mdl['GriiipG1Data'].svc['GetPropertyValues'].data.current['OverHeating']",
+                                  "to-property": "text"
+                                },
+                                "name": "twx-databind"
+                              }]
+                            }, {
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "label-11",
+                                "text": "",
+                                "state-format-value": "text",
+                                "widget-name": "Alert2"
+                              },
+                              "name": "twx-label",
+                              "children": [{
+                                "attributes": {
+                                  "databind-id": "db-1495360988756",
+                                  "source-type": "data",
+                                  "source-name": "GriiipG1Data",
+                                  "source-item-type": "service",
+                                  "source-item-name": "GetPropertyValues",
+                                  "source-item-field-name": "Airflow_Constriction",
+                                  "binding-type": "current_row_field",
+                                  "from-expression": "app.mdl['GriiipG1Data'].svc['GetPropertyValues'].data.current['Airflow_Constriction']",
+                                  "to-property": "text"
+                                },
+                                "name": "twx-databind"
+                              }]
+                            }, {
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "label-6",
+                                "text": "",
+                                "state-format-value": "text",
+                                "widget-name": "Alert3"
+                              },
+                              "name": "twx-label",
+                              "children": [{
+                                "attributes": {
+                                  "databind-id": "db-1495361000585",
+                                  "source-type": "data",
+                                  "source-name": "GriiipG1Data",
+                                  "source-item-type": "service",
+                                  "source-item-name": "GetPropertyValues",
+                                  "source-item-field-name": "OilLevelDecreasing",
+                                  "binding-type": "current_row_field",
+                                  "from-expression": "app.mdl['GriiipG1Data'].svc['GetPropertyValues'].data.current['OilLevelDecreasing']",
+                                  "to-property": "text"
+                                },
+                                "name": "twx-databind"
+                              }]
+                            }, {
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "label-25",
+                                "text": "",
+                                "state-format-value": "text",
+                                "widget-name": "Alert4"
+                              },
+                              "name": "twx-label",
+                              "children": [{
+                                "attributes": {
+                                  "databind-id": "db-1495361014737",
+                                  "source-type": "data",
+                                  "source-name": "GriiipG1Data",
+                                  "source-item-type": "service",
+                                  "source-item-name": "GetPropertyValues",
+                                  "source-item-field-name": "LateralStiffnessTooFirm",
+                                  "binding-type": "current_row_field",
+                                  "from-expression": "app.mdl['GriiipG1Data'].svc['GetPropertyValues'].data.current['LateralStiffnessTooFirm']",
+                                  "to-property": "text"
+                                },
+                                "name": "twx-databind"
+                              }]
+                            }]
+                          }]
+                        }]
+                      }]
+                    }]
+                  }]
+                }]
+              }]
+            }]
+          }]
+        }, {
+          "attributes": {
+            "twx-widget": "",
+            "widget-id": "panel-5",
+            "position": "bottom",
+            "widget-name": "Bottom Panel",
+            "is-widget-container": "true"
+          },
+          "name": "twx-overlay-container",
+          "children": [{
+            "name": "twx-container-content",
+            "children": [{
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "gridLayout-4",
+                "widget-name": "gridLayout-4",
+                "is-widget-container": "true"
+              },
+              "name": "twx-gridlayout",
+              "children": [{
+                "name": "twx-container-content",
+                "children": [{
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "row-8",
+                    "widget-name": "row-8",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-row",
+                  "children": [{
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "column-11",
+                        "flexdirection": "row",
+                        "alignment": "flex-start",
+                        "wrap": "no-wrap",
+                        "widget-name": "column-11",
+                        "is-widget-container": "true"
+                      },
+                      "name": "twx-col",
+                      "children": [{
+                        "name": "twx-container-content",
+                        "children": [{
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "toggleButton-2",
+                            "src": "Uploaded/Alert_icon_1on.jpg",
+                            "srcnotpressed": "Uploaded/Alert_icon_1off.jpg",
+                            "visible": "false",
+                            "widget-name": "OpenAlert1Panel",
+                            "click-expression": "Cooling();"
+                          },
+                          "name": "twx-toggle-button",
+                          "children": [{
+                            "attributes": {
+                              "databind-id": "db-1495360099593",
+                              "source-type": "data",
+                              "source-name": "GriiipG1Data",
+                              "source-item-type": "service",
+                              "source-item-name": "GetPropertyValues",
+                              "source-item-field-name": "OverHeating",
+                              "binding-type": "current_row_field",
+                              "from-expression": "app.mdl['GriiipG1Data'].svc['GetPropertyValues'].data.current['OverHeating']",
+                              "to-property": "visible"
+                            },
+                            "name": "twx-databind"
+                          }]
+                        }, {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "toggleButton-3",
+                            "src": "Uploaded/Alert_icon_2on.jpg",
+                            "srcnotpressed": "Uploaded/Alert_icon_2off.jpg",
+                            "visible": "false",
+                            "widget-name": "OpenAlert2Panel",
+                            "click-expression": "Airfilter();"
+                          },
+                          "name": "twx-toggle-button",
+                          "children": [{
+                            "attributes": {
+                              "databind-id": "db-1495360274676",
+                              "source-type": "data",
+                              "source-name": "GriiipG1Data",
+                              "source-item-type": "service",
+                              "source-item-name": "GetPropertyValues",
+                              "source-item-field-name": "Airflow_Constriction",
+                              "binding-type": "current_row_field",
+                              "from-expression": "app.mdl['GriiipG1Data'].svc['GetPropertyValues'].data.current['Airflow_Constriction']",
+                              "to-property": "visible"
+                            },
+                            "name": "twx-databind"
+                          }]
+                        }, {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "toggleButton-4",
+                            "src": "Uploaded/Alert_icon_3on.jpg",
+                            "srcnotpressed": "Uploaded/Alert_icon_3off.jpg",
+                            "visible": "false",
+                            "widget-name": "OpenAlert3Panel",
+                            "click-expression": "OilCooling();"
+                          },
+                          "name": "twx-toggle-button",
+                          "children": [{
+                            "attributes": {
+                              "databind-id": "db-1495360312676",
+                              "source-type": "data",
+                              "source-name": "GriiipG1Data",
+                              "source-item-type": "service",
+                              "source-item-name": "GetPropertyValues",
+                              "source-item-field-name": "OilLevelDecreasing",
+                              "binding-type": "current_row_field",
+                              "from-expression": "app.mdl['GriiipG1Data'].svc['GetPropertyValues'].data.current['OilLevelDecreasing']",
+                              "to-property": "visible"
+                            },
+                            "name": "twx-databind"
+                          }]
+                        }, {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "toggleButton-5",
+                            "src": "Uploaded/Alert_icon_4on.jpg",
+                            "srcnotpressed": "Uploaded/Alert_icon_4off.jpg",
+                            "visible": "false",
+                            "widget-name": "OpenAlert4Panel",
+                            "click-expression": "Suspension();"
+                          },
+                          "name": "twx-toggle-button",
+                          "children": [{
+                            "attributes": {
+                              "databind-id": "db-1495360330747",
+                              "source-type": "data",
+                              "source-name": "GriiipG1Data",
+                              "source-item-type": "service",
+                              "source-item-name": "GetPropertyValues",
+                              "source-item-field-name": "LateralStiffnessTooFirm",
+                              "binding-type": "current_row_field",
+                              "from-expression": "app.mdl['GriiipG1Data'].svc['GetPropertyValues'].data.current['LateralStiffnessTooFirm']",
+                              "to-property": "visible"
+                            },
+                            "name": "twx-databind"
+                          }]
+                        }, {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "toggleButton-6",
+                            "src": "Uploaded/mapicon2.jpg",
+                            "srcnotpressed": "Uploaded/mapicon.png",
+                            "widget-name": "MapIcon",
+                            "click-expression": "Suspension();"
+                          },
+                          "name": "twx-toggle-button"
+                        }]
+                      }]
+                    }]
+                  }]
+                }]
+              }]
+            }]
+          }]
+        }]
+      }]
+    }]
+  }, {
+    "name": "twx-view-data"
+  }],
+  "name": "twx-view"
+}

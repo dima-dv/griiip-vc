@@ -1,0 +1,86 @@
+{
+  "name": "GriiipVC",
+  "projectType": "AR",
+  "fileName": "GriiipVC",
+  "thingworxServer": "http://ddavidovich1d:2019",
+  "mainNavigationMenuStyle": "leftSideMenu",
+  "mainNavigationMenuItems": [],
+  "creator": "_unknown_",
+  "theme": "twx-light",
+  "hideExperienceHeader": false,
+  "version": "1.12.463",
+  "device": {
+    "name": "tablet",
+    "width": "1026px",
+    "height": "800px"
+  },
+  "state": {
+    "orientation": "landscape"
+  },
+  "targets": {
+    "phone": {
+      "components": [
+        {
+          "name": "PARTSandSERVICE",
+          "fileName": "PARTSandSERVICE",
+          "showInMainMenu": true,
+          "viewType": "ionic-2D",
+          "title": "PARTSandSERVICE"
+        },
+        {
+          "name": "Griiip Home",
+          "fileName": "Griiip_Home",
+          "showInMainMenu": true,
+          "viewType": "ionic-2D",
+          "title": "Griiip Home"
+        },
+        {
+          "name": "Griiip 3D Service",
+          "fileName": "Griiip_3D_Service",
+          "showInMainMenu": true,
+          "viewType": "ar",
+          "title": "Griiip 3D Service"
+        },
+        {
+          "name": "PitCrewDashboard",
+          "fileName": "PitCrewDashboard",
+          "showInMainMenu": true,
+          "viewType": "ionic-2D",
+          "title": "PitCrewDashboard"
+        },
+        {
+          "name": "Home",
+          "fileName": "Home",
+          "showInMainMenu": true,
+          "viewType": "ar",
+          "title": "Home"
+        }
+      ],
+      "images": []
+    },
+    "shared": {
+      "components": [
+        {
+          "name": "Data",
+          "fileName": "Data"
+        }
+      ],
+      "images": [],
+      "styles": [
+        {
+          "name": "App",
+          "fileName": "App",
+          "fileExt": "scss"
+        }
+      ]
+    }
+  },
+  "thumbnail": "Uploaded/Griiip_Logo-updated-1-NO-BG.png",
+  "previewUrl": "http://localhost:3000/preview.html?project=${project}&format=${format}&orientation=${orientation}&phone=true",
+  "resourceDirectory": "src/phone/resources",
+  "resourceRuntimeDir": "app/resources",
+  "fontRuntimeDir": "../fonts",
+  "fontDesigntimeDir": "../dist/phone/fonts",
+  "viewType": "ar",
+  "allowSelfSignedCerts": true
+}

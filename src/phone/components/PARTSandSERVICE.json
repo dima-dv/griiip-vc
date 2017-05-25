@@ -1,0 +1,643 @@
+{
+  "attributes": {
+    "twx-widget": "",
+    "widget-id": "view-1",
+    "viewtype": "normal",
+    "widget-name": "view-1",
+    "is-widget-container": "true"
+  },
+  "children": [{
+    "name": "twx-container-content",
+    "children": [{
+      "attributes": {
+        "twx-widget": "",
+        "widget-id": "card-1",
+        "class": "bkimage",
+        "widget-name": "card-1",
+        "is-widget-container": "true"
+      },
+      "name": "twx-card",
+      "children": [{
+        "name": "twx-container-content",
+        "children": [{
+          "attributes": {
+            "twx-widget": "",
+            "widget-id": "gridLayout-1",
+            "widget-name": "gridLayout-1",
+            "is-widget-container": "true"
+          },
+          "name": "twx-gridlayout",
+          "children": [{
+            "name": "twx-container-content",
+            "children": [{
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "row-1",
+                "widget-name": "row-1",
+                "is-widget-container": "true"
+              },
+              "name": "twx-row",
+              "children": [{
+                "name": "twx-container-content",
+                "children": [{
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "column-1",
+                    "alignment": "center",
+                    "widget-name": "column-1",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-col",
+                  "children": [{
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "resourceImage-1",
+                        "imgsrc": "Uploaded/Griiip_Logo-updated-1-NO-BG.png",
+                        "width": "auto",
+                        "height": "150px",
+                        "widget-name": "resourceImage-1"
+                      },
+                      "name": "twx-image2"
+                    }]
+                  }]
+                }]
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "row-10",
+                "widget-name": "row-10",
+                "is-widget-container": "true"
+              },
+              "name": "twx-row",
+              "children": [{
+                "name": "twx-container-content",
+                "children": [{
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "column-10",
+                    "alignment": "center",
+                    "widget-name": "column-10",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-col",
+                  "children": [{
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "resourceImage-2",
+                        "imgsrc": "Uploaded/GriiipParts.png",
+                        "width": "auto",
+                        "height": "180px",
+                        "widget-name": "resourceImage-2"
+                      },
+                      "name": "twx-image2"
+                    }, {
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "button-2",
+                        "text": "Griiip Home",
+                        "class": "ARButton",
+                        "widget-name": "button-2"
+                      },
+                      "name": "twx-button",
+                      "children": [{
+                        "attributes": {
+                          "eventbind-id": "eb-1489701456133",
+                          "src-type": "widget",
+                          "src-label": "Button",
+                          "src-name": "button-2",
+                          "src-event": "click",
+                          "handler-namespace": "app",
+                          "handler-name": "fn",
+                          "handler-service": "navigate",
+                          "handler": "app-fn-navigate"
+                        },
+                        "name": "twx-eventbind",
+                        "children": [{
+                          "attributes": {
+                            "name": "viewname",
+                            "value": "Toro"
+                          },
+                          "name": "twx-event-data"
+                        }]
+                      }]
+                    }]
+                  }]
+                }]
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "row-13",
+                "widget-name": "row-13",
+                "is-widget-container": "true"
+              },
+              "name": "twx-row",
+              "children": [{
+                "name": "twx-container-content",
+                "children": [{
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "column-11",
+                    "alignment": "center",
+                    "widget-name": "column-11",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-col",
+                  "children": [{
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "hyperlink-1",
+                        "text": "InService Navigate",
+                        "url": "{{getInServiceNavigateURL();}}",
+                        "class": "ARButton",
+                        "widget-name": "hyperlink-1"
+                      },
+                      "name": "twx-hyperlink"
+                    }]
+                  }]
+                }]
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "row-3",
+                "widget-name": "row-3",
+                "is-widget-container": "true"
+              },
+              "name": "twx-row",
+              "children": [{
+                "name": "twx-container-content",
+                "children": [{
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "column-3",
+                    "class": "",
+                    "alignment": "center",
+                    "widget-name": "column-3",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-col",
+                  "children": [{
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "hyperlink-2",
+                        "text": "InService Home",
+                        "url": "{{getInServiceURL();}}",
+                        "class": "ARButton",
+                        "widget-name": "hyperlink-2"
+                      },
+                      "name": "twx-hyperlink"
+                    }]
+                  }]
+                }]
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "row-2",
+                "widget-name": "row-2",
+                "is-widget-container": "true"
+              },
+              "name": "twx-row",
+              "children": [{
+                "name": "twx-container-content",
+                "children": [{
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "column-2",
+                    "padding": "10px",
+                    "widget-name": "column-2",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-col",
+                  "children": [{
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "gridLayout-3",
+                        "widget-name": "gridLayout-3",
+                        "is-widget-container": "true"
+                      },
+                      "name": "twx-gridlayout",
+                      "children": [{
+                        "name": "twx-container-content",
+                        "children": [{
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "row-7",
+                            "widget-name": "row-7",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-row",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-7",
+                                "class": "searchbox",
+                                "justification": "space-around",
+                                "alignment": "flex-start",
+                                "fixedcolsize": "210px",
+                                "wrap": "no-wrap",
+                                "padding": "2px",
+                                "widget-name": "column-7",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "textInput-1",
+                                    "placeholder": "Enter Text Search",
+                                    "padding": "15px",
+                                    "margin": "1px",
+                                    "widget-name": "textInput-1"
+                                  },
+                                  "name": "twx-text-input"
+                                }]
+                              }]
+                            }, {
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "column-8",
+                                "justification": "space-around",
+                                "alignment": "flex-start",
+                                "widget-name": "column-8",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-col",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "button-1",
+                                    "text": "Search InService",
+                                    "class": "ARButton",
+                                    "margin": "",
+                                    "widget-name": "button-1"
+                                  },
+                                  "name": "twx-button",
+                                  "children": [{
+                                    "attributes": {
+                                      "eventbind-id": "eb-1495141283203",
+                                      "src-type": "widget",
+                                      "src-label": "Button",
+                                      "src-name": "button-1",
+                                      "src-event": "click",
+                                      "handler-type": "data",
+                                      "handler-name": "PTC.InService.Connector.VuforiaThing",
+                                      "handler-service": "getSearch_2",
+                                      "handler": "app.mdl.PTC.InService.Connector.VuforiaThing.svc.getSearch_2"
+                                    },
+                                    "name": "twx-eventbind"
+                                  }]
+                                }]
+                              }]
+                            }]
+                          }]
+                        }, {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "row-12",
+                            "widget-name": "row-12",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-row",
+                          "children": [{
+                            "name": "twx-container-content"
+                          }]
+                        }, {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "row-11",
+                            "widget-name": "row-11",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-row",
+                          "children": [{
+                            "name": "twx-container-content"
+                          }]
+                        }]
+                      }]
+                    }]
+                  }]
+                }]
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "row-4",
+                "widget-name": "row-4",
+                "is-widget-container": "true"
+              },
+              "name": "twx-row",
+              "children": [{
+                "name": "twx-container-content"
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "row-8",
+                "widget-name": "row-8",
+                "is-widget-container": "true"
+              },
+              "name": "twx-row",
+              "children": [{
+                "name": "twx-container-content"
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "row-6",
+                "widget-name": "row-6",
+                "is-widget-container": "true"
+              },
+              "name": "twx-row",
+              "children": [{
+                "name": "twx-container-content"
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "row-5",
+                "widget-name": "row-5",
+                "is-widget-container": "true"
+              },
+              "name": "twx-row",
+              "children": [{
+                "name": "twx-container-content",
+                "children": [{
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "column-5",
+                    "alignment": "center",
+                    "widget-name": "column-5",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-col",
+                  "children": [{
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "card-2",
+                        "class": "cardtitle",
+                        "header": "PTC Servigistics InService Search Results",
+                        "widget-name": "card-2",
+                        "is-widget-container": "true"
+                      },
+                      "name": "twx-card",
+                      "children": [{
+                        "name": "twx-container-content"
+                      }]
+                    }]
+                  }]
+                }]
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "row-14",
+                "widget-name": "row-14",
+                "is-widget-container": "true"
+              },
+              "name": "twx-row",
+              "children": [{
+                "name": "twx-container-content",
+                "children": [{
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "column-17",
+                    "widget-name": "column-17",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-col",
+                  "children": [{
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "label-8",
+                        "text": "Information Type",
+                        "class": "header1",
+                        "state-format-value": "text",
+                        "widget-name": "label-8"
+                      },
+                      "name": "twx-label"
+                    }]
+                  }]
+                }, {
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "column-18",
+                    "widget-name": "column-18",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-col",
+                  "children": [{
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "label-9",
+                        "text": "Document Title/Link",
+                        "class": "header1",
+                        "state-format-value": "text",
+                        "widget-name": "label-9"
+                      },
+                      "name": "twx-label"
+                    }]
+                  }]
+                }]
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "row-9",
+                "widget-name": "row-9",
+                "is-widget-container": "true"
+              },
+              "name": "twx-row",
+              "children": [{
+                "name": "twx-container-content",
+                "children": [{
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "column-16",
+                    "widget-name": "column-16",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-col",
+                  "children": [{
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "repeater-2",
+                        "widget-name": "repeater-2",
+                        "is-widget-repeater": "true"
+                      },
+                      "name": "twx-repeater",
+                      "children": [{
+                        "attributes": {
+                          "databind-id": "db-1495140192748",
+                          "source-type": "data",
+                          "source-name": "PTC.InService.Connector.VuforiaThing",
+                          "source-item-type": "service",
+                          "source-item-name": "getSearch_2",
+                          "binding-type": "collection",
+                          "from-expression": "app.mdl['PTC.InService.Connector.VuforiaThing'].svc['getSearch_2'].data",
+                          "to-property": "data"
+                        },
+                        "name": "twx-databind"
+                      }, {
+                        "name": "twx-repeater-content",
+                        "children": [{
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "gridLayout-6",
+                            "widget-name": "gridLayout-6",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-gridlayout",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "row-16",
+                                "widget-name": "row-16",
+                                "is-widget-container": "true"
+                              },
+                              "name": "twx-row",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "column-21",
+                                    "widget-name": "column-21",
+                                    "is-widget-container": "true"
+                                  },
+                                  "name": "twx-col",
+                                  "children": [{
+                                    "name": "twx-container-content",
+                                    "children": [{
+                                      "attributes": {
+                                        "twx-widget": "",
+                                        "widget-id": "label-2",
+                                        "state-format-value": "text",
+                                        "widget-name": "label-2"
+                                      },
+                                      "name": "twx-label",
+                                      "children": [{
+                                        "attributes": {
+                                          "databind-id": "db-1495145679771",
+                                          "source-type": "data",
+                                          "source-name": "PTC.InService.Connector.VuforiaThing",
+                                          "source-item-type": "service",
+                                          "source-item-name": "getSearch_2",
+                                          "source-item-field-name": "SRCType",
+                                          "binding-type": "collection_item_field",
+                                          "from-expression": "item['SRCType']",
+                                          "to-property": "text",
+                                          "base-type": "STRING"
+                                        },
+                                        "name": "twx-databind"
+                                      }]
+                                    }]
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "column-22",
+                                    "widget-name": "column-22",
+                                    "is-widget-container": "true"
+                                  },
+                                  "name": "twx-col",
+                                  "children": [{
+                                    "name": "twx-container-content",
+                                    "children": [{
+                                      "attributes": {
+                                        "twx-widget": "",
+                                        "widget-id": "hyperlink-4",
+                                        "text": "",
+                                        "url": "{{getInServiceURL() + \"/#/V=2/media/Element.Media::::\" + item.persistentId}}",
+                                        "visible": "false",
+                                        "widget-name": "hyperlink-4"
+                                      },
+                                      "name": "twx-hyperlink",
+                                      "children": [{
+                                        "attributes": {
+                                          "databind-id": "db-1495145669308",
+                                          "source-type": "data",
+                                          "source-name": "PTC.InService.Connector.VuforiaThing",
+                                          "source-item-type": "service",
+                                          "source-item-name": "getSearch_2",
+                                          "source-item-field-name": "TITLE",
+                                          "binding-type": "collection_item_field",
+                                          "from-expression": "item['TITLE']",
+                                          "to-property": "text"
+                                        },
+                                        "name": "twx-databind"
+                                      }]
+                                    }, {
+                                      "attributes": {
+                                        "twx-widget": "",
+                                        "widget-id": "label-3",
+                                        "state-format-value": "text",
+                                        "widget-name": "label-3",
+                                        "click-expression": "openItem(item)"
+                                      },
+                                      "name": "twx-label",
+                                      "children": [{
+                                        "attributes": {
+                                          "databind-id": "db-1495145724392",
+                                          "source-type": "data",
+                                          "source-name": "PTC.InService.Connector.VuforiaThing",
+                                          "source-item-type": "service",
+                                          "source-item-name": "getSearch_2",
+                                          "source-item-field-name": "TITLE",
+                                          "binding-type": "collection_item_field",
+                                          "from-expression": "item['TITLE']",
+                                          "to-property": "text",
+                                          "base-type": "STRING"
+                                        },
+                                        "name": "twx-databind"
+                                      }]
+                                    }]
+                                  }]
+                                }]
+                              }]
+                            }]
+                          }]
+                        }]
+                      }]
+                    }]
+                  }]
+                }]
+              }]
+            }]
+          }]
+        }]
+      }]
+    }]
+  }, {
+    "name": "twx-view-data"
+  }],
+  "name": "twx-view"
+}

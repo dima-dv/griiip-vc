@@ -1,0 +1,788 @@
+{
+  "attributes": {
+    "namespace": "app.mdl"
+  },
+  "children": [{
+    "attributes": {
+      "name": "PTC.InService.Connector.VuforiaThing",
+      "twx-entity-type": "Things",
+      "twx-entity-name": "PTC.InService.Connector.VuforiaThing"
+    },
+    "name": "twx-model",
+    "children": [{
+      "attributes": {
+        "name": "serverURL",
+        "twx-auto-refresh": "false",
+        "twx-model": "app.mdl[\"PTC.InService.Connector.VuforiaThing\"].properties[\"serverURL\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "authHeader",
+        "twx-auto-refresh": "false",
+        "twx-model": "app.mdl[\"PTC.InService.Connector.VuforiaThing\"].properties[\"authHeader\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "serverURLTWX",
+        "twx-auto-refresh": "false",
+        "twx-model": "app.mdl[\"PTC.InService.Connector.VuforiaThing\"].properties[\"serverURLTWX\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "getPart",
+        "id": "getPart"
+      },
+      "name": "twx-model-service",
+      "children": [{
+        "attributes": {
+          "name": "Type",
+          "value": "PART"
+        },
+        "name": "twx-service-parameter-value"
+      }, {
+        "attributes": {
+          "name": "InS_ID",
+          "value": ""
+        },
+        "name": "twx-service-parameter-value"
+      }, {
+        "attributes": {
+          "databind-id": "db-1495130497271",
+          "source-type": "data",
+          "source-name": "selectedPartId",
+          "source-item-type": "value",
+          "source-item-name": "selectedPartId",
+          "binding-type": "custom_field",
+          "from-expression": "app.params['selectedPartId']",
+          "to-property": "InS_ID"
+        },
+        "name": "twx-databind"
+      }]
+    }, {
+      "attributes": {
+        "name": "getSearch",
+        "id": "getSearch"
+      },
+      "name": "twx-model-service",
+      "children": [{
+        "attributes": {
+          "name": "SearchType",
+          "value": "ie"
+        },
+        "name": "twx-service-parameter-value"
+      }, {
+        "attributes": {
+          "databind-id": "db-1485258003197",
+          "source-type": "data",
+          "source-name": "selectedSearchTerm",
+          "source-item-type": "value",
+          "source-item-name": "selectedSearchTerm",
+          "binding-type": "custom_field",
+          "from-expression": "app.params['selectedSearchTerm']",
+          "to-property": "SearchString"
+        },
+        "name": "twx-databind"
+      }]
+    }, {
+      "attributes": {
+        "name": "getMedia",
+        "id": "getMedia"
+      },
+      "name": "twx-model-service",
+      "children": [{
+        "attributes": {
+          "databind-id": "db-1485252286387",
+          "source-type": "data",
+          "source-name": "PTC.InService.Connector.VuforiaThing",
+          "source-item-type": "service",
+          "source-item-name": "getSearch",
+          "source-item-field-name": "persistentId",
+          "binding-type": "current_row_field",
+          "from-expression": "app.mdl['PTC.InService.Connector.VuforiaThing'].svc['getSearch'].data.current['persistentId']",
+          "to-property": "InS_ID"
+        },
+        "name": "twx-databind"
+      }, {
+        "attributes": {
+          "databind-id": "db-1485252291342",
+          "source-type": "data",
+          "source-name": "PTC.InService.Connector.VuforiaThing",
+          "source-item-type": "service",
+          "source-item-name": "getSearch",
+          "source-item-field-name": "SRCType",
+          "binding-type": "current_row_field",
+          "from-expression": "app.mdl['PTC.InService.Connector.VuforiaThing'].svc['getSearch'].data.current['SRCType']",
+          "to-property": "Type"
+        },
+        "name": "twx-databind"
+      }, {
+        "attributes": {
+          "databind-id": "db-1485257979191",
+          "source-type": "data",
+          "source-name": "selectedSearchTerm",
+          "source-item-type": "value",
+          "source-item-name": "selectedSearchTerm",
+          "binding-type": "custom_field",
+          "from-expression": "app.params['selectedSearchTerm']",
+          "to-property": "SearchString"
+        },
+        "name": "twx-databind"
+      }, {
+        "attributes": {
+          "databind-id": "db-1490708582538",
+          "source-type": "data",
+          "source-name": "PTC.InService.Connector.VuforiaThing",
+          "source-item-type": "service",
+          "source-item-name": "getSearch",
+          "source-item-field-name": "COLLECTION",
+          "binding-type": "current_row_field",
+          "from-expression": "app.mdl['PTC.InService.Connector.VuforiaThing'].svc['getSearch'].data.current['COLLECTION']",
+          "to-property": "Collection"
+        },
+        "name": "twx-databind"
+      }]
+    }, {
+      "attributes": {
+        "name": "getPartsListPartInfoAggregate",
+        "id": "getPartsListPartInfoAggregate",
+        "twx-no-auto-select": ""
+      },
+      "name": "twx-model-service",
+      "children": [{
+        "attributes": {
+          "name": "Collection",
+          "value": "RaceCar"
+        },
+        "name": "twx-service-parameter-value"
+      }, {
+        "attributes": {
+          "databind-id": "db-1492604677986",
+          "source-type": "data",
+          "source-name": "partsListId",
+          "source-item-type": "value",
+          "source-item-name": "partsListId",
+          "binding-type": "custom_field",
+          "from-expression": "app.params['partsListId']",
+          "to-property": "InS_ID"
+        },
+        "name": "twx-databind"
+      }]
+    }, {
+      "attributes": {
+        "name": "getSearch",
+        "id": "getSearch_2"
+      },
+      "name": "twx-model-service",
+      "children": [{
+        "attributes": {
+          "name": "SearchType",
+          "value": ""
+        },
+        "name": "twx-service-parameter-value"
+      }, {
+        "attributes": {
+          "databind-id": "db-1495140113842",
+          "source-type": "ui",
+          "source-label": "Text Input",
+          "source-name": "textInput-1",
+          "source-item-type": "property",
+          "source-item-name": "text",
+          "binding-type": "widget_property",
+          "from-expression": "app.view['PARTSandSERVICE'].wdg['textInput-1']['text']",
+          "to-property": "SearchString"
+        },
+        "name": "twx-databind"
+      }]
+    }, {
+      "attributes": {
+        "eventbind-id": "eb-1487250052905",
+        "src-type": "service",
+        "src-label": "ServiceInvokeComplete",
+        "src-name": "PTC.InService.Connector.VuforiaThing",
+        "src-event": "getSearch.serviceInvokeComplete",
+        "handler-type": "data",
+        "handler-name": "PTC.InService.Connector.VuforiaThing",
+        "handler-service": "getMedia",
+        "handler": "app.mdl.PTC.InService.Connector.VuforiaThing.svc.getMedia"
+      },
+      "name": "twx-eventbind",
+      "children": [{
+        "attributes": {
+          "name": "SearchString"
+        },
+        "name": "twx-event-data"
+      }, {
+        "attributes": {
+          "name": "InS_ID"
+        },
+        "name": "twx-event-data"
+      }, {
+        "attributes": {
+          "name": "Type"
+        },
+        "name": "twx-event-data"
+      }]
+    }]
+  }, {
+    "attributes": {
+      "name": "GriiipG1Data",
+      "twx-entity-type": "Things",
+      "twx-entity-name": "GriiipG1Data"
+    },
+    "name": "twx-model",
+    "children": [{
+      "attributes": {
+        "name": "GEAR",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"GEAR\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "Distancem",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"Distancem\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "Fuel_Presbar",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"Fuel_Presbar\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "GPS_Speedkmph",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"GPS_Speedkmph\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "LAP",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"LAP\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "RPM",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"RPM\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "THROTTLE",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"THROTTLE\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "HEADTEMP_Alert",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"HEADTEMP_Alert\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "Eng_Oil_TempC_Alert",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"Eng_Oil_TempC_Alert\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "OverHeating",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"OverHeating\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "Airflow_Constriction",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"Airflow_Constriction\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "TrackLocation",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"TrackLocation\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "TrackLocationImage",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"TrackLocationImage\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "OilLevelDecreasing",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"OilLevelDecreasing\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "LateralStiffnessTooFirm",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"LateralStiffnessTooFirm\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "BrakePress_Frontbar",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"BrakePress_Frontbar\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "BrakePress_Rearbar",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"BrakePress_Rearbar\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "Damper_FLmm",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"Damper_FLmm\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "Damper_FRmm",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"Damper_FRmm\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "Damper_RLmm",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"Damper_RLmm\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "Damper_RRmm",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"Damper_RRmm\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "Eng_Oil_Presbar",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"Eng_Oil_Presbar\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "Eng_Oil_TempC",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"Eng_Oil_TempC\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "HEADTEMP",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"HEADTEMP\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "Lateral_accg",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"Lateral_accg\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "LatStiffnessLeft",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"LatStiffnessLeft\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "LatStiffnessRight",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"LatStiffnessRight\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "Longitudinal_ag",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"Longitudinal_ag\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "LongStiffnessFront",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"LongStiffnessFront\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "LongStiffnessRear",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"LongStiffnessRear\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "Vertical_accg",
+        "twx-auto-refresh": "true",
+        "twx-model": "app.mdl[\"GriiipG1Data\"].properties[\"Vertical_accg\"]"
+      },
+      "name": "twx-model-property"
+    }, {
+      "attributes": {
+        "name": "GetPropertyValues",
+        "id": "GetPropertyValues"
+      },
+      "name": "twx-model-service"
+    }, {
+      "attributes": {
+        "name": "ResetAlert1",
+        "id": "ResetAlert1",
+        "twx-no-auto-select": ""
+      },
+      "name": "twx-model-service"
+    }, {
+      "attributes": {
+        "name": "OverHeatingService",
+        "id": "OverHeatingService"
+      },
+      "name": "twx-model-service"
+    }, {
+      "attributes": {
+        "name": "QueryAlertSummary",
+        "id": "QueryAlertSummary",
+        "twx-no-auto-select": "",
+        "on-app-load": ""
+      },
+      "name": "twx-model-service",
+      "children": [{
+        "attributes": {
+          "name": "onlyUnacknowledged",
+          "value": "true"
+        },
+        "name": "twx-service-parameter-value"
+      }, {
+        "attributes": {
+          "name": "onlyAcknowledged",
+          "value": ""
+        },
+        "name": "twx-service-parameter-value"
+      }]
+    }, {
+      "attributes": {
+        "name": "AcknowledgeAlert",
+        "id": "AcknowledgeAlert",
+        "twx-no-auto-select": ""
+      },
+      "name": "twx-model-service",
+      "children": [{
+        "attributes": {
+          "name": "message",
+          "value": "AR acknowledge"
+        },
+        "name": "twx-service-parameter-value"
+      }, {
+        "attributes": {
+          "databind-id": "db-1494007397065",
+          "source-type": "data",
+          "source-name": "GriiipG1Data",
+          "source-item-type": "service",
+          "source-item-name": "QueryAlertSummary",
+          "source-item-field-name": "sourceProperty",
+          "binding-type": "current_row_field",
+          "from-expression": "app.mdl['GriiipG1Data'].svc['QueryAlertSummary'].data.current['sourceProperty']",
+          "to-property": "property"
+        },
+        "name": "twx-databind"
+      }]
+    }, {
+      "attributes": {
+        "name": "ResetAlert2",
+        "id": "ResetAlert2"
+      },
+      "name": "twx-model-service"
+    }, {
+      "attributes": {
+        "name": "TrackLocationImageService",
+        "id": "TrackLocationImageService",
+        "twx-no-auto-select": ""
+      },
+      "name": "twx-model-service"
+    }, {
+      "attributes": {
+        "name": "ResetAlert3",
+        "id": "ResetAlert3"
+      },
+      "name": "twx-model-service"
+    }, {
+      "attributes": {
+        "name": "ResetAlert4",
+        "id": "ResetAlert4"
+      },
+      "name": "twx-model-service"
+    }]
+  }, {
+    "attributes": {
+      "name": "ThingMark",
+      "id": "vumark",
+      "isbound": "false",
+      "isdeletable": "false",
+      "value": ""
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "Thing Template",
+      "id": "template",
+      "isbound": "false",
+      "isdeletable": "false",
+      "value": ""
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "Thing",
+      "id": "thing",
+      "isbound": "false",
+      "isdeletable": "false",
+      "value": ""
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "Battery",
+      "id": "Battery",
+      "value": "80%"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "Fuel",
+      "id": "Fuel",
+      "value": "75%"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "Oil Pressure",
+      "id": "Oil Pressure",
+      "value": "Low"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "Engine Temperature",
+      "id": "Engine Temperature",
+      "value": "375°F"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "id": "SequenceURL",
+      "isbound": "false",
+      "isdeletable": "true",
+      "name": "SequenceURL",
+      "value": ""
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "id": "PVZModel",
+      "isbound": "false",
+      "isdeletable": "true",
+      "name": "PVZModel",
+      "value": ""
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "showTarget",
+      "id": "showTarget",
+      "value": "false"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "showPopup",
+      "id": "showPopup",
+      "value": "false"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "centerLeft",
+      "id": "centerLeft",
+      "value": "0"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "centerTop",
+      "id": "centerTop",
+      "value": "0"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "testValue",
+      "id": "testValue",
+      "value": ""
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "trackingState",
+      "id": "trackingState"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "testValueTmp",
+      "id": "testValueTmp"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "isSelectedPart",
+      "id": "isSelectedPart",
+      "value": "false"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "showInfo",
+      "id": "showInfo",
+      "value": "false"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "selectedItem",
+      "id": "selectedItem",
+      "value": ""
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "showDocument",
+      "id": "showDocument",
+      "value": "false"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "partDoc",
+      "id": "partDoc"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "selectedSearchTerm",
+      "id": "selectedSearchTerm",
+      "value": ""
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "vrMode",
+      "id": "vrMode",
+      "value": "false"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "partDocId",
+      "id": "partDocId",
+      "isbound": "false",
+      "isdeletable": "true",
+      "value": ""
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "partsListId",
+      "id": "partsListId",
+      "isbound": "false",
+      "isdeletable": "true",
+      "value": "PL_1011-00-00-00-000"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "partsListPath",
+      "id": "partsListPath",
+      "isbound": "false",
+      "isdeletable": "true",
+      "value": "/0"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "partsListIdPath",
+      "id": "partsListIdPath",
+      "isbound": "false",
+      "isdeletable": "true",
+      "value": "/PL_1011-00-00-00-000"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "showTOC",
+      "id": "showTOC",
+      "isbound": "false",
+      "isdeletable": "true",
+      "value": ""
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "selectedItemPath",
+      "id": "selectedItemPath",
+      "isbound": "false",
+      "isdeletable": "true",
+      "value": ""
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "name": "selectedPartId",
+      "id": "selectedPartId",
+      "isbound": "false",
+      "isdeletable": "true",
+      "value": ""
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "id": "showActionButtons",
+      "isbound": "false",
+      "isdeletable": "true",
+      "name": "showActionButtons",
+      "value": "false"
+    },
+    "name": "twx-app-param"
+  }],
+  "name": "twx-app-mdl"
+}
