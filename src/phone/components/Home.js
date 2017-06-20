@@ -700,6 +700,18 @@ $scope.loadScript("app/resources/Uploaded/cpc.js", function() {
   cpc = $scope.cpc;
 });
 
+function initTOC(tree, container) {
+  container.tree = tree;
+  container.byPath = {};
+  container.byText = {};
+}
+
+var toc = {};
+
+$http.get("app/resources/Uploaded/Griiip_LiveWorx2017_final.json").success(function(tree) {
+  initTOC(tree, toc);
+});
+
 //debugger;
 //var gll = require('app/resources/Uploaded/gl-matrix');
 //debugger;
