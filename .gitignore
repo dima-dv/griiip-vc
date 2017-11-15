@@ -8,6 +8,7 @@
 !LICENSE.md
 !appConfig.json
 !/src/
+!upgrade*.log
 #-- re-ignore default resources
 /src/phone/resources/Default/**
 #-- END OOTB GITIGNORE --#
