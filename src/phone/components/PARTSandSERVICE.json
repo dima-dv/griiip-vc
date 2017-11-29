@@ -12,9 +12,9 @@
       "attributes": {
         "twx-widget": "",
         "widget-id": "card-1",
-        "class": "bkimage",
         "widget-name": "card-1",
-        "is-widget-container": "true"
+        "is-widget-container": "true",
+        "class": "bkimage"
       },
       "name": "twx-card",
       "children": [{
@@ -100,8 +100,8 @@
                         "twx-widget": "",
                         "widget-id": "button-2",
                         "text": "Griiip Home",
-                        "class": "ARButton",
-                        "widget-name": "button-2"
+                        "widget-name": "button-2",
+                        "class": "ARButton"
                       },
                       "name": "twx-button",
                       "children": [{
@@ -156,8 +156,8 @@
                         "widget-id": "hyperlink-1",
                         "text": "InService Navigate",
                         "url": "{{getInServiceNavigateURL();}}",
-                        "class": "ARButton",
-                        "widget-name": "hyperlink-1"
+                        "widget-name": "hyperlink-1",
+                        "class": "ARButton"
                       },
                       "name": "twx-hyperlink"
                     }]
@@ -178,10 +178,10 @@
                   "attributes": {
                     "twx-widget": "",
                     "widget-id": "column-3",
-                    "class": "",
                     "alignment": "center",
                     "widget-name": "column-3",
-                    "is-widget-container": "true"
+                    "is-widget-container": "true",
+                    "class": ""
                   },
                   "name": "twx-col",
                   "children": [{
@@ -192,8 +192,8 @@
                         "widget-id": "hyperlink-2",
                         "text": "InService Home",
                         "url": "{{getInServiceURL();}}",
-                        "class": "ARButton",
-                        "widget-name": "hyperlink-2"
+                        "widget-name": "hyperlink-2",
+                        "class": "ARButton"
                       },
                       "name": "twx-hyperlink"
                     }]
@@ -245,14 +245,14 @@
                               "attributes": {
                                 "twx-widget": "",
                                 "widget-id": "column-7",
-                                "class": "searchbox",
                                 "justification": "space-around",
                                 "alignment": "flex-start",
                                 "fixedcolsize": "210px",
                                 "wrap": "no-wrap",
                                 "padding": "2px",
                                 "widget-name": "column-7",
-                                "is-widget-container": "true"
+                                "is-widget-container": "true",
+                                "class": "searchbox"
                               },
                               "name": "twx-col",
                               "children": [{
@@ -286,9 +286,9 @@
                                     "twx-widget": "",
                                     "widget-id": "button-1",
                                     "text": "Search InService",
-                                    "class": "ARButton",
                                     "margin": "",
-                                    "widget-name": "button-1"
+                                    "widget-name": "button-1",
+                                    "class": "ARButton"
                                   },
                                   "name": "twx-button",
                                   "children": [{
@@ -395,10 +395,10 @@
                       "attributes": {
                         "twx-widget": "",
                         "widget-id": "card-2",
-                        "class": "cardtitle",
                         "header": "PTC Servigistics InService Search Results",
                         "widget-name": "card-2",
-                        "is-widget-container": "true"
+                        "is-widget-container": "true",
+                        "class": "cardtitle"
                       },
                       "name": "twx-card",
                       "children": [{
@@ -433,9 +433,9 @@
                         "twx-widget": "",
                         "widget-id": "label-8",
                         "text": "Information Type",
-                        "class": "header1",
                         "state-format-value": "text",
-                        "widget-name": "label-8"
+                        "widget-name": "label-8",
+                        "class": "header1"
                       },
                       "name": "twx-label"
                     }]
@@ -455,9 +455,9 @@
                         "twx-widget": "",
                         "widget-id": "label-9",
                         "text": "Document Title/Link",
-                        "class": "header1",
                         "state-format-value": "text",
-                        "widget-name": "label-9"
+                        "widget-name": "label-9",
+                        "class": "header1"
                       },
                       "name": "twx-label"
                     }]

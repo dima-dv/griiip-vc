@@ -2,13 +2,13 @@
   "name": "GriiipVC",
   "projectType": "AR",
   "fileName": "GriiipVC",
-  "thingworxServer": "http://ddavidovich1d:2019",
+  "thingworxServer": "http://ddavidovich1d1:2019",
   "mainNavigationMenuStyle": "leftSideMenu",
   "mainNavigationMenuItems": [],
   "creator": "_unknown_",
   "theme": "twx-light",
   "hideExperienceHeader": false,
-  "version": "1.12.463",
+  "version": "1.20.752",
   "device": {
     "name": "tablet",
     "width": "1026px",
@@ -45,7 +45,7 @@
           "name": "PitCrewDashboard",
           "fileName": "PitCrewDashboard",
           "showInMainMenu": true,
-          "viewType": "ionic-2D",
+          "viewType": "mobile-2D",
           "title": "PitCrewDashboard"
         },
         {

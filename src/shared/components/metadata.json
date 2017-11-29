@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "requires": ["w320dp"],
   "experiences": [{
-    "xperienceType": "vumark",
     "index-keys": ["urn:vuforia:vumark:503:10"],
     "title": {
-      "en": "LiveWorx2017 Combined"
+      "en": "InService AR Demo"
     },
     "description": {
       "en": "",
@@ -18,7 +17,8 @@
     "viewName": "Griiip_Home",
     "url-template": "index.html?expIndex=0#/Griiip_Home?thing={{thingworx:thing}}&vumark={{vuforia:vumark}}",
     "thumbnail": "public/Uploaded/Griiip_Logo-updated-1-NO-BG.png",
-    "vumark": "503:10"
+    "vumark": "503:10",
+    "experienceType": "vumark"
   }],
   "accessType": "public"
 }

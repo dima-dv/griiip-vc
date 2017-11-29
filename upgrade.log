@@ -1,0 +1,69 @@
+2017-11-20T14:41:32.514Z - debug: [twx-studio:upgrade:GriiipVC] Begin upgrade of project GriiipVC
+2017-11-20T14:41:32.515Z - info: [twx-studio:upgrade:GriiipVC] Upgrading project GriiipVC D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\GriiipVC from 1.12.463 to 8.1.2 (1.20.752)
+2017-11-20T14:41:32.596Z - debug: [twx-studio:upgrade:GriiipVC] Rename xperienceType to experienceType for experience with title " LiveWorx2017 Combined "
+2017-11-20T14:41:32.603Z - debug: [twx-studio:upgrade:GriiipVC] Migrate the viewType contained in PitCrewDashboard view
+2017-11-20T14:41:32.603Z - debug: [twx-studio:upgrade:GriiipVC] Project settings before viewType rename:
+ {"name":"GriiipVC","projectType":"AR","fileName":"GriiipVC","thingworxServer":"http://ddavidovich1d:2019","mainNavigationMenuStyle":"leftSideMenu","mainNavigationMenuItems":[],"creator":"_unknown_","theme":"twx-light","hideExperienceHeader":false,"version":"1.12.463","device":{"name":"tablet","width":"1026px","height":"770px"},"state":{"orientation":"landscape"},"targets":{"phone":{"components":[{"name":"PARTSandSERVICE","fileName":"PARTSandSERVICE","showInMainMenu":true,"viewType":"ionic-2D","title":"PARTSandSERVICE"},{"name":"Griiip Home","fileName":"Griiip_Home","showInMainMenu":true,"viewType":"ionic-2D","title":"Griiip Home"},{"name":"Griiip 3D Service","fileName":"Griiip_3D_Service","showInMainMenu":true,"viewType":"ar","title":"Griiip 3D Service"},{"name":"PitCrewDashboard","fileName":"PitCrewDashboard","showInMainMenu":true,"viewType":"ionic-2D","title":"PitCrewDashboard"},{"name":"Home","fileName":"Home","showInMainMenu":true,"viewType":"ar","title":"Home"}],"images":[]},"shared":{"components":[{"name":"Data","fileName":"Data"}],"images":[],"styles":[{"name":"App","fileName":"App","fileExt":"scss"}]}},"thumbnail":"Uploaded/Griiip_Logo-updated-1-NO-BG.png","previewUrl":"http://localhost:3000/preview.html?project=${project}&format=${format}&orientation=${orientation}&phone=true","resourceDirectory":"src/phone/resources","resourceRuntimeDir":"app/resources","fontRuntimeDir":"../fonts","fontDesigntimeDir":"../dist/phone/fonts","viewType":"ar","allowSelfSignedCerts":true}
+2017-11-20T14:41:32.606Z - debug: [twx-studio:upgrade:GriiipVC] migrated viewType of view PitCrewDashboard from "ionic-2D" to "mobile-2D"
+2017-11-20T14:41:32.608Z - debug: [twx-studio:upgrade:GriiipVC] Make sure there are not any stale files lying around
+2017-11-20T14:41:32.608Z - debug: [twx-studio:upgrade:GriiipVC] Removing  D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\GriiipVC/css/
+2017-11-20T14:41:32.630Z - debug: [twx-studio:upgrade:GriiipVC] Removing  D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\GriiipVC/dist/
+2017-11-20T14:41:33.351Z - debug: [twx-studio:upgrade:GriiipVC] Removing  D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\GriiipVC/extensions/
+2017-11-20T14:41:33.387Z - debug: [twx-studio:upgrade:GriiipVC] Removing  D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\GriiipVC/preview3d/
+2017-11-20T14:41:33.389Z - debug: [twx-studio:upgrade:GriiipVC] Removing  D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\GriiipVC/src/phone/resources/Default/
+2017-11-20T14:41:33.441Z - debug: [twx-studio:upgrade:GriiipVC] Removing  D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\GriiipVC/theme/
+2017-11-20T14:41:33.466Z - debug: [twx-studio:upgrade:GriiipVC] Merging  D:\Projects\ves-ar-project\src\ar\.gitignore.template with D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\GriiipVC\.gitignore
+2017-11-20T14:41:33.466Z - debug: [twx-studio:upgrade:GriiipVC] Original contents of D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\GriiipVC\.gitignore
+#-- BEGIN OOTB GITIGNORE --#
+# Do not modify contents between BEGIN and END, it will be replaced on upgrade
+#-- ignore everything
+/*
+#-- unignore files that should be source controlled
+!.gitignore
+!README.md
+!LICENSE.md
+!appConfig.json
+!/src/
+!upgrade*.log
+#-- re-ignore default resources
+/src/phone/resources/Default/**
+#-- END OOTB GITIGNORE --#
+
+2017-11-20T14:41:33.468Z - debug: [twx-studio:upgrade:GriiipVC] Copying /src/**/* to project, overwrite=false
+2017-11-20T14:41:33.468Z - debug: [twx-studio:upgrade:GriiipVC] Copying /**/* to project, skip /src/**/*,  overwrite=true
+2017-11-20T14:41:33.590Z - debug: [twx-studio:upgrade:GriiipVC] Copy of project files complete
+2017-11-20T14:41:33.590Z - debug: [twx-studio:upgrade:GriiipVC] Updating version to  8.1.2 (1.20.752)
+2017-11-20T14:41:33.590Z - debug: [twx-studio:upgrade:GriiipVC] onupgrade sucessful, now build the project
+2017-11-20T14:41:33.590Z - debug: [twx-studio:upgrade:GriiipVC] BEGIN buildApp GriiipVC_1511188893590
+2017-11-20T14:41:33.590Z - debug: [twx-studio:upgrade:GriiipVC] write settings
+2017-11-20T14:41:33.591Z - debug: [twx-studio:upgrade:GriiipVC] copy runtime extensions
+2017-11-20T14:41:33.638Z - debug: [twx-studio:upgrade:GriiipVC] packageThemeSet
+2017-11-20T14:41:34.317Z - debug: [twx-studio:upgrade:GriiipVC] onBuild
+2017-11-20T14:41:34.318Z - info: [twx-studio:upgrade:GriiipVC] Building ves-ar-extension app: GriiipVC
+2017-11-20T14:41:34.333Z - debug: [twx-studio:upgrade:GriiipVC] pathDir D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\GriiipVC
+2017-11-20T14:41:34.333Z - debug: [twx-studio:upgrade:GriiipVC] scaffoldDir D:\Projects\ves-ar-project\src\src-scaffold
+2017-11-20T14:41:34.334Z - debug: [twx-studio:upgrade:GriiipVC] copySrc
+2017-11-20T14:41:35.188Z - debug: [twx-studio:upgrade:GriiipVC] buildApp
+2017-11-20T14:41:35.783Z - debug: [twx-studio:upgrade:GriiipVC] END buildApp GriiipVC_1511188893590
+2017-11-20T14:41:35.783Z - debug: [twx-studio:upgrade:GriiipVC] Build succeeded.
+2017-11-21T14:34:35.888Z - debug: [twx-studio:upgrade:GriiipVC] Begin upgrade of project GriiipVC
+2017-11-21T14:34:35.891Z - info: [twx-studio:upgrade:GriiipVC] Upgrading project GriiipVC D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\GriiipVC from 8.1.2 (1.20.752) to 8.1.2 (1.20.752)
+2017-11-21T14:34:35.970Z - debug: [twx-studio:upgrade:GriiipVC] Make sure there are not any stale files lying around
+2017-11-21T14:34:35.971Z - debug: [twx-studio:upgrade:GriiipVC] Removing  D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\GriiipVC/src/phone/resources/Default/
+2017-11-21T14:34:36.001Z - debug: [twx-studio:upgrade:GriiipVC] Copying /src/**/* to project, overwrite=false
+2017-11-21T14:34:36.002Z - debug: [twx-studio:upgrade:GriiipVC] Copying /**/* to project, skip /src/**/*,  overwrite=true
+2017-11-21T14:34:36.359Z - debug: [twx-studio:upgrade:GriiipVC] Copy of project files complete
+2017-11-21T14:34:36.359Z - debug: [twx-studio:upgrade:GriiipVC] Updating version to  8.1.2 (1.20.752)
+2017-11-21T14:34:36.359Z - debug: [twx-studio:upgrade:GriiipVC] onupgrade sucessful, now build the project
+2017-11-21T14:34:36.360Z - debug: [twx-studio:upgrade:GriiipVC] BEGIN buildApp GriiipVC_1511274876360
+2017-11-21T14:34:36.360Z - debug: [twx-studio:upgrade:GriiipVC] write settings
+2017-11-21T14:34:36.361Z - debug: [twx-studio:upgrade:GriiipVC] copy runtime extensions
+2017-11-21T14:34:36.410Z - debug: [twx-studio:upgrade:GriiipVC] packageThemeSet
+2017-11-21T14:34:37.002Z - debug: [twx-studio:upgrade:GriiipVC] onBuild
+2017-11-21T14:34:37.003Z - info: [twx-studio:upgrade:GriiipVC] Building ves-ar-extension app: GriiipVC
+2017-11-21T14:34:37.023Z - debug: [twx-studio:upgrade:GriiipVC] pathDir D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\GriiipVC
+2017-11-21T14:34:37.023Z - debug: [twx-studio:upgrade:GriiipVC] scaffoldDir D:\Projects\ves-ar-project\src\src-scaffold
+2017-11-21T14:34:37.024Z - debug: [twx-studio:upgrade:GriiipVC] copySrc
+2017-11-21T14:34:37.440Z - debug: [twx-studio:upgrade:GriiipVC] buildApp
+2017-11-21T14:34:38.019Z - debug: [twx-studio:upgrade:GriiipVC] END buildApp GriiipVC_1511274876360
+2017-11-21T14:34:38.019Z - debug: [twx-studio:upgrade:GriiipVC] Build succeeded.

@@ -89,7 +89,6 @@
       "attributes": {
         "twx-widget": "",
         "widget-id": "2DOverlay-1",
-        "visible": "true",
         "widget-name": "2D Overlay",
         "is-widget-container": "true"
       },
@@ -100,12 +99,12 @@
           "attributes": {
             "twx-widget": "",
             "widget-id": "targetMark",
-            "class": "targetMark",
             "imgsrc": "Uploaded/location-512.png",
             "width": "50px",
             "height": "50px",
             "visible": "false",
-            "widget-name": "targetIcon"
+            "widget-name": "targetIcon",
+            "class": "targetMark"
           },
           "name": "twx-image2",
           "children": [{
@@ -591,13 +590,13 @@
               "attributes": {
                 "twx-widget": "",
                 "widget-id": "TOC-panel",
-                "class": "toc-panel semi-transparent my-border",
                 "width": "350px",
                 "height": "545px",
                 "wrap": "nowrap",
                 "visible": "false",
                 "widget-name": "TOC panel",
-                "is-widget-container": "true"
+                "is-widget-container": "true",
+                "class": "toc-panel semi-transparent my-border"
               },
               "name": "twx-panel",
               "children": [{
@@ -618,9 +617,9 @@
                   "attributes": {
                     "twx-widget": "",
                     "widget-id": "gridLayout-9",
-                    "class": "toc-grid",
                     "widget-name": "gridLayout-9",
-                    "is-widget-container": "true"
+                    "is-widget-container": "true",
+                    "class": "toc-grid"
                   },
                   "name": "twx-gridlayout",
                   "children": [{
@@ -653,11 +652,11 @@
                               "attributes": {
                                 "twx-widget": "",
                                 "widget-id": "repeater-1",
-                                "class": "toc-repeater",
                                 "selection": "true",
                                 "widget-name": "repeater-1",
                                 "itemclick-expression": "selectItemByPath('model-2'+ app.params.partsListPath + '/' + app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getPartsListPartInfoAggregate.data.current.itemNumber); app.params.selectedPartId=app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getPartsListPartInfoAggregate.data.current.partID; app.params.selectedSearchTerm=app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getPartsListPartInfoAggregate.data.current.partNumber;",
-                                "is-widget-repeater": "true"
+                                "is-widget-repeater": "true",
+                                "class": "toc-repeater"
                               },
                               "name": "twx-repeater",
                               "children": [{
@@ -712,13 +711,13 @@
                                               "attributes": {
                                                 "twx-widget": "",
                                                 "widget-id": "image-1",
-                                                "class": "my-button",
                                                 "imgsrc": "Uploaded/add-circular-button.svg",
                                                 "width": "25px",
                                                 "height": "25px",
                                                 "visible": "false",
                                                 "widget-name": "image-1",
-                                                "click-expression": "event.stopPropagation();getGlobalEvent().stopPropagation();tocDown(item.position-1)"
+                                                "click-expression": "event.stopPropagation();getGlobalEvent().stopPropagation();tocDown(item.position-1)",
+                                                "class": "my-button"
                                               },
                                               "name": "twx-image2",
                                               "children": [{
@@ -756,13 +755,13 @@
                                               "attributes": {
                                                 "twx-widget": "",
                                                 "widget-id": "image-toc-1",
-                                                "class": "toc-icon",
                                                 "src": "{{createImageURL(item.partID,'regular',app.mdl['PTC.InService.Connector.VuforiaThing'].properties.serverURL, app.mdl['PTC.InService.Connector.VuforiaThing'].properties.authHeader)}}",
                                                 "background-color": "Transparent",
                                                 "width": "50px",
                                                 "height": "50px",
                                                 "image-align": "center",
-                                                "widget-name": "image-toc-1"
+                                                "widget-name": "image-toc-1",
+                                                "class": "toc-icon"
                                               },
                                               "name": "twx-image"
                                             }]
@@ -771,12 +770,12 @@
                                           "attributes": {
                                             "twx-widget": "",
                                             "widget-id": "column-44",
-                                            "class": "my-text-wrap",
                                             "flexdirection": "row",
                                             "alignment": "flex-start",
                                             "fixedcolsize": "240px",
                                             "widget-name": "column-44",
-                                            "is-widget-container": "true"
+                                            "is-widget-container": "true",
+                                            "class": "my-text-wrap"
                                           },
                                           "name": "twx-col",
                                           "children": [{
@@ -785,9 +784,9 @@
                                               "attributes": {
                                                 "twx-widget": "",
                                                 "widget-id": "label-17",
-                                                "class": "simple-label tocitem-title-label",
                                                 "state-format-value": "text",
-                                                "widget-name": "label-17"
+                                                "widget-name": "label-17",
+                                                "class": "simple-label tocitem-title-label"
                                               },
                                               "name": "twx-label",
                                               "children": [{
@@ -843,13 +842,13 @@
                               "attributes": {
                                 "twx-widget": "",
                                 "widget-id": "tocUpButton",
-                                "class": "my-button",
                                 "imgsrc": "Uploaded/back.svg",
                                 "width": "48px",
                                 "height": "58px",
                                 "padding": "10px 0px 0px 0px",
                                 "widget-name": "tocUpButton",
-                                "click-expression": "tocUp()"
+                                "click-expression": "tocUp()",
+                                "class": "my-button"
                               },
                               "name": "twx-image2",
                               "children": [{
@@ -889,12 +888,12 @@
               "attributes": {
                 "twx-widget": "",
                 "widget-id": "Doc-panel",
-                "class": "part-doc semi-transparent my-border",
                 "width": "940px",
                 "height": "525px",
                 "visible": "false",
                 "widget-name": "Doc panel",
-                "is-widget-container": "true"
+                "is-widget-container": "true",
+                "class": "part-doc semi-transparent my-border"
               },
               "name": "twx-panel",
               "children": [{
@@ -968,9 +967,9 @@
                     "twx-widget": "",
                     "widget-id": "gridLayout-5",
                     "visible": "false",
-                    "class": "part-card semi-transparent my-border",
                     "widget-name": "partGrid",
-                    "is-widget-container": "true"
+                    "is-widget-container": "true",
+                    "class": "part-card semi-transparent my-border"
                   },
                   "name": "twx-gridlayout",
                   "children": [{
@@ -1011,10 +1010,10 @@
                               "attributes": {
                                 "twx-widget": "",
                                 "widget-id": "label-15",
-                                "class": "simple-label part-header",
                                 "state-format-value": "text",
                                 "padding": "10px",
-                                "widget-name": "label-15"
+                                "widget-name": "label-15",
+                                "class": "simple-label part-header"
                               },
                               "name": "twx-label",
                               "children": [{
@@ -1058,10 +1057,10 @@
                               "attributes": {
                                 "twx-widget": "",
                                 "widget-id": "valueDisplay-2",
-                                "class": "simple-label value-display",
                                 "state-format-value": "value",
                                 "label": "Name",
-                                "widget-name": "valueDisplay-2"
+                                "widget-name": "valueDisplay-2",
+                                "class": "simple-label value-display"
                               },
                               "name": "twx-valuedisplay",
                               "children": [{
@@ -1106,10 +1105,10 @@
                               "attributes": {
                                 "twx-widget": "",
                                 "widget-id": "valueDisplay-3",
-                                "class": "simple-label value-display",
                                 "state-format-value": "value",
                                 "label": "Number",
-                                "widget-name": "valueDisplay-3"
+                                "widget-name": "valueDisplay-3",
+                                "class": "simple-label value-display"
                               },
                               "name": "twx-valuedisplay",
                               "children": [{
@@ -1215,12 +1214,12 @@
                                       "attributes": {
                                         "twx-widget": "",
                                         "widget-id": "toggleButton-5",
-                                        "class": "my-button",
                                         "src": "Default/thing_code.png",
                                         "srcnotpressed": "Default/thing_code_phantom.png",
                                         "background-color": "Transparent",
                                         "background-color-pressed": "rgba(128,128,128,0.5);",
-                                        "widget-name": "toggleButton-5"
+                                        "widget-name": "toggleButton-5",
+                                        "class": "my-button"
                                       },
                                       "name": "twx-toggle-button",
                                       "children": [{
@@ -1318,13 +1317,13 @@
                                       "attributes": {
                                         "twx-widget": "",
                                         "widget-id": "resourceImage-1",
-                                        "class": "my-button",
                                         "imgsrc": "Default/vu_lightbulb.svg",
                                         "width": "48px",
                                         "height": "58px",
                                         "visible": "false",
                                         "widget-name": "fireDebugEvent",
-                                        "click-expression": "test()"
+                                        "click-expression": "test()",
+                                        "class": "my-button"
                                       },
                                       "name": "twx-image2",
                                       "children": [{
@@ -1358,13 +1357,13 @@
                                       "attributes": {
                                         "twx-widget": "",
                                         "widget-id": "toggleButton-2",
-                                        "class": "my-button",
                                         "src": "Uploaded/three.svg",
                                         "srcnotpressed": "Uploaded/three.svg",
                                         "background-color": "rgba(128,128,128,0.5);",
                                         "background-color-pressed": "rgba(192,192,192,0.7);",
                                         "visible": "false",
-                                        "widget-name": "showDebug"
+                                        "widget-name": "showDebug",
+                                        "class": "my-button"
                                       },
                                       "name": "twx-toggle-button",
                                       "children": [{
@@ -1412,13 +1411,13 @@
                                       "attributes": {
                                         "twx-widget": "",
                                         "widget-id": "resourceImage-2",
-                                        "class": "my-button",
                                         "imgsrc": "Uploaded/arrows.svg",
                                         "backgroundcolor": "rgba(0,128,0,0.7);",
                                         "width": "48px",
                                         "height": "58px",
                                         "visible": "false",
-                                        "widget-name": "refreshButton"
+                                        "widget-name": "refreshButton",
+                                        "class": "my-button"
                                       },
                                       "name": "twx-image2",
                                       "children": [{
@@ -1454,13 +1453,13 @@
                                       "attributes": {
                                         "twx-widget": "",
                                         "widget-id": "toggleButton-4",
-                                        "class": "my-button",
                                         "src": "Uploaded/tool.svg",
                                         "srcnotpressed": "Uploaded/tool.svg",
                                         "background-color": "rgba(0,128,0,0.7);",
                                         "background-color-pressed": "rgba(0,192,0,0.7);",
                                         "visible": "false",
-                                        "widget-name": "showDoc"
+                                        "widget-name": "showDoc",
+                                        "class": "my-button"
                                       },
                                       "name": "twx-toggle-button",
                                       "children": [{
@@ -1553,13 +1552,13 @@
                                       "attributes": {
                                         "twx-widget": "",
                                         "widget-id": "toggleButton-3",
-                                        "class": "my-button",
                                         "src": "Uploaded/chat-circular-outlined-interface-button.svg",
                                         "srcnotpressed": "Uploaded/chat-circular-outlined-interface-button.svg",
                                         "background-color": "rgba(0,128,0,0.7);",
                                         "background-color-pressed": "rgba(0,192,0,0.7);",
                                         "visible": "false",
-                                        "widget-name": "showInfo"
+                                        "widget-name": "showInfo",
+                                        "class": "my-button"
                                       },
                                       "name": "twx-toggle-button",
                                       "children": [{
@@ -1638,12 +1637,12 @@
                                       "attributes": {
                                         "twx-widget": "",
                                         "widget-id": "showTarget",
-                                        "class": "my-button",
                                         "src": "Uploaded/add-circular-button.svg",
                                         "srcnotpressed": "Uploaded/add-circular-button.svg",
                                         "background-color": "rgba(0,128,0,0.7);",
                                         "background-color-pressed": "rgba(0,192,0,0.7);",
-                                        "widget-name": "showTarget"
+                                        "widget-name": "showTarget",
+                                        "class": "my-button"
                                       },
                                       "name": "twx-toggle-button",
                                       "children": [{
@@ -1690,12 +1689,12 @@
                                       "attributes": {
                                         "twx-widget": "",
                                         "widget-id": "showTOC",
-                                        "class": "my-button",
                                         "src": "Uploaded/back.svg",
                                         "srcnotpressed": "Uploaded/back.svg",
                                         "background-color": "rgba(0,128,0,0.7);",
                                         "background-color-pressed": "rgba(0,192,0,0.7);",
-                                        "widget-name": "showTOC"
+                                        "widget-name": "showTOC",
+                                        "class": "my-button"
                                       },
                                       "name": "twx-toggle-button",
                                       "children": [{

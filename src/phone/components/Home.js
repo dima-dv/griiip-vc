@@ -284,7 +284,9 @@ $scope.test = function(obj) {
   $scope.$emit("tracking", args);
 }
 
+// selected modelItem id (not in use)
 $scope.app.params.selectedItem = "";
+
 var modelName = "model-2";
 
 var item2id = {};
@@ -700,10 +702,86 @@ $scope.loadScript("app/resources/Uploaded/cpc.js", function() {
   cpc = $scope.cpc;
 });
 
-function initTOC(tree, container) {
+function initTOC(tree, container, textFilter) {
   container.tree = tree;
   container.byPath = {};
-  container.byText = {};
+  container.byKey = {};
+
+  let combine = function () {
+    let functions = arguments;
+    return (function() {
+      let that = this;
+      functions.forEach(function(f) {
+        if(typeof f === 'function') {
+          f.call(that, arguments);
+        }
+      });
+    });
+  };
+
+  let TreeIterator = function (pre, post) {
+    this.pre = pre;
+    this.post = post;
+  };
+
+  TreeIterator.prototype.iterate = function(node) {
+    if(this.pre) {
+      this.pre(node);
+    }
+    if(node.sub && node.sub.length > 0) {
+      node.sub.forEach(this.iterate, this);
+    }
+    if(this.post) {
+      this.post(node);
+    }
+  };
+
+  let preParent = function(node) {
+    if(this.parent) {
+      node.parent = this.parent;
+    }
+    this.parent = node;
+  }
+
+  let postParent = function(node) {
+    this.parent = node.parent;
+  }
+
+  let setPath = function(node) {
+    let parentPath;
+    if(node.parent && node.parent.path) {
+      parentPath = node.parent.path;
+    }
+
+    if(parentPath && (node.order || node.order === 0)) {
+      node.path = parentPath + '/' + node.order;
+    } else if(parentPath) {
+      node.path = parentPath;
+    } else if(node.order || node.order === 0) {
+      node.path = '/' + node.order;
+    } else if(node.path) {
+      delete node.path;
+    }
+  };
+
+  let setKey = function(node) {
+    if(textFilter) {
+      node.key = textFilter(node.text);
+    } else {
+      node.key = node.text;
+    }
+  }
+
+  let registerByKey = function(node) {
+    container.byKey[node.key] = node;
+  }
+
+  let registerByPath = function(node) {
+    container.byPath[node.path] = node;
+  }
+
+  let iter = new TreeIterator(combine(preParent, setPath, setKey, registerByKey, registerByPath), postParent);
+  iter.iterate(container.tree);
 }
 
 var toc = {};
