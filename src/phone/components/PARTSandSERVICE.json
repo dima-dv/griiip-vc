@@ -103,28 +103,7 @@
                         "widget-name": "button-2",
                         "class": "ARButton"
                       },
-                      "name": "twx-button",
-                      "children": [{
-                        "attributes": {
-                          "eventbind-id": "eb-1489701456133",
-                          "src-type": "widget",
-                          "src-label": "Button",
-                          "src-name": "button-2",
-                          "src-event": "click",
-                          "handler-namespace": "app",
-                          "handler-name": "fn",
-                          "handler-service": "navigate",
-                          "handler": "app-fn-navigate"
-                        },
-                        "name": "twx-eventbind",
-                        "children": [{
-                          "attributes": {
-                            "name": "viewname",
-                            "value": "Toro"
-                          },
-                          "name": "twx-event-data"
-                        }]
-                      }]
+                      "name": "twx-button"
                     }]
                   }]
                 }]

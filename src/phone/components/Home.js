@@ -706,14 +706,18 @@ function initTOC(tree, container, textFilter) {
   container.tree = tree;
   container.byPath = {};
   container.byKey = {};
+  if(textFilter) {
+    container.keyGenerator = textFilter;
+  }
 
   let combine = function () {
-    let functions = arguments;
+    let functions = Array.from(arguments);
     return (function() {
       let that = this;
+      let args = arguments;
       functions.forEach(function(f) {
         if(typeof f === 'function') {
-          f.call(that, arguments);
+          f.apply(that, args);
         }
       });
     });
@@ -777,17 +781,34 @@ function initTOC(tree, container, textFilter) {
   }
 
   let registerByPath = function(node) {
-    container.byPath[node.path] = node;
+    container.byPath[node.path || ""] = node;
   }
 
   let iter = new TreeIterator(combine(preParent, setPath, setKey, registerByKey, registerByPath), postParent);
   iter.iterate(container.tree);
 }
 
-var toc = {};
+class TOC {
+  constructor(tree, keyGenerator) {
+    initTOC(tree, this, keyGenerator);
+  }
+
+  getNodeByPath(path) {
+    return this.byPath[path];
+  }
+
+  getNodeByKey(key) {
+    return this.byKey[key];
+  }
+
+  getNodeByText(text) {
+    let key = this.keyGenerator ? this.keyGenerator(text) : text;
+    return getNodeByKey(key);
+  }
+}
 
 $http.get("app/resources/Uploaded/Griiip_LiveWorx2017_final.json").success(function(tree) {
-  initTOC(tree, toc);
+  $scope.toc = new TOC(tree[0]);
 });
 
 //debugger;
