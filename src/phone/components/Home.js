@@ -68,7 +68,7 @@ if(!$scope.app.params.partsListPath) {
   $scope.app.params.partsListPath="";
 } 
 
-$scope.tocUp = function() {
+$scope.tocUp = function () {
   var lastSlash = $scope.app.params.partsListIdPath.lastIndexOf("/");
   if(lastSlash > 1) {
     $scope.app.params.partsListIdPath = $scope.app.params.partsListIdPath.substr(0, lastSlash);
@@ -79,13 +79,42 @@ $scope.tocUp = function() {
   }
 }
 
-$scope.tocDown = function(index) {
+$scope.tocDown = function (index) {
   if($scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getPartsListPartInfoAggregate.data && 
      (index < $scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getPartsListPartInfoAggregate.data.length) && 
      $scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getPartsListPartInfoAggregate.data[index].hasAssociatedPartsLists) {
     $scope.app.params.partsListPath += "/" +  $scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getPartsListPartInfoAggregate.data[index].itemNumber;
   	$scope.app.params.partsListIdPath += "/" + $scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getPartsListPartInfoAggregate.data[index].associatedPartsList;
     $scope.app.params.partsListId = $scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getPartsListPartInfoAggregate.data[index].associatedPartsList;
+  }
+}
+
+$scope.text2key = function (text) {
+  return text.replace(/\.(?:asm|prt)/i,"");
+}
+
+$scope.key2PartsListId = function (key) {
+  return 'PL_' + key;
+}
+
+$scope.key2PartId = function (key) {
+  return 'PA_' + key;
+}
+
+$scope.getPartsListIdPath = function (node) {
+  let res = "";
+  while(node) {
+    res = '/' + $scope.key2PartsListId(node.key) + res;
+    node = node.parent;
+  }
+  return res;
+}
+
+$scope.setToc = function (node) {
+  if($scope.app.params.partsListPath !== node.path) {
+    $scope.app.params.partsListPath = node.path;
+    $scope.app.params.partsListIdPath = $scope.getPartsListIdPath(node);
+    $scope.app.params.partsListId = $scope.key2PartsListId(node.key);
   }
 }
 
@@ -540,7 +569,15 @@ $scope.$watch("app.params.selectedItemPath", function (newValue, oldValue, $scop
     targetPath = modelName + "-" + idpath;
     $scope.selectRendererObj(targetPath);
 
-    if(item2id.hasOwnProperty(idpath)) {
+    let node;
+    if($scope.toc && (node = $scope.toc.getNodeByPath(idpath))) {
+      $scope.app.params.selectedPartId = $scope.key2PartId(node.key);
+      $scope.app.params.selectedSearchTerm = node.key;
+      if(node.parent) {
+        $scope.setToc(node.parent);
+      }
+      $scope.$applyAsync();
+    } else if(item2id.hasOwnProperty(idpath)) {
       $scope.app.params.selectedPartId = item2id[idpath].part;
       $scope.app.params.selectedSearchTerm = item2id[idpath].term;
       $scope.$applyAsync();
@@ -777,7 +814,10 @@ function initTOC(tree, container, textFilter) {
   }
 
   let registerByKey = function(node) {
-    container.byKey[node.key] = node;
+    if(!container.byKey[node.key]) {
+      container.byKey[node.key] = [];
+    }
+    container.byKey[node.key].push(node);
   }
 
   let registerByPath = function(node) {
@@ -797,18 +837,18 @@ class TOC {
     return this.byPath[path];
   }
 
-  getNodeByKey(key) {
+  getNodesByKey(key) {
     return this.byKey[key];
   }
 
-  getNodeByText(text) {
+  getNodesByText(text) {
     let key = this.keyGenerator ? this.keyGenerator(text) : text;
-    return getNodeByKey(key);
+    return getNodesByKey(key);
   }
 }
 
 $http.get("app/resources/Uploaded/Griiip_LiveWorx2017_final.json").success(function(tree) {
-  $scope.toc = new TOC(tree[0]);
+  $scope.toc = new TOC(tree[0], $scope.text2key);
 });
 
 //debugger;
