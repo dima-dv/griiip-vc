@@ -4,8 +4,6 @@
 /*
 #-- unignore files that should be source controlled
 !.gitignore
-!README.md
-!LICENSE.md
 !appConfig.json
 !/src/
 !upgrade*.log

@@ -1,9 +1,9 @@
 {
-  "name": "GriiipVC",
+  "name": "Cytropac",
   "projectType": "AR",
-  "fileName": "GriiipVC",
+  "fileName": "Cytropac",
   "thingworxServer": "http://ddavidovich1d1:2019",
-  "mainNavigationMenuStyle": "leftSideMenu",
+  "mainNavigationMenuStyle": "noMenu",
   "mainNavigationMenuItems": [],
   "creator": "_unknown_",
   "theme": "twx-light",
@@ -11,43 +11,15 @@
   "version": "1.20.752",
   "device": {
     "name": "tablet",
-    "width": "1026px",
-    "height": "770px"
+    "width": "770px",
+    "height": "1026px"
   },
   "state": {
-    "orientation": "landscape"
+    "orientation": "portrait"
   },
   "targets": {
     "phone": {
       "components": [
-        {
-          "name": "PARTSandSERVICE",
-          "fileName": "PARTSandSERVICE",
-          "showInMainMenu": true,
-          "viewType": "ionic-2D",
-          "title": "PARTSandSERVICE"
-        },
-        {
-          "name": "Griiip Home",
-          "fileName": "Griiip_Home",
-          "showInMainMenu": true,
-          "viewType": "ionic-2D",
-          "title": "Griiip Home"
-        },
-        {
-          "name": "Griiip 3D Service",
-          "fileName": "Griiip_3D_Service",
-          "showInMainMenu": true,
-          "viewType": "ar",
-          "title": "Griiip 3D Service"
-        },
-        {
-          "name": "PitCrewDashboard",
-          "fileName": "PitCrewDashboard",
-          "showInMainMenu": true,
-          "viewType": "mobile-2D",
-          "title": "PitCrewDashboard"
-        },
         {
           "name": "Home",
           "fileName": "Home",
@@ -75,7 +47,7 @@
       ]
     }
   },
-  "thumbnail": "Uploaded/Griiip_Logo-updated-1-NO-BG.png",
+  "thumbnail": "Uploaded/Cytropac.png",
   "previewUrl": "http://localhost:3000/preview.html?project=${project}&format=${format}&orientation=${orientation}&phone=true",
   "resourceDirectory": "src/phone/resources",
   "resourceRuntimeDir": "app/resources",

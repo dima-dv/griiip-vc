@@ -11,12 +11,12 @@
       "en": "",
       "en-US": ""
     },
-    "requires": [],
+    "requires": ["AR-tracking"],
     "tags": [],
     "icon": "",
-    "viewName": "Griiip_Home",
-    "url-template": "index.html?expIndex=0#/Griiip_Home?thing={{thingworx:thing}}&vumark={{vuforia:vumark}}",
-    "thumbnail": "public/Uploaded/Griiip_Logo-updated-1-NO-BG.png",
+    "viewName": "Home",
+    "url-template": "index.html?expIndex=0#/Home?thing={{thingworx:thing}}&vumark={{vuforia:vumark}}",
+    "thumbnail": "public/Uploaded/Cytropac.png",
     "vumark": "503:10",
     "experienceType": "vumark"
   }],
