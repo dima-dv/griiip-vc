@@ -48,41 +48,41 @@
           "attributes": {
             "twx-widget": "",
             "widget-id": "model-2",
-            "src": "Uploaded/Griiip_New_optimized_merge_ISO90_2_SinglePOD_Low.pvz",
-            "y": "0.06",
-            "z": "1.455",
-            "ry": "90",
-            "rz": "90",
             "widget-name": "model-2",
             "modelloaded-expression": "initModel()"
           },
-          "name": "twx-dt-model"
+          "name": "twx-dt-model",
+          "children": [{
+            "attributes": {
+              "databind-id": "db-1512485224709",
+              "source-type": "data",
+              "source-name": "pvzName",
+              "source-item-type": "value",
+              "source-item-name": "pvzName",
+              "binding-type": "custom_field",
+              "from-expression": "app.params['pvzName']",
+              "to-property": "src"
+            },
+            "name": "twx-databind",
+            "children": [{
+              "attributes": {
+                "filter-id": "df-1512485257521",
+                "filter-name": "createUrl",
+                "filter-body": "return '/ExperienceService/content/reps/' + value +'.pvz'"
+              },
+              "name": "twx-data-filter"
+            }]
+          }]
         }, {
           "attributes": {
             "twx-widget": "",
             "widget-id": "thingMark-2",
-            "width": "0.114",
-            "y": "0.76",
-            "z": "0.08",
-            "rx": "-4.5",
-            "ry": "1",
+            "width": "0.0508",
+            "rx": "0",
             "tracking-indicator": "true",
             "widget-name": "thingMark-2"
           },
-          "name": "twx-dt-target",
-          "children": [{
-            "attributes": {
-              "databind-id": "db-1494331567387",
-              "source-type": "data",
-              "source-name": "vumark",
-              "source-item-type": "value",
-              "source-item-name": "vumark",
-              "binding-type": "custom_field",
-              "from-expression": "app.params['vumark']",
-              "to-property": "markerId"
-            },
-            "name": "twx-databind"
-          }]
+          "name": "twx-dt-target"
         }]
       }]
     }, {
@@ -181,7 +181,20 @@
                             "state-format-value": "text",
                             "widget-name": "p_x"
                           },
-                          "name": "twx-label"
+                          "name": "twx-label",
+                          "children": [{
+                            "attributes": {
+                              "databind-id": "db-1512489547461",
+                              "source-type": "data",
+                              "source-name": "pvzName",
+                              "source-item-type": "value",
+                              "source-item-name": "pvzName",
+                              "binding-type": "custom_field",
+                              "from-expression": "app.params['pvzName']",
+                              "to-property": "text"
+                            },
+                            "name": "twx-databind"
+                          }]
                         }]
                       }]
                     }, {
@@ -547,7 +560,20 @@
                             "state-format-value": "text",
                             "widget-name": "diff"
                           },
-                          "name": "twx-label"
+                          "name": "twx-label",
+                          "children": [{
+                            "attributes": {
+                              "databind-id": "db-1512479413677",
+                              "source-type": "data",
+                              "source-name": "vumark",
+                              "source-item-type": "value",
+                              "source-item-name": "vumark",
+                              "binding-type": "custom_field",
+                              "from-expression": "app.params['vumark']",
+                              "to-property": "text"
+                            },
+                            "name": "twx-databind"
+                          }]
                         }]
                       }]
                     }, {
@@ -567,7 +593,28 @@
                             "state-format-value": "text",
                             "widget-name": "label-8"
                           },
-                          "name": "twx-label"
+                          "name": "twx-label",
+                          "children": [{
+                            "attributes": {
+                              "databind-id": "db-1512489616089",
+                              "source-type": "data",
+                              "source-name": "pvzName",
+                              "source-item-type": "value",
+                              "source-item-name": "pvzName",
+                              "binding-type": "custom_field",
+                              "from-expression": "app.params['pvzName']",
+                              "to-property": "text"
+                            },
+                            "name": "twx-databind",
+                            "children": [{
+                              "attributes": {
+                                "filter-id": "df-1512489651153",
+                                "filter-name": "createUrl",
+                                "filter-body": "return '/ExperienceService/content/reps/' + value +'.pvz'"
+                              },
+                              "name": "twx-data-filter"
+                            }]
+                          }]
                         }]
                       }]
                     }]
@@ -654,7 +701,7 @@
                                 "widget-id": "repeater-1",
                                 "selection": "true",
                                 "widget-name": "repeater-1",
-                                "itemclick-expression": "selectItemByPath('model-2'+ app.params.partsListPath + '/' + app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getPartsListPartInfoAggregate.data.current.itemNumber); app.params.selectedPartId=app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getPartsListPartInfoAggregate.data.current.partID; app.params.selectedSearchTerm=app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getPartsListPartInfoAggregate.data.current.partNumber;",
+                                "itemclick-expression": "selectItemByPath(data._isSelected ? ('model-2' + app.params.partsListPath + '/' + data.itemNumber) : '');",
                                 "is-widget-repeater": "true",
                                 "class": "toc-repeater"
                               },
@@ -1361,7 +1408,6 @@
                                         "srcnotpressed": "Uploaded/three.svg",
                                         "background-color": "rgba(128,128,128,0.5);",
                                         "background-color-pressed": "rgba(192,192,192,0.7);",
-                                        "visible": "false",
                                         "widget-name": "showDebug",
                                         "class": "my-button"
                                       },
@@ -1377,18 +1423,6 @@
                                           "binding-type": "widget_property",
                                           "from-expression": "app.view['Home'].wdg['toggleButton-2']['pressed']",
                                           "to-property": "app.params['showPopup']"
-                                        },
-                                        "name": "twx-databind"
-                                      }, {
-                                        "attributes": {
-                                          "databind-id": "db-1493902187208",
-                                          "source-type": "data",
-                                          "source-name": "showActionButtons",
-                                          "source-item-type": "value",
-                                          "source-item-name": "showActionButtons",
-                                          "binding-type": "custom_field",
-                                          "from-expression": "app.params['showActionButtons']",
-                                          "to-property": "visible"
                                         },
                                         "name": "twx-databind"
                                       }]

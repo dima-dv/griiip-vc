@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "requires": ["w320dp"],
   "experiences": [{
-    "index-keys": ["urn:vuforia:vumark:503:10"],
+    "index-keys": [],
     "title": {
       "en": "InService AR Cytropac"
     },
@@ -15,10 +15,11 @@
     "tags": [],
     "icon": "",
     "viewName": "Home",
-    "url-template": "index.html?expIndex=0#/Home?thing={{thingworx:thing}}&vumark={{vuforia:vumark}}",
+    "url-template": "index.html?expIndex=0#/Home",
     "thumbnail": "public/Uploaded/Cytropac.png",
-    "vumark": "503:10",
-    "experienceType": "vumark"
+    "vumark": "",
+    "experienceType": "none",
+    "thingTemplateName": ""
   }],
   "accessType": "public"
 }

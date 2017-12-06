@@ -12,9 +12,13 @@ if(!$scope.app.params.selectedItemPath) {
 	$scope.app.params.selectedItemPath = "";
 }
 
-$scope.renderer = arguments.callee.caller.arguments[11];
+$scope.renderer = tml3dRenderer; //arguments.callee.caller.arguments[11];
 
-var isMobile = (window.cordova !== undefined);
+const isMobile = (typeof window.cordova !== 'undefined');
+
+$scope.alert = function (txt) {
+  alert(txt);
+}
 
 $scope.getWindowSize = function() {
   return {width: window.innerWidth, height: window.innerHeight};
@@ -31,31 +35,52 @@ $scope.createImageURL = function(persistentPartId, imageType, serverURL, authHea
     	"&ID=" + encodeURIComponent(persistentPartId);
 }
 
+const selectedColor = ['255', '255', '0', 1.0];
+
+$scope.setItemColor = function (nodeId, c) {
+  //$scope.renderer.setColor(nodeId, "rgba(255,255,0,0.75);");
+  try {
+    if ($scope.renderer.GetObject) {
+      let obj = $scope.renderer.GetObject(nodeId);
+      let wdg = obj.GetWidget();
+      wdg.SetColor(c[0]/255, c[1]/255, c[2]/255, c[3]);
+    } else {
+      $scope.renderer.setColor(nodeId, `rgba(${c[0]},${c[1]},${c[2]},${c[3]});`);
+    }
+  } catch (e) {
+    alert('setItemColor: ' + $scope.stringify(e));
+  }
+}
+
 $scope.selectRendererObj = function(nodeId) {
-  $scope.renderer.setColor(nodeId, "rgba(255,255,0,0.75);");
+  $scope.setItemColor(nodeId,selectedColor);
+
   if(isMobile) {
-  	$scope.renderer.setProperties(nodeId, {shader: "file:Default", hidden:-1, opacity:-1 });
+  	$scope.renderer.setProperties(nodeId, {shader: "file:Default", hidden:-1, opacity:-1});
   }
   //$scope.renderer.setProperties(nodeId, {"hidden": false});
   //$scope.renderer.setProperties(nodeId, {"shader": "demo_highlight_on"});
 }
 
-
-$scope.UnsetItemColor = function(nodeId) {
-  var obj = null;
-  if(isMobile) {
-  	$scope.renderer.setColor(nodeId, "");
-  } else {
-    obj = $scope.renderer.GetObject(nodeId);
-    obj.GetWidget().UnsetColor(); delete obj.rgb;
+$scope.unsetItemColor = function(nodeId) {
+  try {
+    if ($scope.renderer.GetObject) {
+      let obj = $scope.renderer.GetObject(nodeId);
+      let wdg = obj.GetWidget();
+      wdg.UnsetColor();
+    } else {
+      $scope.renderer.setColor(nodeId, null);
+    }  
+  } catch (e) {
+    alert('unsetItemColor: ' + $scope.stringify(e));
   }
 }
 
 $scope.unselectRendererObj = function(nodeId) {
-  $scope.UnsetItemColor(nodeId);
+  $scope.unsetItemColor(nodeId);
   var obj = null;
   if(isMobile) {
-	$scope.renderer.setProperties(nodeId, {"shader": null});
+	  $scope.renderer.setProperties(nodeId, {"shader": null});
     //$scope.renderer.setProperties(nodeId, {"hidden": -1});
   } else {
     //obj = $scope.renderer.GetObject(nodeId);
@@ -165,6 +190,46 @@ $scope.parse = function(e) {
   }
   return "error";
 }
+
+$scope.$on('trackingacquired', function (evt, arg) {
+//  alert('evt='+$scope.stringify(evt)+';arg='+$scope.stringify(arg));
+  $scope.app.params.vumark=arg;
+});
+
+$scope.$watch("app.params.vumark", function (newValue, oldValue, $scope) {
+  if(newValue && newValue !== oldValue) {
+    $http.get("/ExperienceService/content/reps/" + newValue.replace(':','_') + "_config.json").success(function (config) {
+      if(config.params) {
+        let params = config.params;
+        for(let key in params) {
+          if (params.hasOwnProperty(key)) {
+            $scope.app.params[key] = params[key];
+          }
+        }
+      }
+
+      if(config.tempPath2Path) {
+        tempPath2Path = config.tempPath2Path;
+      } else {
+        tempPath2Path = {};
+      }
+
+      if(config.widgets) {
+        let widgets = config.widgets;
+        for(let widget in widgets) {
+          if (widgets.hasOwnProperty(widget)) {
+            let widget_obj = widgets[widget];
+            for(let property in widget_obj) {
+              if (widget_obj.hasOwnProperty(property)) {
+                $scope.setWidgetProp(widget, property, widget_obj[property]);
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+});
 
 var widgets = $element.find("twx-widget");
 var i;
@@ -288,7 +353,7 @@ $interval(function () {
 */
 
 /*
-$scope.$on("trackingacquired", function(evt, args) {
+$scope.$on$scope.$on("trackingacquired", function(evt, args) {
   var str = "trackingacquired:";
   try {
   	str = str + " evt: " + $scope.stringify(evt) + " args: " + $scope.stringify(args);
@@ -319,6 +384,7 @@ $scope.app.params.selectedItem = "";
 var modelName = "model-2";
 
 var item2id = {};
+/*
 item2id["/0/0/0"]={part: "PA_BODYASSEMBLY_2017_03_02", term: ""};
 item2id["/0/0/0/2"]={part: "PA_SIDEPODS_2017_03_03", term: ""};
 item2id["/0/0/0/4"]={part: "PA_0000000233", term: ""};
@@ -346,6 +412,7 @@ item2id["/0/6/1"]={part: "PA_ENGINE_COOLING_SYSTEM", term: "ENGINE_COOLING_SYSTE
 item2id["/0/6/2"]={part: "PA_OIL_COOLING_SYSTEM", term: "OIL_COOLING_SYSTEM"};
 item2id["/0/9/0/0"]={part: "PA_1011-02-00-00-021", term: ""};
 item2id["/0/9/1"]={part: "PA_GP00165", term: ""};
+*/
 //item2id["/51/1/2"]={part: "PA_1011-08-02-02-000_GP", term: "griiip" /*"mechanical part able to perform a conversion" , partinfo: {name: "Pinion ASM", number: "1011-08-02-02-000"} */};  // Pinion
 //item2id["/40/21/116"]={part: "PA_1011-01-01-01-400_GP", term: "" /*"mechanical part able to perform a conversion" , partinfo: {name: "Pinion ASM", number: "1011-08-02-02-000"} */};  // Chassis
 //item2id["/50/108/27"]={part: "PA_00257_GP", term: "" /*"mechanical part able to perform a conversion", partinfo: {name: "Tire (rear)", number: "00257"}*/};  // Rear tire right
@@ -361,6 +428,8 @@ var modelItemsById;
 var modelItemsByPath;
 
 var tempPath2Path = {};
+
+/*
 // float
 tempPath2Path["model-2/0/0/0/3"]="model-2/0/0/0";
 tempPath2Path["model-2/0/0/1/1"]="model-2/0/0/1";
@@ -373,7 +442,7 @@ tempPath2Path["model-2/0/6/0/0"]="model-2/0/6/0";
 
 // map
 tempPath2Path["model-2/0/3/0/0/0"]="model-2/0/3/0/0";
-
+*/
 
 $scope.selectItemByPath = function(path) {
   if(tempPath2Path.hasOwnProperty(path)) {
@@ -396,9 +465,9 @@ $scope.$on('userpick', function(event, targetName, targetType, evtData) {
   //alert("Fired userpick(" + evtData + ")");
 
   if(evt && evt.occurrence) {
-	$scope.selectItemByPath(modelName + evt.occurrence);    
+	  $scope.selectItemByPath(modelName + evt.occurrence);    
   } else {
-	$scope.selectItemByPath("");
+	  $scope.selectItemByPath("");
   }
     
   //$scope.shaded = 'model-1-' + evt.occurrence;
@@ -532,14 +601,14 @@ $scope.$watch("app.params.selectedItem", function (newValue, oldValue, $scope) {
   if(oldValue) {
     targetItem = $scope.app.view['Home'].wdg[oldValue];
     targetItem.color = "";
-	if(!$scope.app.fn.isTrue($scope.app.params.vrMode)) {
+    if(!$scope.app.fn.isTrue($scope.app.params.vrMode)) {
       targetItem.visible = false;
     }
   }
     
   if(newValue) {
     targetItem = $scope.app.view['Home'].wdg[newValue];
-	if(!$scope.app.fn.isTrue($scope.app.params.vrMode)) {
+  	if(!$scope.app.fn.isTrue($scope.app.params.vrMode)) {
       targetItem.visible = true;
     }
     targetItem.color = "rgba(255,255,0,1);";
@@ -847,8 +916,12 @@ class TOC {
   }
 }
 
-$http.get("app/resources/Uploaded/Griiip_LiveWorx2017_final.json").success(function(tree) {
-  $scope.toc = new TOC(tree[0], $scope.text2key);
+$scope.$watch("app.params.pvzName", function (newValue, oldValue, $scope) {
+  if(newValue && newValue !== oldValue) {
+    $http.get("/ExperienceService/content/reps/" + newValue + "_tree.json").success(function (tree) {
+      $scope.toc = new TOC(tree[0], $scope.text2key);
+    });
+  }
 });
 
 //debugger;
@@ -936,11 +1009,13 @@ $scope.loadScript("app/resources/Uploaded/gl-matrix-norequire.js", function() {
 });
 
 $scope.initModel = function() {
+  $scope.setItemColor('model-2-/0',selectedColor);
+  $scope.$applyAsync();
+  $scope.unsetItemColor('model-2-/0');
+  $scope.$applyAsync();
+  /*
   if(isMobile) {
-    $scope.renderer.setColor('model-2-/0',"rgba(255,255,0,0.75);");
-    $scope.$applyAsync();
-    $scope.UnsetItemColor('model-2-/0');
-    $scope.$applyAsync();
-  	$scope.view.wdg['model-2'].shader='hide';
+      $scope.view.wdg['model-2'].shader='hide';
   }
+  */
 }

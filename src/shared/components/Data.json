@@ -255,52 +255,6 @@
     "name": "twx-app-param"
   }, {
     "attributes": {
-      "name": "Battery",
-      "id": "Battery",
-      "value": "80%"
-    },
-    "name": "twx-app-param"
-  }, {
-    "attributes": {
-      "name": "Fuel",
-      "id": "Fuel",
-      "value": "75%"
-    },
-    "name": "twx-app-param"
-  }, {
-    "attributes": {
-      "name": "Oil Pressure",
-      "id": "Oil Pressure",
-      "value": "Low"
-    },
-    "name": "twx-app-param"
-  }, {
-    "attributes": {
-      "name": "Engine Temperature",
-      "id": "Engine Temperature",
-      "value": "375°F"
-    },
-    "name": "twx-app-param"
-  }, {
-    "attributes": {
-      "id": "SequenceURL",
-      "isbound": "false",
-      "isdeletable": "true",
-      "name": "SequenceURL",
-      "value": ""
-    },
-    "name": "twx-app-param"
-  }, {
-    "attributes": {
-      "id": "PVZModel",
-      "isbound": "false",
-      "isdeletable": "true",
-      "name": "PVZModel",
-      "value": ""
-    },
-    "name": "twx-app-param"
-  }, {
-    "attributes": {
       "name": "showTarget",
       "id": "showTarget",
       "value": "false"
@@ -464,6 +418,24 @@
       "isdeletable": "true",
       "name": "showActionButtons",
       "value": "false"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "id": "pvzName",
+      "isbound": "false",
+      "isdeletable": "true",
+      "name": "pvzName",
+      "value": "Tricky Question Mark"
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "id": "modelSrc",
+      "isbound": "false",
+      "isdeletable": "true",
+      "name": "modelSrc",
+      "value": ""
     },
     "name": "twx-app-param"
   }],
