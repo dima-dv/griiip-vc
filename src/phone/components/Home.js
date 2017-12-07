@@ -924,6 +924,82 @@ $scope.$watch("app.params.pvzName", function (newValue, oldValue, $scope) {
   }
 });
 
+const dataShape = {
+  "fieldDefinitions": {
+    "associatedPartsList": {
+      "name": "associatedPartsList",
+      "description": "",
+      "baseType": "STRING",
+      "ordinal": 10,
+      "aspects": {}
+    },
+    "hasAssociatedPartsLists": {
+      "name": "hasAssociatedPartsLists",
+      "description": "",
+      "baseType": "STRING",
+      "ordinal": 6,
+      "aspects": {}
+    },
+    "ID": {
+      "name": "ID",
+      "description": "Parts Line Item ID",
+      "baseType": "STRING",
+      "ordinal": 7,
+      "aspects": {}
+    },
+    "itemNumber": {
+      "name": "itemNumber",
+      "description": "",
+      "baseType": "STRING",
+      "ordinal": 13,
+      "aspects": {}
+    },
+    "lineNumber": {
+      "name": "lineNumber",
+      "description": "",
+      "baseType": "STRING",
+      "ordinal": 12,
+      "aspects": {}
+    },
+    "partID": {
+      "name": "partID",
+      "description": "",
+      "baseType": "STRING",
+      "ordinal": 9,
+      "aspects": {}
+    },
+    "partNumber": {
+      "name": "partNumber", "description": "", "baseType": "STRING", "ordinal": 6, "aspects": {}
+    },
+    "partsListID": { "name": "partsListID", "description": "", "baseType": "STRING", "ordinal": 8, "aspects": {} },
+    "partsListItemName": { "name": "partsListItemName", "description": "", "baseType": "STRING", "ordinal": 5, "aspects": {} },
+    "position": { "name": "position", "description": "", "baseType": "STRING", "ordinal": 11, "aspects": {} },
+    "quantity": { "name": "quantity", "description": "", "baseType": "STRING", "ordinal": 7, "aspects": {} },
+    "serviceable": { "name": "serviceable", "description": "", "baseType": "STRING", "ordinal": 8, "aspects": {} },
+    "THUMBNAIL": { "name": "THUMBNAIL", "description": "", "baseType": "STRING", "ordinal": 5, "aspects": {} }
+  }
+};
+
+$scope.$on("app.mdl.PTC.InService.Connector.VuforiaThing.svc.getPartsListPartInfoAggregate.serviceFailure", function (evt, arg) {
+  let svcModelData = "app.mdl[PTC.InService.Connector.VuforiaThing].svc[getPartsListPartInfoAggregate].data";
+  let pl = $scope.toc.getNodeByPath($scope.app.params['partsListPath']);
+
+  let modelData = [];
+  pl.sub.forEach((child, idx) => {
+    let row = {
+      hasAssociatedPartsLists: !!child.sub,
+      associatedPartsList: child.sub ? $scope.key2PartsListId(child.key) : "",
+      partID: $scope.key2PartId(child.key),
+      partNumber: child.key,
+      partsListItemName: child.text,
+      lineNumber: child.order
+    };
+    modelData.push(row);
+  });
+
+  $parse(svcModelData + '=data')($scope, {data: modelData});
+});
+
 //debugger;
 //var gll = require('app/resources/Uploaded/gl-matrix');
 //debugger;
