@@ -49,6 +49,7 @@
             "twx-widget": "",
             "widget-id": "model-2",
             "scale": "0.1",
+            "opacity": "0.75",
             "widget-name": "model-2",
             "modelloaded-expression": "initModel()"
           },

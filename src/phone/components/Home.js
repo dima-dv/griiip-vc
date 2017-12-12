@@ -14,7 +14,7 @@ if(!$scope.app.params.selectedItemPath) {
 
 $scope.renderer = tml3dRenderer; //arguments.callee.caller.arguments[11];
 
-const isMobile = (typeof window.cordova !== 'undefined');
+const isMobile = true; // (typeof window.cordova !== 'undefined');
 
 $scope.alert = function (txt) {
   alert(txt);
@@ -47,6 +47,7 @@ $scope.setItemColor = function (nodeId, c) {
     } else {
       $scope.renderer.setColor(nodeId, `rgba(${c[0]},${c[1]},${c[2]},${c[3]});`);
     }
+    $scope.renderer.setProperties(nodeId, {opacity: c[3]});
   } catch (e) {
     alert('setItemColor: ' + $scope.stringify(e));
   }
@@ -56,7 +57,7 @@ $scope.selectRendererObj = function(nodeId) {
   $scope.setItemColor(nodeId,selectedColor);
 
   if(isMobile) {
-  	$scope.renderer.setProperties(nodeId, {shader: "file:Default", hidden:-1, opacity:-1});
+  	$scope.renderer.setProperties(nodeId, {shader: "Default"});
   }
   //$scope.renderer.setProperties(nodeId, {"hidden": false});
   //$scope.renderer.setProperties(nodeId, {"shader": "demo_highlight_on"});
@@ -71,6 +72,7 @@ $scope.unsetItemColor = function(nodeId) {
     } else {
       $scope.renderer.setColor(nodeId, null);
     }  
+    $scope.renderer.setProperties(nodeId, {opacity: -1.0});
   } catch (e) {
     alert('unsetItemColor: ' + $scope.stringify(e));
   }
@@ -381,7 +383,7 @@ $scope.test = function(obj) {
 // selected modelItem id (not in use)
 $scope.app.params.selectedItem = "";
 
-var modelName = "model-2";
+const modelName = "model-2";
 
 var item2id = {};
 /*
@@ -672,12 +674,10 @@ $scope.$watchGroup(["app.params.partsListId","app.params.showTOC"], function (ne
 });
 
 $scope.$watch("app.params.vrMode", function(newValue, oldValue) {
-  if(newValue != oldValue) {
-    //$scope.app.view['Home'].wdg["model-2"].opacity = $scope.app.fn.isTrue(newValue) ? 0.75 : 0.1;
-    //$scope.app.view['Home'].wdg["model-2"].visibility = $scope.app.fn.isTrue(newValue);
-    if(isMobile) {
-   	  $scope.view.wdg['model-2']['shader'] = $scope.app.fn.isTrue(newValue) ? "file:Default" : "hide";
-    }
+  //$scope.app.view['Home'].wdg["model-2"].opacity = $scope.app.fn.isTrue(newValue) ? 0.75 : 0.1;
+  //$scope.app.view['Home'].wdg["model-2"].visibility = $scope.app.fn.isTrue(newValue);
+  if(isMobile) {
+    $scope.view.wdg['model-2']['shader'] = $scope.app.fn.isTrue(newValue) ? "Default" : "hide";
   }
 });
 
@@ -869,8 +869,8 @@ function initTOC(tree, container, textFilter) {
       node.path = parentPath;
     } else if(node.order || node.order === 0) {
       node.path = '/' + node.order;
-    } else if(node.path) {
-      delete node.path;
+    } else {
+      node.path = "";
     }
   };
 
@@ -890,7 +890,7 @@ function initTOC(tree, container, textFilter) {
   }
 
   let registerByPath = function(node) {
-    container.byPath[node.path || ""] = node;
+    container.byPath[node.path] = node;
   }
 
   let iter = new TreeIterator(combine(preParent, setPath, setKey, registerByKey, registerByPath), postParent);
@@ -924,6 +924,7 @@ $scope.$watch("app.params.pvzName", function (newValue, oldValue, $scope) {
   }
 });
 
+// simulate InService data from model tree
 const dataShape = {
   "fieldDefinitions": {
     "associatedPartsList": {
@@ -980,8 +981,14 @@ const dataShape = {
   }
 };
 
-$scope.$on("app.mdl.PTC.InService.Connector.VuforiaThing.svc.getPartsListPartInfoAggregate.serviceFailure", function (evt, arg) {
-  let svcModelData = "app.mdl[PTC.InService.Connector.VuforiaThing].svc[getPartsListPartInfoAggregate].data";
+$scope.$on(/*"app.mdl.PTC.InService.Connector.VuforiaThing.svc." +*/ "getPartsListPartInfoAggregate.serviceInvokeComplete", function (evt, arg) {
+  if(!$scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc['getPartsListPartInfoAggregate'].data.length > 0) {
+    $scope.$emit(/*"app.mdl.PTC.InService.Connector.VuforiaThing.svc." +*/ "getPartsListPartInfoAggregate.serviceFailure");
+  }
+});
+  
+$scope.$on(/*"app.mdl.PTC.InService.Connector.VuforiaThing.svc." +*/ "getPartsListPartInfoAggregate.serviceFailure", function (evt, arg) {
+  let svcModelData = "app.mdl['PTC.InService.Connector.VuforiaThing'].svc['getPartsListPartInfoAggregate'].data";
   let pl = $scope.toc.getNodeByPath($scope.app.params['partsListPath']);
 
   let modelData = [];
@@ -992,12 +999,33 @@ $scope.$on("app.mdl.PTC.InService.Connector.VuforiaThing.svc.getPartsListPartInf
       partID: $scope.key2PartId(child.key),
       partNumber: child.key,
       partsListItemName: child.text,
-      lineNumber: child.order
+      itemNumber: child.order,
+      position: idx + 1
     };
     modelData.push(row);
   });
+  modelData.current=null;
 
-  $parse(svcModelData + '=data')($scope, {data: modelData});
+  $scope.$eval(svcModelData + '=data', {data: modelData});
+});
+
+$scope.$on(/*"app.mdl.PTC.InService.Connector.VuforiaThing.svc." +*/ "getPart.serviceInvokeComplete", function (evt, arg) {
+  if(!$scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc['getPart'].data.length > 0) {
+    $scope.$emit(/*"app.mdl.PTC.InService.Connector.VuforiaThing.svc." +*/ "getPart.serviceFailure");
+  }
+});
+  
+$scope.$on(/*"app.mdl.PTC.InService.Connector.VuforiaThing.svc." +*/ "getPart.serviceFailure", function (evt, arg) {
+  let svcModelData = "app.mdl['PTC.InService.Connector.VuforiaThing'].svc['getPart'].data";
+  let item = $scope.toc.getNodeByPath($scope.app.params['selectedItemPath'].substr(modelName.length));
+
+  let modelData = [{
+    partName: item.text,
+    partNumber: item.key
+  }];
+  modelData.current=modelData[0];
+
+  $scope.$eval(svcModelData + '=data', {data: modelData});
 });
 
 //debugger;
@@ -1085,10 +1113,12 @@ $scope.loadScript("app/resources/Uploaded/gl-matrix-norequire.js", function() {
 });
 
 $scope.initModel = function() {
+  /*
   $scope.setItemColor('model-2-/0',selectedColor);
   $scope.$applyAsync();
   $scope.unsetItemColor('model-2-/0');
   $scope.$applyAsync();
+  */
   /*
   if(isMobile) {
       $scope.view.wdg['model-2'].shader='hide';
