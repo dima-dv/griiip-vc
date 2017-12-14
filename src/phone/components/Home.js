@@ -37,6 +37,27 @@ $scope.createImageURL = function(persistentPartId, imageType, serverURL, authHea
 
 const selectedColor = ['255', '255', '0', 1.0];
 
+$scope.setItemProperties = function (nodeId, props) {
+  //$scope.renderer.setColor(nodeId, "rgba(255,255,0,0.75);");
+  try {
+    $scope.renderer.getAllPropertyValues(nodeId, (orgProps) => {
+      orgProps = orgProps || {};
+      try {
+        for(let prop in props) {
+          if(props.hasOwnProperty(prop)) {
+            orgProps[prop] = props[prop];
+          }
+        }
+        $scope.renderer.setProperties(nodeId, orgProps);
+      } catch (e) {
+        alert('setProperties: ' + $scope.stringify(e));
+      }
+    });
+  } catch (e) {
+    alert('getAllPropertyValues: ' + $scope.stringify(e));
+  }
+}
+
 $scope.setItemColor = function (nodeId, c) {
   //$scope.renderer.setColor(nodeId, "rgba(255,255,0,0.75);");
   try {
@@ -47,7 +68,7 @@ $scope.setItemColor = function (nodeId, c) {
     } else {
       $scope.renderer.setColor(nodeId, `rgba(${c[0]},${c[1]},${c[2]},${c[3]});`);
     }
-    $scope.renderer.setProperties(nodeId, {opacity: c[3]});
+    $scope.setItemProperties(nodeId, {opacity: c[3]});
   } catch (e) {
     alert('setItemColor: ' + $scope.stringify(e));
   }
@@ -57,7 +78,7 @@ $scope.selectRendererObj = function(nodeId) {
   $scope.setItemColor(nodeId,selectedColor);
 
   if(isMobile) {
-  	$scope.renderer.setProperties(nodeId, {shader: "Default"});
+  	$scope.setItemProperties(nodeId, {shader: "Default"});
   }
   //$scope.renderer.setProperties(nodeId, {"hidden": false});
   //$scope.renderer.setProperties(nodeId, {"shader": "demo_highlight_on"});
@@ -72,7 +93,7 @@ $scope.unsetItemColor = function(nodeId) {
     } else {
       $scope.renderer.setColor(nodeId, null);
     }  
-    $scope.renderer.setProperties(nodeId, {opacity: -1.0});
+    $scope.setItemProperties(nodeId, {opacity: -1.0});
   } catch (e) {
     alert('unsetItemColor: ' + $scope.stringify(e));
   }
@@ -82,7 +103,7 @@ $scope.unselectRendererObj = function(nodeId) {
   $scope.unsetItemColor(nodeId);
   var obj = null;
   if(isMobile) {
-	  $scope.renderer.setProperties(nodeId, {"shader": null});
+	  $scope.setItemProperties(nodeId, {"shader": null});
     //$scope.renderer.setProperties(nodeId, {"hidden": -1});
   } else {
     //obj = $scope.renderer.GetObject(nodeId);
