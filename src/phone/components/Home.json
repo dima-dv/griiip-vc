@@ -978,62 +978,40 @@
             }, {
               "attributes": {
                 "twx-widget": "",
-                "widget-id": "panel-2",
-                "position": "left",
-                "widget-name": "Left Panel",
-                "is-widget-container": "true"
+                "widget-id": "Part-panel",
+                "width": "250px",
+                "height": "200px",
+                "wrap": "nowrap",
+                "visible": "false",
+                "widget-name": "Part panel",
+                "is-widget-container": "true",
+                "class": "part-card semi-transparent my-border"
               },
-              "name": "twx-overlay-container",
+              "name": "twx-panel",
               "children": [{
-                "name": "twx-container-content"
-              }]
-            }, {
-              "attributes": {
-                "twx-widget": "",
-                "widget-id": "panel-3",
-                "position": "center",
-                "widget-name": "Center Panel",
-                "is-widget-container": "true"
-              },
-              "name": "twx-overlay-container",
-              "children": [{
-                "name": "twx-container-content"
-              }]
-            }, {
-              "attributes": {
-                "twx-widget": "",
-                "widget-id": "panel-4",
-                "position": "right",
-                "width": "300px",
-                "widget-name": "Right Panel",
-                "is-widget-container": "true"
-              },
-              "name": "twx-overlay-container",
-              "children": [{
+                "attributes": {
+                  "databind-id": "db-1514476751406",
+                  "source-type": "data",
+                  "source-name": "showInfo",
+                  "source-item-type": "value",
+                  "source-item-name": "showInfo",
+                  "binding-type": "custom_field",
+                  "from-expression": "app.params['showInfo']",
+                  "to-property": "visible"
+                },
+                "name": "twx-databind"
+              }, {
                 "name": "twx-container-content",
                 "children": [{
                   "attributes": {
                     "twx-widget": "",
                     "widget-id": "gridLayout-5",
-                    "visible": "false",
                     "widget-name": "partGrid",
                     "is-widget-container": "true",
-                    "class": "part-card semi-transparent my-border"
+                    "class": "part-grid"
                   },
                   "name": "twx-gridlayout",
                   "children": [{
-                    "attributes": {
-                      "databind-id": "db-1494943183140",
-                      "source-type": "data",
-                      "source-name": "showInfo",
-                      "source-item-type": "value",
-                      "source-item-name": "showInfo",
-                      "binding-type": "custom_field",
-                      "from-expression": "app.params['showInfo']",
-                      "to-property": "visible"
-                    },
-                    "name": "twx-databind"
-                  }, {
                     "name": "twx-container-content",
                     "children": [{
                       "attributes": {
@@ -1181,6 +1159,42 @@
                     }]
                   }]
                 }]
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "panel-2",
+                "position": "left",
+                "widget-name": "Left Panel",
+                "is-widget-container": "true"
+              },
+              "name": "twx-overlay-container",
+              "children": [{
+                "name": "twx-container-content"
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "panel-3",
+                "position": "center",
+                "widget-name": "Center Panel",
+                "is-widget-container": "true"
+              },
+              "name": "twx-overlay-container",
+              "children": [{
+                "name": "twx-container-content"
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "panel-4",
+                "position": "right",
+                "widget-name": "Right Panel",
+                "is-widget-container": "true"
+              },
+              "name": "twx-overlay-container",
+              "children": [{
+                "name": "twx-container-content"
               }]
             }]
           }]

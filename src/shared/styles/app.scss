@@ -1,120 +1,4 @@
 /* Application styles */
-.ARButton {
-  display: inline-block;
-  padding: 5px 8px;
-  font-size: 18px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #232323;
-  border: 3px solid #A00000;
-}
-
-.ARButton:hover {background-color: #161616;
-  outline: none;
-  color: #fff;
-}
-
-
-.cardtitle {
-  background-color: #FFFFFF; 
-  display: inline-block;
-  padding: 5px 8px;
-  font-size: 20px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;  
-} 
-
-.table {
-     border-collapse: collapse;
-}
-.table, td, th {
-    border: 1px solid black;
-}
-
-.header1 {
-    color: black;
-    font-size: 16px;
-  	text-align: center;  
-
-}
-.header2 {
-    color: black;
-    font-size: 20px;
-  	text-align: center;  
-
-}
-.header3 {
-    color: black;
-    font-size: 12px;
-  	text-align: center;  
-
-}
-.Gridlabel {
-    color: black;
-    font-size: 14px;
-  	text-align: center; 
-  	color: #A00000;
-
-}
-.GridValue2 {
-    color: black;
-    font-size: 12px;
-  	text-align: center; 
-  	color: #232323;
-}
-.tableborder1 {
-   border: 2px solid #A00000;
-}
-.tableborder2 {
-   border: 1px solid black;
-}
-.tableborder3 {
-   border: 1px solid black;
-}
-.tablecontent {
-    color: #CC0000;
-    font-size: 16px;
-  	text-align: center;  
-
-}
-.PartsListText {
-    color: #CC0000;
-    font-size: 12px;
-}
-
-.itext {
-	color: #CC0000;
-    font-size: 16px;
-  	text-align: center;  
-
-}
-.bkimage {
-  background-color: #FFFFFF !important;
-} 
-.searchbox {
-  background-color: #232323 !important;
-} 
-
-.SeqButton {
-  display: inline-block;
-  padding: 1px 3px;
-  font-size: 14px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #232323;
-  border: 3px solid #A00000;
-}
-
- 
 /* Application styles */
 button.activateButton
 {
@@ -142,8 +26,11 @@ button.activateButton
 
 .part-card
 {
-  overflow: visible;
+  overflow: hidden;
   margin: 15px 15px 15px 15px;
+  position: absolute;
+  left: 750px;
+  top: 0px;
 }
 
 .my-label
@@ -159,6 +46,7 @@ button.activateButton
 .value-display
 {
   background-color: Transparent;
+  width: 100%;
 }
 
 span.item-note
@@ -194,6 +82,12 @@ span.item-note
   left: 0px;
   top: 0px;
   overflow: auto;
+}
+
+.part-grid
+{
+  width: 100%;
+  height: 100%;
 }
 
 .toc-panel
@@ -246,7 +140,3 @@ div.doc-placeholder {
   font-style: italic;
   line-height: 1.5;
 }
-  
-
-
-

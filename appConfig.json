@@ -11,11 +11,11 @@
   "version": "1.20.752",
   "device": {
     "name": "tablet",
-    "width": "770px",
-    "height": "1026px"
+    "width": "1900px",
+    "height": "1200px"
   },
   "state": {
-    "orientation": "portrait"
+    "orientation": "landscape"
   },
   "targets": {
     "phone": {
