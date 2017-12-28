@@ -24,13 +24,16 @@ button.activateButton
   transform: translate(-50%,-50%);
 }
 
+.body [widget-id="Part-panel"] 
+{
+  position: absolute;
+  right: 0px;
+}  
+
 .part-card
 {
   overflow: hidden;
   margin: 15px 15px 15px 15px;
-  position: absolute;
-  left: 750px;
-  top: 0px;
 }
 
 .my-label
@@ -75,12 +78,15 @@ span.item-note
   overflow-x: initial !important;
 }
   
+.body [widget-id="Doc-panel"] 
+{
+  position: absolute;
+  left: 0px;
+}  
+
 .part-doc
 {
   margin: 35px 35px 35px 35px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
   overflow: auto;
 }
 
@@ -90,12 +96,15 @@ span.item-note
   height: 100%;
 }
 
+.body [widget-id="TOC-panel"] 
+{
+  position: absolute;
+  left: 0px;
+}  
+
 .toc-panel
 {
   margin: 15px 15px 15px 15px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
   overflow: hidden;
 }
 

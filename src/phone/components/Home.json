@@ -641,6 +641,7 @@
                 "widget-id": "TOC-panel",
                 "width": "350px",
                 "height": "545px",
+                "alignment": "flex-start",
                 "wrap": "nowrap",
                 "visible": "false",
                 "widget-name": "TOC panel",
@@ -981,6 +982,7 @@
                 "widget-id": "Part-panel",
                 "width": "250px",
                 "height": "200px",
+                "alignment": "flex-end",
                 "wrap": "nowrap",
                 "visible": "false",
                 "widget-name": "Part panel",
@@ -1159,42 +1161,6 @@
                     }]
                   }]
                 }]
-              }]
-            }, {
-              "attributes": {
-                "twx-widget": "",
-                "widget-id": "panel-2",
-                "position": "left",
-                "widget-name": "Left Panel",
-                "is-widget-container": "true"
-              },
-              "name": "twx-overlay-container",
-              "children": [{
-                "name": "twx-container-content"
-              }]
-            }, {
-              "attributes": {
-                "twx-widget": "",
-                "widget-id": "panel-3",
-                "position": "center",
-                "widget-name": "Center Panel",
-                "is-widget-container": "true"
-              },
-              "name": "twx-overlay-container",
-              "children": [{
-                "name": "twx-container-content"
-              }]
-            }, {
-              "attributes": {
-                "twx-widget": "",
-                "widget-id": "panel-4",
-                "position": "right",
-                "widget-name": "Right Panel",
-                "is-widget-container": "true"
-              },
-              "name": "twx-overlay-container",
-              "children": [{
-                "name": "twx-container-content"
               }]
             }]
           }]

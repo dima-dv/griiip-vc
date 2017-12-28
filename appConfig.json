@@ -11,8 +11,8 @@
   "version": "1.20.752",
   "device": {
     "name": "tablet",
-    "width": "1900px",
-    "height": "1200px"
+    "width": "1200px",
+    "height": "900px"
   },
   "state": {
     "orientation": "landscape"
