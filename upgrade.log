@@ -40,3 +40,38 @@
 2018-01-09T16:16:51.305Z - debug: [twx-studio:upgrade:DD_Hack18] buildApp
 2018-01-09T16:16:51.638Z - debug: [twx-studio:upgrade:DD_Hack18] END buildApp DD_Hack18_1515514609740
 2018-01-09T16:16:51.639Z - debug: [twx-studio:upgrade:DD_Hack18] Build succeeded.
+2018-01-09T16:24:06.131Z - debug: [twx-studio:upgrade:DD_Hack18] Begin upgrade of project DD_Hack18
+2018-01-09T16:24:06.135Z - info: [twx-studio:upgrade:DD_Hack18] Upgrading project DD_Hack18 D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\DD_Hack18 from 8.1.2 (1.20.752) to 8.1.3 (1.21.853)
+2018-01-09T16:24:06.149Z - debug: [twx-studio:upgrade:DD_Hack18] Make sure there are not any stale files lying around
+2018-01-09T16:24:06.150Z - debug: [twx-studio:upgrade:DD_Hack18] Merging  D:\Projects\thing-builder\node_modules\ves-ar-extension\src\ar\.gitignore.template with D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\DD_Hack18\.gitignore
+2018-01-09T16:24:06.150Z - debug: [twx-studio:upgrade:DD_Hack18] Original contents of D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\DD_Hack18\.gitignore
+#-- BEGIN OOTB GITIGNORE --#
+# Do not modify contents between BEGIN and END, it will be replaced on upgrade
+#-- ignore everything
+/*
+#-- unignore files that should be source controlled
+!.gitignore
+!appConfig.json
+!/src/
+!upgrade*.log
+#-- re-ignore default resources
+/src/phone/resources/Default/**
+#-- END OOTB GITIGNORE --#
+
+2018-01-09T16:24:06.151Z - debug: [twx-studio:upgrade:DD_Hack18] Copying /src/**/* to project, overwrite=false
+2018-01-09T16:24:06.153Z - debug: [twx-studio:upgrade:DD_Hack18] Copying /**/* to project, skip /src/**/*,  overwrite=true
+2018-01-09T16:24:06.208Z - debug: [twx-studio:upgrade:DD_Hack18] Copy of project files complete
+2018-01-09T16:24:06.209Z - debug: [twx-studio:upgrade:DD_Hack18] Updating version to  8.1.3 (1.21.853)
+2018-01-09T16:24:06.209Z - debug: [twx-studio:upgrade:DD_Hack18] onupgrade sucessful, now build the project
+2018-01-09T16:24:06.209Z - debug: [twx-studio:upgrade:DD_Hack18] BEGIN buildApp DD_Hack18_1515515046209
+2018-01-09T16:24:06.209Z - debug: [twx-studio:upgrade:DD_Hack18] write settings
+2018-01-09T16:24:06.211Z - debug: [twx-studio:upgrade:DD_Hack18] copy runtime extensions
+2018-01-09T16:24:06.267Z - debug: [twx-studio:upgrade:DD_Hack18] packageThemeSet
+2018-01-09T16:24:06.902Z - debug: [twx-studio:upgrade:DD_Hack18] onBuild
+2018-01-09T16:24:06.902Z - info: [twx-studio:upgrade:DD_Hack18] Building ves-ar-extension app: DD_Hack18
+2018-01-09T16:24:06.920Z - debug: [twx-studio:upgrade:DD_Hack18] pathDir D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\DD_Hack18
+2018-01-09T16:24:06.920Z - debug: [twx-studio:upgrade:DD_Hack18] scaffoldDir D:\Projects\thing-builder\node_modules\ves-ar-extension\src\src-scaffold
+2018-01-09T16:24:06.920Z - debug: [twx-studio:upgrade:DD_Hack18] copySrc
+2018-01-09T16:24:07.205Z - debug: [twx-studio:upgrade:DD_Hack18] buildApp
+2018-01-09T16:24:07.475Z - debug: [twx-studio:upgrade:DD_Hack18] END buildApp DD_Hack18_1515515046209
+2018-01-09T16:24:07.476Z - debug: [twx-studio:upgrade:DD_Hack18] Build succeeded.
