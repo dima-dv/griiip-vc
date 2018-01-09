@@ -20,3 +20,23 @@
 2017-12-04T16:16:39.574Z - debug: [twx-studio:upgrade:Cytropac] buildApp
 2017-12-04T16:16:39.950Z - debug: [twx-studio:upgrade:Cytropac] END buildApp Cytropac_1512404195763
 2017-12-04T16:16:39.951Z - debug: [twx-studio:upgrade:Cytropac] Build succeeded.
+2018-01-09T16:16:49.132Z - debug: [twx-studio:upgrade:DD_Hack18] Begin upgrade of project DD_Hack18
+2018-01-09T16:16:49.135Z - info: [twx-studio:upgrade:DD_Hack18] Upgrading project DD_Hack18 D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\DD_Hack18 from 8.1.2 (1.20.752) to 8.1.2 (1.20.752)
+2018-01-09T16:16:49.209Z - debug: [twx-studio:upgrade:DD_Hack18] Make sure there are not any stale files lying around
+2018-01-09T16:16:49.214Z - debug: [twx-studio:upgrade:DD_Hack18] Copying /src/**/* to project, overwrite=false
+2018-01-09T16:16:49.215Z - debug: [twx-studio:upgrade:DD_Hack18] Copying /**/* to project, skip /src/**/*,  overwrite=true
+2018-01-09T16:16:49.740Z - debug: [twx-studio:upgrade:DD_Hack18] Copy of project files complete
+2018-01-09T16:16:49.740Z - debug: [twx-studio:upgrade:DD_Hack18] Updating version to  8.1.2 (1.20.752)
+2018-01-09T16:16:49.740Z - debug: [twx-studio:upgrade:DD_Hack18] onupgrade sucessful, now build the project
+2018-01-09T16:16:49.741Z - debug: [twx-studio:upgrade:DD_Hack18] BEGIN buildApp DD_Hack18_1515514609740
+2018-01-09T16:16:49.741Z - debug: [twx-studio:upgrade:DD_Hack18] write settings
+2018-01-09T16:16:49.742Z - debug: [twx-studio:upgrade:DD_Hack18] copy runtime extensions
+2018-01-09T16:16:49.794Z - debug: [twx-studio:upgrade:DD_Hack18] packageThemeSet
+2018-01-09T16:16:50.387Z - debug: [twx-studio:upgrade:DD_Hack18] onBuild
+2018-01-09T16:16:50.389Z - info: [twx-studio:upgrade:DD_Hack18] Building ves-ar-extension app: DD_Hack18
+2018-01-09T16:16:50.970Z - debug: [twx-studio:upgrade:DD_Hack18] pathDir D:\Users\ddavidovich\Documents\ThingWorxStudio\Projects\DD_Hack18
+2018-01-09T16:16:50.970Z - debug: [twx-studio:upgrade:DD_Hack18] scaffoldDir D:\Projects\thing-builder\node_modules\ves-ar-extension\src\src-scaffold
+2018-01-09T16:16:50.971Z - debug: [twx-studio:upgrade:DD_Hack18] copySrc
+2018-01-09T16:16:51.305Z - debug: [twx-studio:upgrade:DD_Hack18] buildApp
+2018-01-09T16:16:51.638Z - debug: [twx-studio:upgrade:DD_Hack18] END buildApp DD_Hack18_1515514609740
+2018-01-09T16:16:51.639Z - debug: [twx-studio:upgrade:DD_Hack18] Build succeeded.
