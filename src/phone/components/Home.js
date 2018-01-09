@@ -18,6 +18,8 @@ const isMobile = true; // (typeof window.cordova !== 'undefined');
 
 $scope.alert = function (txt) {
   alert(txt);
+  console.log(txt);
+  //debugger;
 }
 
 $scope.getWindowSize = function() {
@@ -38,10 +40,10 @@ $scope.createImageURL = function(persistentPartId, imageType, serverURL, authHea
 const selectedColor = ['255', '255', '0', 1.0];
 
 $scope.setItemProperties = function (nodeId, props) {
-  //$scope.renderer.setColor(nodeId, "rgba(255,255,0,0.75);");
   try {
-    $scope.renderer.getAllPropertyValues(nodeId, (orgProps) => {
+    let callback = function (orgProps) {
       orgProps = orgProps || {};
+      //$scope.alert('getAllPropertyValues callback: ' + $scope.stringify(orgProps));
       try {
         for(let prop in props) {
           if(props.hasOwnProperty(prop)) {
@@ -50,11 +52,13 @@ $scope.setItemProperties = function (nodeId, props) {
         }
         $scope.renderer.setProperties(nodeId, orgProps);
       } catch (e) {
-        alert('setProperties: ' + $scope.stringify(e));
+        $scope.alert('setProperties: ' + e);
       }
-    });
+    }
+    //$scope.renderer.getAllPropertyValues(nodeId, callback);
+    callback();
   } catch (e) {
-    alert('getAllPropertyValues: ' + $scope.stringify(e));
+    $scope.alert('getAllPropertyValues: ' + e);
   }
 }
 
@@ -70,7 +74,7 @@ $scope.setItemColor = function (nodeId, c) {
     }
     $scope.setItemProperties(nodeId, {opacity: c[3]});
   } catch (e) {
-    alert('setItemColor: ' + $scope.stringify(e));
+    alert('setItemColor: ' + e);
   }
 }
 
@@ -78,7 +82,7 @@ $scope.selectRendererObj = function(nodeId) {
   $scope.setItemColor(nodeId,selectedColor);
 
   if(isMobile) {
-  	$scope.setItemProperties(nodeId, {shader: "Default"});
+  	$scope.setItemProperties(nodeId, {shader: "Default", hidden: false});
   }
   //$scope.renderer.setProperties(nodeId, {"hidden": false});
   //$scope.renderer.setProperties(nodeId, {"shader": "demo_highlight_on"});
@@ -86,6 +90,7 @@ $scope.selectRendererObj = function(nodeId) {
 
 $scope.unsetItemColor = function(nodeId) {
   try {
+    $scope.setItemProperties(nodeId, {opacity: -1.0});
     if ($scope.renderer.GetObject) {
       let obj = $scope.renderer.GetObject(nodeId);
       let wdg = obj.GetWidget();
@@ -93,7 +98,6 @@ $scope.unsetItemColor = function(nodeId) {
     } else {
       $scope.renderer.setColor(nodeId, null);
     }  
-    $scope.setItemProperties(nodeId, {opacity: -1.0});
   } catch (e) {
     alert('unsetItemColor: ' + $scope.stringify(e));
   }
@@ -103,8 +107,8 @@ $scope.unselectRendererObj = function(nodeId) {
   $scope.unsetItemColor(nodeId);
   var obj = null;
   if(isMobile) {
-	  $scope.setItemProperties(nodeId, {"shader": null});
-    //$scope.renderer.setProperties(nodeId, {"hidden": -1});
+	  $scope.setItemProperties(nodeId, {shader: "", hidden: -1});
+    //$scope.renderer.setProperties(nodeId, {});
   } else {
     //obj = $scope.renderer.GetObject(nodeId);
     //obj.GetWidget().UnsetVisibility(); delete obj.properties;
@@ -1145,4 +1149,10 @@ $scope.initModel = function() {
       $scope.view.wdg['model-2'].shader='hide';
   }
   */
+  $scope.view.wdg["model-2"].opacity = 0.75;
+  $scope.view.wdg["model-2"].visibility = true;
+  if(isMobile) {
+    $scope.view.wdg['model-2'].shader = $scope.app.fn.isTrue($scope.app.params.vrMode) ? "Default" : "hide";
+  }
+  $scope.$applyAsync();
 }

@@ -154,7 +154,7 @@
       "children": [{
         "attributes": {
           "name": "Collection",
-          "value": "RaceCar"
+          "value": ""
         },
         "name": "twx-service-parameter-value"
       }, {
@@ -167,6 +167,18 @@
           "binding-type": "custom_field",
           "from-expression": "app.params['partsListId']",
           "to-property": "InS_ID"
+        },
+        "name": "twx-databind"
+      }, {
+        "attributes": {
+          "databind-id": "db-1515432272839",
+          "source-type": "data",
+          "source-name": "collection",
+          "source-item-type": "value",
+          "source-item-name": "collection",
+          "binding-type": "custom_field",
+          "from-expression": "app.params['collection']",
+          "to-property": "Collection"
         },
         "name": "twx-databind"
       }]
@@ -363,7 +375,7 @@
       "id": "partsListId",
       "isbound": "false",
       "isdeletable": "true",
-      "value": "PL_1011-00-00-00-000"
+      "value": ""
     },
     "name": "twx-app-param"
   }, {
@@ -372,7 +384,7 @@
       "id": "partsListPath",
       "isbound": "false",
       "isdeletable": "true",
-      "value": "/0"
+      "value": ""
     },
     "name": "twx-app-param"
   }, {
@@ -381,7 +393,7 @@
       "id": "partsListIdPath",
       "isbound": "false",
       "isdeletable": "true",
-      "value": "/PL_1011-00-00-00-000"
+      "value": ""
     },
     "name": "twx-app-param"
   }, {
@@ -435,6 +447,15 @@
       "isbound": "false",
       "isdeletable": "true",
       "name": "modelSrc",
+      "value": ""
+    },
+    "name": "twx-app-param"
+  }, {
+    "attributes": {
+      "id": "collection",
+      "isbound": "false",
+      "isdeletable": "true",
+      "name": "collection",
       "value": ""
     },
     "name": "twx-app-param"

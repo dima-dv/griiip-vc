@@ -2,7 +2,7 @@
   "name": "Cytropac",
   "projectType": "AR",
   "fileName": "Cytropac",
-  "thingworxServer": "http://ddavidovich1d1:2019",
+  "thingworxServer": "http://dfries1l:8150",
   "mainNavigationMenuStyle": "noMenu",
   "mainNavigationMenuItems": [],
   "creator": "_unknown_",
@@ -11,8 +11,8 @@
   "version": "1.20.752",
   "device": {
     "name": "tablet",
-    "width": "1200px",
-    "height": "900px"
+    "width": "1026px",
+    "height": "770px"
   },
   "state": {
     "orientation": "landscape"
@@ -47,7 +47,7 @@
       ]
     }
   },
-  "thumbnail": "Uploaded/Cytropac.png",
+  "thumbnail": "",
   "previewUrl": "http://localhost:3000/preview.html?project=${project}&format=${format}&orientation=${orientation}&phone=true",
   "resourceDirectory": "src/phone/resources",
   "resourceRuntimeDir": "app/resources",

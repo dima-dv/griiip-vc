@@ -5,7 +5,7 @@
   "experiences": [{
     "index-keys": [],
     "title": {
-      "en": "InService AR Cytropac"
+      "en": "AR Manual 2018"
     },
     "description": {
       "en": "",
@@ -16,7 +16,7 @@
     "icon": "",
     "viewName": "Home",
     "url-template": "index.html?expIndex=0#/Home",
-    "thumbnail": "public/Uploaded/Cytropac.png",
+    "thumbnail": "",
     "vumark": "",
     "experienceType": "none",
     "thingTemplateName": ""
