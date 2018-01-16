@@ -79,13 +79,15 @@ $scope.setItemColor = function (nodeId, c) {
 }
 
 $scope.selectRendererObj = function(nodeId) {
+  /*
   $scope.setItemColor(nodeId,selectedColor);
 
   if(isMobile) {
   	$scope.setItemProperties(nodeId, {shader: "Default", hidden: false});
   }
+  */
   //$scope.renderer.setProperties(nodeId, {"hidden": false});
-  //$scope.renderer.setProperties(nodeId, {"shader": "demo_highlight_on"});
+  $scope.renderer.setProperties(nodeId, {"shader": "demo_highlight_on"});
 }
 
 $scope.unsetItemColor = function(nodeId) {
@@ -104,6 +106,7 @@ $scope.unsetItemColor = function(nodeId) {
 }
 
 $scope.unselectRendererObj = function(nodeId) {
+  /*
   $scope.unsetItemColor(nodeId);
   var obj = null;
   if(isMobile) {
@@ -113,7 +116,8 @@ $scope.unselectRendererObj = function(nodeId) {
     //obj = $scope.renderer.GetObject(nodeId);
     //obj.GetWidget().UnsetVisibility(); delete obj.properties;
   }
-  //$scope.renderer.setProperties(nodeId, {"shader": "demo_highlight_off"});
+  */
+  $scope.renderer.setProperties(nodeId, {"shader": "demo_highlight_off"});
 }
   	  
 if(!$scope.app.params.partsListPath) {
@@ -216,6 +220,10 @@ $scope.parse = function(e) {
     return ex.toString();
   }
   return "error";
+}
+
+$scope.selectProcedure = function (json) {
+  $scope.procedure = JSON.parse(json);
 }
 
 $scope.$on('trackingacquired', function (evt, arg) {
@@ -701,9 +709,11 @@ $scope.$watchGroup(["app.params.partsListId","app.params.showTOC"], function (ne
 $scope.$watch("app.params.vrMode", function(newValue, oldValue) {
   //$scope.app.view['Home'].wdg["model-2"].opacity = $scope.app.fn.isTrue(newValue) ? 0.75 : 0.1;
   //$scope.app.view['Home'].wdg["model-2"].visibility = $scope.app.fn.isTrue(newValue);
+  /* demo_hi
   if(isMobile) {
     $scope.view.wdg['model-2']['shader'] = $scope.app.fn.isTrue(newValue) ? "Default" : "hide";
   }
+  */
 });
 
 /*
@@ -726,6 +736,22 @@ function getElementById(element, id) {
 }
 
 $scope.$watch("app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getMedia.data.current.result", function(newValue, oldValue) {
+  if(newValue)
+  {
+    $scope.app.params.partDoc = $sce.trustAsHtml(newValue);
+    $timeout(function() {
+      var area = angular.element(getElementById(document, "docArea"));
+      var scripts = area.find("script");
+      angular.forEach(scripts, function(el) {
+        if(typeof el.attributes["src"] == "undefined") {
+          eval(el.text);
+        }
+      });
+    });
+  }
+});
+
+$scope.$watch("app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getServiceInformation_2.data.current.result", function(newValue, oldValue) {
   if(newValue)
   {
     $scope.app.params.partDoc = $sce.trustAsHtml(newValue);
@@ -1149,10 +1175,12 @@ $scope.initModel = function() {
       $scope.view.wdg['model-2'].shader='hide';
   }
   */
+  /* demo_highlight_on
   $scope.view.wdg["model-2"].opacity = 0.75;
   $scope.view.wdg["model-2"].visibility = true;
   if(isMobile) {
     $scope.view.wdg['model-2'].shader = $scope.app.fn.isTrue($scope.app.params.vrMode) ? "Default" : "hide";
   }
   $scope.$applyAsync();
+  */
 }

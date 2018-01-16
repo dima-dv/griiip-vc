@@ -49,7 +49,7 @@
             "twx-widget": "",
             "widget-id": "model-2",
             "scale": "0.1",
-            "opacity": "0.75",
+            "visible": "false",
             "widget-name": "model-2",
             "modelloaded-expression": "initModel()"
           },
@@ -1367,6 +1367,32 @@
                                           "to-property": "visible"
                                         },
                                         "name": "twx-databind"
+                                      }, {
+                                        "attributes": {
+                                          "eventbind-id": "eb-1516055367468",
+                                          "src-type": "widget",
+                                          "src-label": "Resource Image",
+                                          "src-name": "resourceImage-1",
+                                          "src-event": "click",
+                                          "handler-type": "ui",
+                                          "handler-name": "model-2",
+                                          "handler-service": "playAll",
+                                          "handler": "app.view[\"Home\"].wdg[\"model-2\"].svc.playAll"
+                                        },
+                                        "name": "twx-eventbind"
+                                      }, {
+                                        "attributes": {
+                                          "eventbind-id": "eb-1516125570924",
+                                          "src-type": "widget",
+                                          "src-label": "Resource Image",
+                                          "src-name": "resourceImage-1",
+                                          "src-event": "click",
+                                          "handler-type": "data",
+                                          "handler-name": "PTC.InService.Connector.VuforiaThing",
+                                          "handler-service": "getServiceInformation_2",
+                                          "handler": "app.mdl.PTC.InService.Connector.VuforiaThing.svc.getServiceInformation_2"
+                                        },
+                                        "name": "twx-eventbind"
                                       }]
                                     }]
                                   }]

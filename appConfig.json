@@ -2,7 +2,7 @@
   "name": "DD_Hack18",
   "projectType": "AR",
   "fileName": "DD_Hack18",
-  "thingworxServer": "http://ddavidovich1l:8150",
+  "thingworxServer": "http://52.234.130.215:8150",
   "mainNavigationMenuStyle": "noMenu",
   "mainNavigationMenuItems": [],
   "creator": "_unknown_",
