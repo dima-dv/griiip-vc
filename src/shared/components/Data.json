@@ -25,13 +25,6 @@
       "name": "twx-model-property"
     }, {
       "attributes": {
-        "name": "serverURLTWX",
-        "twx-auto-refresh": "false",
-        "twx-model": "app.mdl[\"PTC.InService.Connector.VuforiaThing\"].properties[\"serverURLTWX\"]"
-      },
-      "name": "twx-model-property"
-    }, {
-      "attributes": {
         "name": "getPart",
         "id": "getPart"
       },
@@ -217,7 +210,7 @@
       "children": [{
         "attributes": {
           "name": "OutputFormat",
-          "value": "html"
+          "value": "json"
         },
         "name": "twx-service-parameter-value"
       }, {
@@ -556,21 +549,7 @@
       "name": "procOutline",
       "value": ""
     },
-    "name": "twx-app-param",
-    "children": [{
-      "attributes": {
-        "databind-id": "db-1516124704334",
-        "source-type": "data",
-        "source-name": "PTC.InService.Connector.VuforiaThing",
-        "source-item-type": "service",
-        "source-item-name": "getServiceInformation",
-        "source-item-field-name": "result",
-        "binding-type": "current_row_field",
-        "from-expression": "app.mdl['PTC.InService.Connector.VuforiaThing'].svc['getServiceInformation'].data.current['result']",
-        "to-property": "app.params['procOutline']"
-      },
-      "name": "twx-databind"
-    }]
+    "name": "twx-app-param"
   }, {
     "attributes": {
       "id": "procStep",
@@ -603,6 +582,15 @@
       },
       "name": "twx-databind"
     }]
+  }, {
+    "attributes": {
+      "id": "sequence",
+      "isbound": "false",
+      "isdeletable": "true",
+      "name": "sequence",
+      "value": ""
+    },
+    "name": "twx-app-param"
   }],
   "name": "twx-app-mdl"
 }

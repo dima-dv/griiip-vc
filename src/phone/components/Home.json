@@ -74,6 +74,18 @@
               },
               "name": "twx-data-filter"
             }]
+          }, {
+            "attributes": {
+              "databind-id": "db-1516134279426",
+              "source-type": "data",
+              "source-name": "sequence",
+              "source-item-type": "value",
+              "source-item-name": "sequence",
+              "binding-type": "custom_field",
+              "from-expression": "app.params['sequence']",
+              "to-property": "sequence"
+            },
+            "name": "twx-databind"
           }]
         }, {
           "attributes": {
@@ -1391,6 +1403,19 @@
                                           "handler-name": "PTC.InService.Connector.VuforiaThing",
                                           "handler-service": "getServiceInformation_2",
                                           "handler": "app.mdl.PTC.InService.Connector.VuforiaThing.svc.getServiceInformation_2"
+                                        },
+                                        "name": "twx-eventbind"
+                                      }, {
+                                        "attributes": {
+                                          "eventbind-id": "eb-1516130638929",
+                                          "src-type": "widget",
+                                          "src-label": "Resource Image",
+                                          "src-name": "resourceImage-1",
+                                          "src-event": "click",
+                                          "handler-type": "data",
+                                          "handler-name": "PTC.InService.Connector.VuforiaThing",
+                                          "handler-service": "getServiceInformation",
+                                          "handler": "app.mdl.PTC.InService.Connector.VuforiaThing.svc.getServiceInformation"
                                         },
                                         "name": "twx-eventbind"
                                       }]

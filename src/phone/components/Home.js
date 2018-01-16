@@ -222,10 +222,6 @@ $scope.parse = function(e) {
   return "error";
 }
 
-$scope.selectProcedure = function (json) {
-  $scope.procedure = JSON.parse(json);
-}
-
 $scope.$on('trackingacquired', function (evt, arg) {
 //  alert('evt='+$scope.stringify(evt)+';arg='+$scope.stringify(arg));
   $scope.app.params.vumark=arg;
@@ -247,6 +243,12 @@ $scope.$watch("app.params.vumark", function (newValue, oldValue, $scope) {
         tempPath2Path = config.tempPath2Path;
       } else {
         tempPath2Path = {};
+      }
+
+      if(config.proc2sequence) {
+        proc2sequence = config.proc2sequence;
+      } else {
+        proc2sequence = {};
       }
 
       if(config.widgets) {
@@ -463,6 +465,8 @@ var modelItemsById;
 var modelItemsByPath;
 
 var tempPath2Path = {};
+var proc2sequence = {};
+
 
 /*
 // float
@@ -764,6 +768,12 @@ $scope.$watch("app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getServiceInf
         }
       });
     });
+  }
+});
+
+$scope.$watch("app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getServiceInformation.data.current.result", function(newValue, oldValue) {
+  if(newValue !== oldValue) {
+    $scope.app.params.procOutline = newValue;
   }
 });
 
@@ -1077,6 +1087,70 @@ $scope.$on(/*"app.mdl.PTC.InService.Connector.VuforiaThing.svc." +*/ "getPart.se
   modelData.current=modelData[0];
 
   $scope.$eval(svcModelData + '=data', {data: modelData});
+});
+
+class Procedure {
+  constructor(id, outline) {
+    this.id = id;
+    this.outline = JSON.parse(outline);
+  }
+
+  getStep(n) {
+    return this.byPath[path];
+  }
+
+  getNumberOfSteps(key) {
+    return this.byKey[key];
+  }
+
+  renderStep(n) {
+    return "";
+  }
+
+  renderAll() {
+    return "";
+  }
+
+  getID() {
+    return id;
+  }
+}
+
+let acquireProcedureOutline = function (id, callback) {
+  /*
+  let json = ;
+  let str = JSON.stringify(json);
+  $timeout(function() {
+    callback(str);
+  });
+  */
+  if(id) {
+    $http.get("/ExperienceService/content/reps/" + id + "_outline.json").success(function (json) {
+      let str = JSON.stringify(json);
+      callback(str);
+    });
+  } else {
+    $timeout(function() {
+      callback("");
+    });
+  }
+};
+
+$scope.$watch("app.params.procID", function (newValue, oldValue) {
+  if(newValue != oldValue) {
+    if(newValue && proc2sequence[newValue]) {
+      $scope.app.params.sequence = proc2sequence[newValue];
+    } else {
+      $scope.app.params.sequence = "";
+    }
+    acquireProcedureOutline(newValue, function(str){
+      if(str) {
+        $scope.proc = new Procedure(id, str);
+      } else {
+        $scope.proc = null;
+      }
+    });
+  }
 });
 
 //debugger;
