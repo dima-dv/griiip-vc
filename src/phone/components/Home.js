@@ -1080,7 +1080,7 @@ class Procedure {
   }
 
   getNumberOfSteps() {
-    return  this.outline.steplist.length;
+    return  this.outline.steplist["procedure-step"].length;
   }
 
   getStepNode(n) {
@@ -1293,7 +1293,8 @@ $scope.initModel = function() {
 }
 
 $scope.playCurrentStep = function () {
-  $scope.view.wdg['model-2'].play();
+  $rootScope.$broadcast('app.view["Home"].wdg["model-2"].svc.play');
+  //$scope.view.wdg['model-2'].play();
 }
 
 $scope.gotoNextStep = function() {

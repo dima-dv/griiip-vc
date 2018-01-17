@@ -994,6 +994,7 @@
                 "widget-id": "Step-panel",
                 "width": "940px",
                 "height": "175px",
+                "flexdirection": "row",
                 "visible": "false",
                 "widget-name": "Step panel",
                 "is-widget-container": "true",
@@ -1025,16 +1026,173 @@
                 "children": [{
                   "attributes": {
                     "twx-widget": "",
-                    "widget-id": "tmlText-3",
-                    "widget-name": "stepDocArea",
-                    "text": "<div ng-bind-html=\"app.params.procStepHtml\" id=\"stepArea\"></div>"
+                    "widget-id": "gridLayout-7",
+                    "widget-name": "gridLayout-7",
+                    "is-widget-container": "true"
                   },
-                  "name": "twx-tml-text",
+                  "name": "twx-gridlayout",
                   "children": [{
-                    "attributes": {
-                      "name": "text"
-                    },
-                    "name": "twx-widget-property-value"
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "row-15",
+                        "widget-name": "row-15",
+                        "is-widget-container": "true"
+                      },
+                      "name": "twx-row",
+                      "children": [{
+                        "name": "twx-container-content",
+                        "children": [{
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "column-32",
+                            "widget-name": "column-32",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-col",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "tmlText-3",
+                                "widget-name": "stepDocArea",
+                                "text": "<div ng-bind-html=\"app.params.partStepHtml\" id=\"stepArea\"></div>"
+                              },
+                              "name": "twx-tml-text",
+                              "children": [{
+                                "attributes": {
+                                  "name": "text"
+                                },
+                                "name": "twx-widget-property-value"
+                              }]
+                            }]
+                          }]
+                        }]
+                      }]
+                    }]
+                  }]
+                }, {
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "gridLayout-4",
+                    "evenlyspacedrows": "true",
+                    "widget-name": "gridLayout-4",
+                    "is-widget-container": "true"
+                  },
+                  "name": "twx-gridlayout",
+                  "children": [{
+                    "name": "twx-container-content",
+                    "children": [{
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "row-9",
+                        "widget-name": "row-9",
+                        "is-widget-container": "true"
+                      },
+                      "name": "twx-row",
+                      "children": [{
+                        "name": "twx-container-content",
+                        "children": [{
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "column-24",
+                            "widget-name": "column-24",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-col",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "resourceImage-3",
+                                "imgsrc": "Uploaded/TDD_seq_reset_darkblue.svg",
+                                "width": "48px",
+                                "height": "50px",
+                                "widget-name": "prevStep",
+                                "click-expression": "(app.params.procStep > 0) && gotoPrevStep();",
+                                "class": "my-button"
+                              },
+                              "name": "twx-image2"
+                            }]
+                          }]
+                        }]
+                      }]
+                    }, {
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "row-13",
+                        "widget-name": "row-13",
+                        "is-widget-container": "true"
+                      },
+                      "name": "twx-row",
+                      "children": [{
+                        "name": "twx-container-content",
+                        "children": [{
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "column-30",
+                            "widget-name": "column-30",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-col",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "resourceImage-4",
+                                "imgsrc": "Uploaded/TDD_seq_play_darkblue.svg",
+                                "width": "48px",
+                                "height": "50px",
+                                "widget-name": "playStep",
+                                "click-expression": "playCurrentStep();",
+                                "class": "my-button"
+                              },
+                              "name": "twx-image2"
+                            }]
+                          }]
+                        }]
+                      }]
+                    }, {
+                      "attributes": {
+                        "twx-widget": "",
+                        "widget-id": "row-14",
+                        "widget-name": "row-14",
+                        "is-widget-container": "true"
+                      },
+                      "name": "twx-row",
+                      "children": [{
+                        "name": "twx-container-content",
+                        "children": [{
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "column-31",
+                            "widget-name": "column-31",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-col",
+                          "children": [{
+                            "name": "twx-container-content",
+                            "children": [{
+                              "attributes": {
+                                "twx-widget": "",
+                                "widget-id": "resourceImage-5",
+                                "imgsrc": "Uploaded/TDD_seq_previous_darkblue.svg",
+                                "width": "48px",
+                                "height": "50px",
+                                "widget-name": "nextStep",
+                                "click-expression": "(app.params.procStep < proc.getNumberOfSteps()) && gotoNextStep();",
+                                "class": "my-button"
+                              },
+                              "name": "twx-image2"
+                            }]
+                          }]
+                        }]
+                      }]
+                    }]
                   }]
                 }]
               }]
