@@ -1442,32 +1442,6 @@
                                           "handler": "app.view[\"Home\"].wdg[\"model-2\"].svc.playAll"
                                         },
                                         "name": "twx-eventbind"
-                                      }, {
-                                        "attributes": {
-                                          "eventbind-id": "eb-1516125570924",
-                                          "src-type": "widget",
-                                          "src-label": "Resource Image",
-                                          "src-name": "resourceImage-1",
-                                          "src-event": "click",
-                                          "handler-type": "data",
-                                          "handler-name": "PTC.InService.Connector.VuforiaThing",
-                                          "handler-service": "getServiceInformation_2",
-                                          "handler": "app.mdl.PTC.InService.Connector.VuforiaThing.svc.getServiceInformation_2"
-                                        },
-                                        "name": "twx-eventbind"
-                                      }, {
-                                        "attributes": {
-                                          "eventbind-id": "eb-1516130638929",
-                                          "src-type": "widget",
-                                          "src-label": "Resource Image",
-                                          "src-name": "resourceImage-1",
-                                          "src-event": "click",
-                                          "handler-type": "data",
-                                          "handler-name": "PTC.InService.Connector.VuforiaThing",
-                                          "handler-service": "getServiceInformation",
-                                          "handler": "app.mdl.PTC.InService.Connector.VuforiaThing.svc.getServiceInformation"
-                                        },
-                                        "name": "twx-eventbind"
                                       }]
                                     }]
                                   }]

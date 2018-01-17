@@ -1083,9 +1083,13 @@ class Procedure {
     return  this.outline.steplist.length;
   }
 
+  getStepNode(n) {
+    return this.getStep(n)["target-node"];
+  }
+
   getStepXloc(n)
   {
-    return `#node-id(${this.getStep(n)["target-node"]})`;
+    return `#node-id(${this.getStepNode(n)})`;
   }
 
   renderStep(n) {
@@ -1139,7 +1143,9 @@ let acquireProcedureStep = function (id, num, callback) {
         callback(newValue);
       }
     });
-    $rootScope.$broadcast('app.mdl.PTC.InService.Connector.VuforiaThing.svc.getServiceInformation_2', {"DocLoc": $scope.proc.getStepXloc(num)});
+    $rootScope.$broadcast('app.mdl.PTC.InService.Connector.VuforiaThing.svc.getServiceInformation_2', 
+      {"DocLoc": $scope.proc.getStepXloc(num), "StylesheetParams": `target-node=${$scope.proc.getStepNode(num)}`}
+    );
   } else {
     $timeout(function () {
       callback("");
@@ -1177,6 +1183,7 @@ $scope.$watch("app.params.procStep", function (newValue, oldValue) {
       });
     });
   });
+  $scope.view.wdg['model-2'].currentStep = newValue + 0;
 });
 
 //debugger;
@@ -1283,4 +1290,20 @@ $scope.initModel = function() {
   }
   $scope.$applyAsync();
   */
+}
+
+$scope.playCurrentStep = function () {
+  $scope.view.wdg['model-2'].play();
+}
+
+$scope.gotoNextStep = function() {
+  if($scope.app.params.procStep < $scope.proc.getNumberOfSteps()) {
+    $scope.app.params.procStep++;
+  }
+}
+
+$scope.gotoPrevStep = function() {
+  if($scope.app.params.procStep > 0) {
+    $scope.app.params.procStep--;
+  }
 }
