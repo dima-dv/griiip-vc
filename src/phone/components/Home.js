@@ -87,7 +87,7 @@ $scope.selectRendererObj = function(nodeId) {
   }
   */
   //$scope.renderer.setProperties(nodeId, {"hidden": false});
-  $scope.renderer.setProperties(nodeId, {"shader": "demo_highlight_on"});
+  $scope.renderer.setProperties(nodeId, {shader: "demo_highlight_on"});
 }
 
 $scope.unsetItemColor = function(nodeId) {
@@ -117,7 +117,7 @@ $scope.unselectRendererObj = function(nodeId) {
     //obj.GetWidget().UnsetVisibility(); delete obj.properties;
   }
   */
-  $scope.renderer.setProperties(nodeId, {"shader": "demo_highlight_off"});
+  $scope.renderer.setProperties(nodeId, {shader: "demo_highlight_off", occlude: -1.0});
 }
   	  
 if(!$scope.app.params.partsListPath) {
@@ -712,12 +712,8 @@ $scope.$watchGroup(["app.params.partsListId","app.params.showTOC"], function (ne
 
 $scope.$watch("app.params.vrMode", function(newValue, oldValue) {
   //$scope.app.view['Home'].wdg["model-2"].opacity = $scope.app.fn.isTrue(newValue) ? 0.75 : 0.1;
-  //$scope.app.view['Home'].wdg["model-2"].visibility = $scope.app.fn.isTrue(newValue);
-  /* demo_hi
-  if(isMobile) {
-    $scope.view.wdg['model-2']['shader'] = $scope.app.fn.isTrue(newValue) ? "Default" : "hide";
-  }
-  */
+  //$scope.app.view['Home'].wdg["model-2"].visible = $scope.app.fn.isTrue(newValue);
+  $scope.view.wdg['model-2']['occlude'] = !$scope.app.fn.isTrue(newValue);
 });
 
 /*
@@ -740,22 +736,6 @@ function getElementById(element, id) {
 }
 
 $scope.$watch("app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getMedia.data.current.result", function(newValue, oldValue) {
-  if(newValue)
-  {
-    $scope.app.params.partDoc = $sce.trustAsHtml(newValue);
-    $timeout(function() {
-      var area = angular.element(getElementById(document, "docArea"));
-      var scripts = area.find("script");
-      angular.forEach(scripts, function(el) {
-        if(typeof el.attributes["src"] == "undefined") {
-          eval(el.text);
-        }
-      });
-    });
-  }
-});
-
-$scope.$watch("app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getServiceInformation_2.data.current.result", function(newValue, oldValue) {
   if(newValue)
   {
     $scope.app.params.partDoc = $sce.trustAsHtml(newValue);
@@ -1092,15 +1072,20 @@ $scope.$on(/*"app.mdl.PTC.InService.Connector.VuforiaThing.svc." +*/ "getPart.se
 class Procedure {
   constructor(id, outline) {
     this.id = id;
-    this.outline = JSON.parse(outline);
+    this.outline = outline;
   }
 
   getStep(n) {
-    return this.byPath[path];
+    return this.outline.steplist["procedure-step"][n];
   }
 
-  getNumberOfSteps(key) {
-    return this.byKey[key];
+  getNumberOfSteps() {
+    return  this.outline.steplist.length;
+  }
+
+  getStepXloc(n)
+  {
+    return `#node-id(${this.getStep(n)["target-node"]})`;
   }
 
   renderStep(n) {
@@ -1117,24 +1102,50 @@ class Procedure {
 }
 
 let acquireProcedureOutline = function (id, callback) {
-  /*
-  let json = ;
-  let str = JSON.stringify(json);
-  $timeout(function() {
-    callback(str);
-  });
-  */
   if(id) {
+    /*
     $http.get("/ExperienceService/content/reps/" + id + "_outline.json").success(function (json) {
       let str = JSON.stringify(json);
       callback(str);
     });
+    */
+    //$scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getServiceInformation.data.current.result = null;
+    let unwatch = $scope.$watch("app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getServiceInformation.data.current.result", function(newValue, oldValue) {
+      if(newValue !== oldValue) {
+        unwatch();
+        callback(newValue);
+      }
+    });
+    $rootScope.$broadcast('app.mdl.PTC.InService.Connector.VuforiaThing.svc.getServiceInformation');
   } else {
-    $timeout(function() {
+    $timeout(function () {
       callback("");
     });
   }
 };
+
+let acquireProcedureStep = function (id, num, callback) {
+  if(id && (typeof num === "number")) {
+    /*
+    $http.get("/ExperienceService/content/reps/" + id + "_outline.json").success(function (json) {
+      let str = JSON.stringify(json);
+      callback(str);
+    });
+    */
+    //$scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getServiceInformation_2.data.current.result = null;
+    let unwatch = $scope.$watch("app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getServiceInformation_2.data.current.result", function(newValue, oldValue) {
+      if(newValue !== oldValue) {
+        unwatch();
+        callback(newValue);
+      }
+    });
+    $rootScope.$broadcast('app.mdl.PTC.InService.Connector.VuforiaThing.svc.getServiceInformation_2', {"DocLoc": $scope.proc.getStepXloc(num)});
+  } else {
+    $timeout(function () {
+      callback("");
+    });
+  }
+}
 
 $scope.$watch("app.params.procID", function (newValue, oldValue) {
   if(newValue != oldValue) {
@@ -1145,12 +1156,27 @@ $scope.$watch("app.params.procID", function (newValue, oldValue) {
     }
     acquireProcedureOutline(newValue, function(str){
       if(str) {
-        $scope.proc = new Procedure(id, str);
+        $scope.proc = new Procedure(newValue, JSON.parse(str).content.outline);
       } else {
         $scope.proc = null;
       }
     });
   }
+});
+
+$scope.$watch("app.params.procStep", function (newValue, oldValue) {
+  acquireProcedureStep($scope.app.params.procID, newValue, function(str){
+    $scope.app.params.procStepHtml = $sce.trustAsHtml(str);
+    $timeout(function() {
+      var area = angular.element(getElementById(document, "stepArea"));
+      var scripts = area.find("script");
+      angular.forEach(scripts, function(el) {
+        if(typeof el.attributes["src"] == "undefined") {
+          eval(el.text);
+        }
+      });
+    });
+  });
 });
 
 //debugger;

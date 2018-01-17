@@ -49,7 +49,7 @@
             "twx-widget": "",
             "widget-id": "model-2",
             "scale": "0.1",
-            "visible": "false",
+            "occlude": "true",
             "widget-name": "model-2",
             "modelloaded-expression": "initModel()"
           },
@@ -91,7 +91,7 @@
           "attributes": {
             "twx-widget": "",
             "widget-id": "thingMark-2",
-            "width": "0.0508",
+            "width": "0.23",
             "rx": "0",
             "tracking-indicator": "true",
             "widget-name": "thingMark-2"
@@ -978,6 +978,56 @@
                     "widget-id": "tmlText-1",
                     "widget-name": "partDocArea",
                     "text": "<div ng-bind-html=\"app.params.partDoc\" id=\"docArea\"></div>"
+                  },
+                  "name": "twx-tml-text",
+                  "children": [{
+                    "attributes": {
+                      "name": "text"
+                    },
+                    "name": "twx-widget-property-value"
+                  }]
+                }]
+              }]
+            }, {
+              "attributes": {
+                "twx-widget": "",
+                "widget-id": "Step-panel",
+                "width": "940px",
+                "height": "175px",
+                "visible": "false",
+                "widget-name": "Step panel",
+                "is-widget-container": "true",
+                "class": "step-doc semi-transparent my-border"
+              },
+              "name": "twx-panel",
+              "children": [{
+                "attributes": {
+                  "databind-id": "db-1516212030982",
+                  "source-type": "data",
+                  "source-name": "procStep",
+                  "source-item-type": "value",
+                  "source-item-name": "procStep",
+                  "binding-type": "custom_field",
+                  "from-expression": "app.params['procStep']",
+                  "to-property": "visible"
+                },
+                "name": "twx-databind",
+                "children": [{
+                  "attributes": {
+                    "filter-id": "df-1516212135759",
+                    "filter-name": "isNumber",
+                    "filter-body": "return typeof value === \"number\""
+                  },
+                  "name": "twx-data-filter"
+                }]
+              }, {
+                "name": "twx-container-content",
+                "children": [{
+                  "attributes": {
+                    "twx-widget": "",
+                    "widget-id": "tmlText-3",
+                    "widget-name": "stepDocArea",
+                    "text": "<div ng-bind-html=\"app.params.procStepHtml\" id=\"stepArea\"></div>"
                   },
                   "name": "twx-tml-text",
                   "children": [{

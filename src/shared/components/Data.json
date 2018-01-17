@@ -538,7 +538,7 @@
       "isbound": "false",
       "isdeletable": "true",
       "name": "procID",
-      "value": "i02305688_en-US"
+      "value": ""
     },
     "name": "twx-app-param"
   }, {
@@ -567,21 +567,7 @@
       "name": "procStepHtml",
       "value": ""
     },
-    "name": "twx-app-param",
-    "children": [{
-      "attributes": {
-        "databind-id": "db-1516125087253",
-        "source-type": "data",
-        "source-name": "PTC.InService.Connector.VuforiaThing",
-        "source-item-type": "service",
-        "source-item-name": "getServiceInformation_2",
-        "source-item-field-name": "result",
-        "binding-type": "current_row_field",
-        "from-expression": "app.mdl['PTC.InService.Connector.VuforiaThing'].svc['getServiceInformation_2'].data.current['result']",
-        "to-property": "app.params['procStepHtml']"
-      },
-      "name": "twx-databind"
-    }]
+    "name": "twx-app-param"
   }, {
     "attributes": {
       "id": "sequence",

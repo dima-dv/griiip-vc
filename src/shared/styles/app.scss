@@ -130,6 +130,19 @@ span.item-note
   display: block;
 }
 
+.body [widget-id="Step-panel"] 
+{
+  position: absolute;
+  left: 0px;
+  bottom: 50px;
+}  
+
+.step-doc
+{
+  margin: 35px 35px 35px 35px;
+  overflow: auto;
+}
+
 div.repeater-cell
 {
   background-color: Transparent;
