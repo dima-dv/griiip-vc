@@ -86,6 +86,26 @@
               "to-property": "sequence"
             },
             "name": "twx-databind"
+          }, {
+            "attributes": {
+              "databind-id": "db-1516302476733",
+              "source-type": "data",
+              "source-name": "procStep",
+              "source-item-type": "value",
+              "source-item-name": "procStep",
+              "binding-type": "custom_field",
+              "from-expression": "app.params['procStep']",
+              "to-property": "currentStep"
+            },
+            "name": "twx-databind",
+            "children": [{
+              "attributes": {
+                "filter-id": "df-1516302505042",
+                "filter-name": "plus1",
+                "filter-body": "return value + 1;"
+              },
+              "name": "twx-data-filter"
+            }]
           }]
         }, {
           "attributes": {
@@ -959,18 +979,6 @@
               },
               "name": "twx-panel",
               "children": [{
-                "attributes": {
-                  "databind-id": "db-1493913835092",
-                  "source-type": "data",
-                  "source-name": "showDocument",
-                  "source-item-type": "value",
-                  "source-item-name": "showDocument",
-                  "binding-type": "custom_field",
-                  "from-expression": "app.params['showDocument']",
-                  "to-property": "visible"
-                },
-                "name": "twx-databind"
-              }, {
                 "name": "twx-container-content",
                 "children": [{
                   "attributes": {
@@ -1028,7 +1036,8 @@
                     "twx-widget": "",
                     "widget-id": "gridLayout-7",
                     "widget-name": "gridLayout-7",
-                    "is-widget-container": "true"
+                    "is-widget-container": "true",
+                    "class": "step-grid"
                   },
                   "name": "twx-gridlayout",
                   "children": [{
@@ -1058,7 +1067,7 @@
                                 "twx-widget": "",
                                 "widget-id": "tmlText-3",
                                 "widget-name": "stepDocArea",
-                                "text": "<div ng-bind-html=\"app.params.partStepHtml\" id=\"stepArea\"></div>"
+                                "text": "<div ng-bind-html=\"app.params.procStepHtml\" id=\"stepArea\"></div>"
                               },
                               "name": "twx-tml-text",
                               "children": [{
@@ -1069,36 +1078,14 @@
                               }]
                             }]
                           }]
-                        }]
-                      }]
-                    }]
-                  }]
-                }, {
-                  "attributes": {
-                    "twx-widget": "",
-                    "widget-id": "gridLayout-4",
-                    "evenlyspacedrows": "true",
-                    "widget-name": "gridLayout-4",
-                    "is-widget-container": "true"
-                  },
-                  "name": "twx-gridlayout",
-                  "children": [{
-                    "name": "twx-container-content",
-                    "children": [{
-                      "attributes": {
-                        "twx-widget": "",
-                        "widget-id": "row-9",
-                        "widget-name": "row-9",
-                        "is-widget-container": "true"
-                      },
-                      "name": "twx-row",
-                      "children": [{
-                        "name": "twx-container-content",
-                        "children": [{
+                        }, {
                           "attributes": {
                             "twx-widget": "",
-                            "widget-id": "column-24",
-                            "widget-name": "column-24",
+                            "widget-id": "column-33",
+                            "alignment": "flex-end",
+                            "fixedcolsize": "50px",
+                            "wrap": "no-wrap",
+                            "widget-name": "column-33",
                             "is-widget-container": "true"
                           },
                           "name": "twx-col",
@@ -1107,87 +1094,123 @@
                             "children": [{
                               "attributes": {
                                 "twx-widget": "",
-                                "widget-id": "resourceImage-3",
-                                "imgsrc": "Uploaded/TDD_seq_reset_darkblue.svg",
-                                "width": "48px",
-                                "height": "50px",
-                                "widget-name": "prevStep",
-                                "click-expression": "(app.params.procStep > 0) && gotoPrevStep();",
-                                "class": "my-button"
+                                "widget-id": "gridLayout-4",
+                                "widget-name": "playControl",
+                                "is-widget-container": "true"
                               },
-                              "name": "twx-image2"
-                            }]
-                          }]
-                        }]
-                      }]
-                    }, {
-                      "attributes": {
-                        "twx-widget": "",
-                        "widget-id": "row-13",
-                        "widget-name": "row-13",
-                        "is-widget-container": "true"
-                      },
-                      "name": "twx-row",
-                      "children": [{
-                        "name": "twx-container-content",
-                        "children": [{
-                          "attributes": {
-                            "twx-widget": "",
-                            "widget-id": "column-30",
-                            "widget-name": "column-30",
-                            "is-widget-container": "true"
-                          },
-                          "name": "twx-col",
-                          "children": [{
-                            "name": "twx-container-content",
-                            "children": [{
-                              "attributes": {
-                                "twx-widget": "",
-                                "widget-id": "resourceImage-4",
-                                "imgsrc": "Uploaded/TDD_seq_play_darkblue.svg",
-                                "width": "48px",
-                                "height": "50px",
-                                "widget-name": "playStep",
-                                "click-expression": "playCurrentStep();",
-                                "class": "my-button"
-                              },
-                              "name": "twx-image2"
-                            }]
-                          }]
-                        }]
-                      }]
-                    }, {
-                      "attributes": {
-                        "twx-widget": "",
-                        "widget-id": "row-14",
-                        "widget-name": "row-14",
-                        "is-widget-container": "true"
-                      },
-                      "name": "twx-row",
-                      "children": [{
-                        "name": "twx-container-content",
-                        "children": [{
-                          "attributes": {
-                            "twx-widget": "",
-                            "widget-id": "column-31",
-                            "widget-name": "column-31",
-                            "is-widget-container": "true"
-                          },
-                          "name": "twx-col",
-                          "children": [{
-                            "name": "twx-container-content",
-                            "children": [{
-                              "attributes": {
-                                "twx-widget": "",
-                                "widget-id": "resourceImage-5",
-                                "imgsrc": "Uploaded/TDD_seq_previous_darkblue.svg",
-                                "width": "48px",
-                                "height": "50px",
-                                "widget-name": "nextStep",
-                                "click-expression": "(app.params.procStep < proc.getNumberOfSteps()) && gotoNextStep();",
-                                "class": "my-button"
-                              },
-                              "name": "twx-image2"
+                              "name": "twx-gridlayout",
+                              "children": [{
+                                "name": "twx-container-content",
+                                "children": [{
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "row-9",
+                                    "widget-name": "row-9",
+                                    "is-widget-container": "true"
+                                  },
+                                  "name": "twx-row",
+                                  "children": [{
+                                    "name": "twx-container-content",
+                                    "children": [{
+                                      "attributes": {
+                                        "twx-widget": "",
+                                        "widget-id": "column-24",
+                                        "widget-name": "column-24",
+                                        "is-widget-container": "true"
+                                      },
+                                      "name": "twx-col",
+                                      "children": [{
+                                        "name": "twx-container-content",
+                                        "children": [{
+                                          "attributes": {
+                                            "twx-widget": "",
+                                            "widget-id": "resourceImage-3",
+                                            "imgsrc": "Uploaded/back-previous-control-last-left-icon.svg",
+                                            "width": "48px",
+                                            "height": "50px",
+                                            "widget-name": "prevStep",
+                                            "click-expression": "(app.params.procStep > 0) && gotoPrevStep();",
+                                            "class": "my-button"
+                                          },
+                                          "name": "twx-image2"
+                                        }]
+                                      }]
+                                    }]
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "row-13",
+                                    "widget-name": "row-13",
+                                    "is-widget-container": "true"
+                                  },
+                                  "name": "twx-row",
+                                  "children": [{
+                                    "name": "twx-container-content",
+                                    "children": [{
+                                      "attributes": {
+                                        "twx-widget": "",
+                                        "widget-id": "column-30",
+                                        "widget-name": "column-30",
+                                        "is-widget-container": "true"
+                                      },
+                                      "name": "twx-col",
+                                      "children": [{
+                                        "name": "twx-container-content",
+                                        "children": [{
+                                          "attributes": {
+                                            "twx-widget": "",
+                                            "widget-id": "resourceImage-4",
+                                            "imgsrc": "Uploaded/repeat-refresh-synchronize-reload-retweet-renew-sync-icon.svg",
+                                            "width": "48px",
+                                            "height": "50px",
+                                            "widget-name": "replayStep",
+                                            "click-expression": "replayCurrentStep();",
+                                            "class": "my-button"
+                                          },
+                                          "name": "twx-image2"
+                                        }]
+                                      }]
+                                    }]
+                                  }]
+                                }, {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "row-14",
+                                    "widget-name": "row-14",
+                                    "is-widget-container": "true"
+                                  },
+                                  "name": "twx-row",
+                                  "children": [{
+                                    "name": "twx-container-content",
+                                    "children": [{
+                                      "attributes": {
+                                        "twx-widget": "",
+                                        "widget-id": "column-31",
+                                        "widget-name": "column-31",
+                                        "is-widget-container": "true"
+                                      },
+                                      "name": "twx-col",
+                                      "children": [{
+                                        "name": "twx-container-content",
+                                        "children": [{
+                                          "attributes": {
+                                            "twx-widget": "",
+                                            "widget-id": "resourceImage-5",
+                                            "imgsrc": "Uploaded/play-player-forward-skip-next-option-music-icon.svg",
+                                            "width": "48px",
+                                            "height": "50px",
+                                            "widget-name": "nextStep",
+                                            "click-expression": "(app.params.procStep < proc.getNumberOfSteps() - 1) && gotoNextStep();",
+                                            "class": "my-button"
+                                          },
+                                          "name": "twx-image2"
+                                        }]
+                                      }]
+                                    }]
+                                  }]
+                                }]
+                              }]
                             }]
                           }]
                         }]
@@ -1587,19 +1610,6 @@
                                           "to-property": "visible"
                                         },
                                         "name": "twx-databind"
-                                      }, {
-                                        "attributes": {
-                                          "eventbind-id": "eb-1516055367468",
-                                          "src-type": "widget",
-                                          "src-label": "Resource Image",
-                                          "src-name": "resourceImage-1",
-                                          "src-event": "click",
-                                          "handler-type": "ui",
-                                          "handler-name": "model-2",
-                                          "handler-service": "playAll",
-                                          "handler": "app.view[\"Home\"].wdg[\"model-2\"].svc.playAll"
-                                        },
-                                        "name": "twx-eventbind"
                                       }]
                                     }]
                                   }]
@@ -1708,6 +1718,8 @@
                                         "background-color-pressed": "rgba(0,192,0,0.7);",
                                         "visible": "false",
                                         "widget-name": "showDoc",
+                                        "pressed-expression": "app.params.procID='i06300070_en-US';",
+                                        "unpressed-expression": "app.params.procID='';",
                                         "class": "my-button"
                                       },
                                       "name": "twx-toggle-button",
@@ -1749,26 +1761,6 @@
                                           "to-property": "visible"
                                         },
                                         "name": "twx-databind"
-                                      }, {
-                                        "attributes": {
-                                          "databind-id": "db-1495383677828",
-                                          "source-type": "data",
-                                          "source-name": "selectedSearchTerm",
-                                          "source-item-type": "value",
-                                          "source-item-name": "selectedSearchTerm",
-                                          "binding-type": "custom_field",
-                                          "from-expression": "app.params['selectedSearchTerm']",
-                                          "to-property": "disabled"
-                                        },
-                                        "name": "twx-databind",
-                                        "children": [{
-                                          "attributes": {
-                                            "filter-id": "df-1495383690339",
-                                            "filter-name": "empty",
-                                            "filter-body": "return !(value);"
-                                          },
-                                          "name": "twx-data-filter"
-                                        }]
                                       }, {
                                         "attributes": {
                                           "databind-id": "db-1495536267404",
