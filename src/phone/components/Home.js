@@ -22,6 +22,105 @@ $scope.alert = function (txt) {
   //debugger;
 }
 
+$scope.startVoiceCommander = function (callback) {
+  if($scope.renderer.setupSpeechRecognitionCommand) {
+    try {
+      $scope.renderer.setupSpeechRecognitionCommand(false, callback);
+    } catch(e) {
+      $scope.alert("setupSpeechRecognitionCommand failed: " + e);
+    }
+  } else {
+    $scope.alert("No setupSpeechRecognitionCommand call available");
+  }
+}
+
+$scope.stopVoiceCommander = function () {
+  if($scope.renderer.setupSpeechRecognitionCommand) {
+    try {
+      $scope.renderer.setupSpeechRecognitionCommand(true);
+    } catch(e) {
+      $scope.alert("setupSpeechRecognitionCommand(unregister) failed: " + e);
+    }
+  }
+}
+
+$scope.speak = function (txt, cb) {
+  if($scope.renderer.speak) {
+    $scope.renderer.speak(txt, cb);
+  } else {
+    $scope.alert("Speak: " + txt);
+    if(cb) {
+      cb();
+    }
+  }
+}
+
+class VoiceCommander {
+  constructor() {
+    this.listeners = {};
+    this.callbacks = {};
+    this.listenerId = 0;
+    this.callbackId = 0;
+  }
+
+  static createNativeCallback(callback, that) {
+    return (function(strings) {
+      callback.apply(that, [strings]);
+    });
+  }
+
+  static createUnreg(obj, id) {
+    return (function() {
+      delete obj[id];
+    });
+  }
+
+  listen(listener, that) {
+    let myId = this.listenerId++;
+    this.listeners[myId] = { cb: listener, that: that};
+    return VoiceCommander.createUnreg(this.listeners, myId);
+  }
+
+  on(command, callback, that) {
+    let myId = this.callbackId++;
+    this.callbacks[command] = this.callbacks[command] || {};
+    this.callbacks[command][myId] = { cb: callback, that: that};
+    return VoiceCommander.createUnreg(this.callbacks[command], myId);
+  }
+
+  processor(strings) {
+    if(typeof strings === "string") {
+      return;
+    }
+    $scope.$applyAsync("view.wdg['label-2'].text='" + strings.join() + "'");
+    for(let id in this.listeners) {
+      this.listeners[id].cb.apply(this.listeners[id].that, [strings]);
+    }
+    for(let command in this.callbacks) {
+      if(strings.indexOf(command) > -1) {
+        for(let id in this.callbacks[command]) {
+          this.callbacks[command][id].cb.apply(this.callbacks[command][id].that);
+        }
+      }
+    }
+  }
+
+  start() {
+    $scope.startVoiceCommander(VoiceCommander.createNativeCallback(this.processor, this));
+  }
+
+  stop() {
+    $scope.stopVoiceCommander();
+  }
+}
+
+$scope.voiceCommander = new VoiceCommander();
+
+$scope.voiceCommander.start();
+$scope.$on("$destroy", () => {
+  $scope.voiceCommander.stop();
+})
+
 $scope.getWindowSize = function() {
   return {width: window.innerWidth, height: window.innerHeight};
 }
@@ -705,8 +804,23 @@ $scope.$watchGroup(["app.params.selectedPartId","app.params.showInfo"], function
 
 //$scope.$watch("app.params.partsListId", function(newValue, oldValue) {
 $scope.$watchGroup(["app.params.partsListId","app.params.showTOC"], function (newValue, oldValue, $scope) {
-  if($scope.app.fn.isTrue(newValue[1]) && (newValue[0])) {
+  if($scope.app.fn.isTrue(newValue[1]) && newValue[0]) {
     $rootScope.$broadcast('app.mdl.PTC.InService.Connector.VuforiaThing.svc.getPartsListPartInfoAggregate');
+  }
+});
+
+$scope.$watch("app.params.showTOC", function(newValue, oldValue) {
+  if(newValue != oldValue) {
+    if($scope.app.fn.isTrue(newValue)) {
+      $scope.tocVoiceUnreg = $scope.voiceCommander.on("deactivate", function() {
+        $scope.speak("Hierarchy view is deactivated", () => {
+          $scope.$applyAsync("app.params.showTOC=false");
+        });
+      });
+    } else {
+      $scope.tocVoiceUnreg();
+      delete $scope.tocVoiceUnreg;
+    }
   }
 });
 
@@ -778,14 +892,33 @@ function resetTargetHandler() {
   }
 }
 
+$scope.voiceCommander.on("activate target selection", function() {
+  $scope.speak("Target selection is activated", () => {
+    $scope.$applyAsync("app.params.showTarget=true");
+  });
+});
+
+$scope.voiceCommander.on("activate hierarchy", function() {
+  $scope.speak("Hierarchy view is activated", () => {
+    $scope.$applyAsync("app.params.showTOC=true");
+  });
+});
+
 // start/stop selector
 $scope.$watch("app.params.showTarget", function(newValue, oldValue) {
   if(newValue !== oldValue) {
     if($scope.app.fn.isTrue(newValue)) {
       // set cross handler
       setTargetHandler();
+      $scope.targetVoiceUnreg = $scope.voiceCommander.on("deactivate", function() {
+        $scope.speak("Target selection is deactivated", () => {
+          $scope.$applyAsync("app.params.showTarget=false");
+        });
+      });
     } else {
       resetTargetHandler();
+      $scope.targetVoiceUnreg();
+      delete $scope.targetVoiceUnreg;
     }
   }
 });
@@ -1075,12 +1208,16 @@ class Procedure {
     this.outline = outline;
   }
 
+  getSteps() {
+    return (Array.isArray(this.outline.steplist) ? this.outline.steplist[0] : this.outline.steplist)["procedure-step"];
+  }
+
   getStep(n) {
-    return this.outline.steplist["procedure-step"][n];
+    return this.getSteps()[n];
   }
 
   getNumberOfSteps() {
-    return  this.outline.steplist["procedure-step"].length;
+    return this.getSteps().length;
   }
 
   getStepNode(n) {
@@ -1122,6 +1259,9 @@ let acquireProcedureOutline = function (id, callback) {
     });
     $rootScope.$broadcast('app.mdl.PTC.InService.Connector.VuforiaThing.svc.getServiceInformation');
   } else {
+    if(typeof $scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getServiceInformation.data.current.result !== "undefined") {
+      $scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getServiceInformation.data.current.result = null;
+    }
     $timeout(function () {
       callback("");
     });
@@ -1147,6 +1287,9 @@ let acquireProcedureStep = function (id, num, callback) {
       {"DocLoc": $scope.proc.getStepXloc(num), "StylesheetParams": `target-node=${$scope.proc.getStepNode(num)}`}
     );
   } else {
+    if(typeof $scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getServiceInformation_2.data.current.result !== "undefined") {
+      $scope.app.mdl['PTC.InService.Connector.VuforiaThing'].svc.getServiceInformation_2.data.current.result = null;
+    }
     $timeout(function () {
       callback("");
     });
@@ -1163,7 +1306,29 @@ $scope.$watch("app.params.procID", function (newValue, oldValue) {
     acquireProcedureOutline(newValue, function(str){
       if(str) {
         $scope.proc = new Procedure(newValue, JSON.parse(str).content.outline);
+        $scope.app.params.procStep=0;
+        $scope.unregProcVC = [];
+        $scope.unregProcVC.push($scope.voiceCommander.on("next", () => {
+          $scope.speak("Going to next step", () => {$scope.gotoNextStep();});
+        }));
+        $scope.unregProcVC.push($scope.voiceCommander.on("previous", () => {
+          $scope.speak("Going to previous step", () => {$scope.gotoPrevStep();});
+        }));
+        $scope.unregProcVC.push($scope.voiceCommander.on("play", () => {
+          $scope.speak("Playing current step", () => {$scope.replayCurrentStep();});
+        }));
+        $scope.unregProcVC.push($scope.voiceCommander.on("close", () => {
+          $scope.speak("Finishing current procedure", () => { 
+            $scope.app.params.procID='';
+            $timeout(() => {$scope.$applyAsync();}); 
+          });
+        }));
       } else {
+        $scope.unregProcVC.forEach((unreg) => {
+          unreg();
+        }); 
+        delete $scope.unregProcVC;
+        $scope.app.params.procStep=null;
         $scope.proc = null;
       }
     });
@@ -1181,9 +1346,11 @@ $scope.$watch("app.params.procStep", function (newValue, oldValue) {
           eval(el.text);
         }
       });
+      if(typeof newValue === "number" || newValue) {
+        $scope.replayCurrentStep();
+      }
     });
   });
-  $scope.view.wdg['model-2'].currentStep = newValue + 0;
 });
 
 //debugger;
@@ -1292,19 +1459,45 @@ $scope.initModel = function() {
   */
 }
 
+$scope.getCurrentStepText = function() {
+  let area = getElementById(document, "stepArea");
+  let tmp = document.createElement('span');
+  tmp.innerHTML = area.innerHTML;
+  // remove scripts
+  let scripts = tmp.getElementsByTagName ("script");
+  while(scripts.length) {
+    scripts[0].remove();
+  }
+  return tmp.textContent || tmp.innerText;
+}
+
 $scope.playCurrentStep = function () {
   $rootScope.$broadcast('app.view["Home"].wdg["model-2"].svc.play');
-  //$scope.view.wdg['model-2'].play();
+  let text = $scope.getCurrentStepText();
+  if(text) {
+    $scope.speak(text);
+  }
+}
+
+$scope.replayCurrentStep = function () {
+  $scope.view.wdg['model-2'].currentStep = $scope.app.params.procStep + 1;
+  $scope.$applyAsync();
+  $timeout(function () {
+    $scope.$applyAsync();
+    $scope.playCurrentStep();
+  }, 20);
 }
 
 $scope.gotoNextStep = function() {
   if($scope.app.params.procStep < $scope.proc.getNumberOfSteps()) {
     $scope.app.params.procStep++;
+    $timeout(() => {$scope.$applyAsync();});
   }
 }
 
 $scope.gotoPrevStep = function() {
   if($scope.app.params.procStep > 0) {
     $scope.app.params.procStep--;
+    $timeout(() => {$scope.$applyAsync();});
   }
 }
