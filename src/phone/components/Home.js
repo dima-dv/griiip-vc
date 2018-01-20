@@ -61,6 +61,7 @@ class VoiceCommander {
     this.callbacks = {};
     this.listenerId = 0;
     this.callbackId = 0;
+    this.active = false;
   }
 
   static createNativeCallback(callback, that) {
@@ -90,6 +91,7 @@ class VoiceCommander {
 
   processor(strings) {
     if(typeof strings === "string") {
+      this.active = true;
       return;
     }
     $scope.$applyAsync("view.wdg['label-2'].text='" + strings.join() + "'");
@@ -111,6 +113,7 @@ class VoiceCommander {
 
   stop() {
     $scope.stopVoiceCommander();
+    this.active = false;
   }
 }
 
@@ -324,6 +327,9 @@ $scope.parse = function(e) {
 $scope.$on('trackingacquired', function (evt, arg) {
 //  alert('evt='+$scope.stringify(evt)+';arg='+$scope.stringify(arg));
   $scope.app.params.vumark=arg;
+  if($scope.voiceCommander && !$scope.voiceCommander.active) {
+    $scope.voiceCommander.start();
+  }
 });
 
 $scope.$watch("app.params.vumark", function (newValue, oldValue, $scope) {
